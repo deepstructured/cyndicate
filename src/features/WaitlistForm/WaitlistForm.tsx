@@ -21,17 +21,17 @@ export const WaitlistForm = () => {
 
   console.log(targetDate)
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const now = new Date()
-      const diff = targetDate - now
-      setDays(Math.floor(diff / (1000 * 60 * 60 * 24)))
-      setHours(Math.floor(diff / (1000 * 60 * 60)) % 24)
-      setMinutes(Math.floor(diff / (1000 * 60)) % 60)
-    }, 1000)
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     const now = new Date()
+  //     const diff = targetDate - now
+  //     setDays(Math.floor(diff / (1000 * 60 * 60 * 24)))
+  //     setHours(Math.floor(diff / (1000 * 60 * 60)) % 24)
+  //     setMinutes(Math.floor(diff / (1000 * 60)) % 60)
+  //   }, 1000)
 
-    return () => clearInterval(intervalId)
-  }, [targetDate])
+  //   return () => clearInterval(intervalId)
+  // }, [targetDate])
 
   return (
     <form action="" className={styles.waitlistForm}>
