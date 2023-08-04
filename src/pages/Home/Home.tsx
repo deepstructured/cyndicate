@@ -1,7 +1,5 @@
-import React from 'react'
-
-import styles from './Home.module.scss'
+import { homeScreens } from '../../widgets/Screens'
 
 export const Home = () => {
-  return <div>Home</div>
+  return <>{homeScreens.map((screen) => screen)}</>
 }

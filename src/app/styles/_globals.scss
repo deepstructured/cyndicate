@@ -1,0 +1,241 @@
+body {
+  font-family: $area;
+  font-size: 18px;
+  color: $text;
+  background-color: $black;
+
+  &::-webkit-scrollbar {
+    appearance: none;
+    width: 6px;
+    background-color: $black;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $gold-thumb;
+    border-radius: 3px;
+  }
+}
+
+section {
+  min-height: 100vh;
+  height: fit-content;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 92.5%;
+  font-weight: 400;
+  font-family: $atyp;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 45px;
+}
+
+h4 {
+  font-size: 35px;
+}
+
+h5 {
+  font-size: 27px;
+}
+
+.cyndicate-span {
+  font-family: $atyp;
+  text-transform: uppercase;
+}
+
+.c-token {
+  font-family: $area;
+  font-weight: 50;
+  text-transform: uppercase;
+
+  color: $gold-primary;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+
+  padding: 100px;
+}
+
+.c-gold-primary {
+  color: $gold-primary;
+}
+
+.c-gold-secondary {
+  color: $gold-secondary;
+}
+
+#hero {
+  background-image: url('/images/bg_hero.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .container {
+    padding: 200px 70px 90px;
+  }
+
+  .wrapper {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 73px;
+  }
+
+  .bottom-row {
+    width: 100%;
+
+    margin: auto 0 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      line-height: 160%;
+      position: relative;
+
+      .star {
+        position: absolute;
+        top: -100%;
+        right: 0;
+      }
+    }
+  }
+
+  .countdown {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+
+    width: fit-content;
+
+    .date {
+      display: flex;
+      align-items: center;
+      gap: 80px;
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        span {
+          font-size: 60px;
+          font-family: $atyp;
+          line-height: 92.5%;
+        }
+
+        p {
+          line-height: 160%;
+        }
+      }
+    }
+
+    .progress {
+      width: 100%;
+      height: 5px;
+
+      background-color: $text;
+
+      border-radius: 80px;
+
+      .thumb {
+        width: 70%;
+        height: 100%;
+
+        background-color: $gold-thumb;
+      }
+    }
+  }
+}
+
+#community {
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      line-height: 160%;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+
+  .wrapper {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .benefits-community {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+#waitlist {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding-bottom: 50px;
+  }
+
+  .bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    margin-top: 120px;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 6px;
+
+  &.gold {
+    > a {
+      border-color: $gold-primary !important;
+    }
+
+    svg {
+      path {
+        fill: $gold-primary;
+      }
+    }
+  }
+}

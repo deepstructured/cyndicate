@@ -1,0 +1,63 @@
+.benefitCard {
+  background-color: $smoke-black;
+
+  border-radius: 60px;
+  padding: 11px 11px 30px;
+
+  flex: 1;
+
+  &:hover {
+    .img {
+      img {
+        scale: 1.1;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    .img {
+      width: 100%;
+      padding-top: 80%;
+
+      position: relative;
+
+      border-radius: 60px;
+      overflow: hidden;
+
+      cursor: pointer;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        transition: scale 0.7s ease;
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      p {
+        line-height: 108%;
+      }
+
+      h5 {
+        line-height: 115%;
+        color: #fff;
+      }
+    }
+  }
+}

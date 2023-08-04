@@ -1,0 +1,15 @@
+.socialLink {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  border: 1px solid $gray;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: $gray;
+  }
+}
