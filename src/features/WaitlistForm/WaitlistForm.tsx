@@ -6,6 +6,7 @@ import styles from './WaitlistForm.module.scss'
 import { socialsData } from '../../data'
 import { SocialLink } from '../../shared/SocialLink/SocialLink'
 import { HomeContext } from '../../app/providers/HomeContext'
+import useSplit from '../../app/hooks/useSplit'
 
 export const WaitlistForm = () => {
   const { formSent, setFormSent } = useContext(HomeContext)
@@ -298,9 +299,17 @@ export const WaitlistForm = () => {
       >
         <div className={styles.content}>
           <div className={styles.sentContent}>
-            <h4 className={styles.thankTitle}>
-              Thank You for Joining the Waitlist
-            </h4>
+            {window.innerWidth > 768 ? (
+              <h4 className={styles.thankTitle}>
+                {useSplit('Thank You for Joining the Waitlist')}
+              </h4>
+            ) : (
+              <h4 className={styles.thankTitle}>
+                {useSplit('Thank You for Joining ')}
+                <br />
+                {useSplit('the Waitlist', 0.25)}
+              </h4>
+            )}
 
             <div className={styles.videoLogo}>
               <video
@@ -324,10 +333,27 @@ export const WaitlistForm = () => {
             </div>
           </div>
 
-          <h4 className="reveal">
-            <span className="cyndicate-span c-gold-primary">$CYND</span> Token
-            Launch Coming Soon. Join Today For Updates.
-          </h4>
+          {window.innerWidth > 768 ? (
+            <h4 className="reveal">
+              <span className="cyndicate-span c-gold-primary">
+                {useSplit('$CYND')}
+              </span>{' '}
+              {useSplit('Token Launch Coming Soon.', 0.25)}
+              <br />
+              {useSplit('Join Today For Updates.', 0.75)}
+            </h4>
+          ) : (
+            <h4 className="reveal">
+              <span className="cyndicate-span c-gold-primary">
+                {useSplit('$CYND')}
+              </span>{' '}
+              {useSplit('Token Launch ', 0.25)}
+              <br />
+              {useSplit('Coming Soon. Join Today', 0.75)}
+              <br />
+              {useSplit('For Updates.', 1)}
+            </h4>
+          )}
 
           <div className={styles.inputs}>
             <Input

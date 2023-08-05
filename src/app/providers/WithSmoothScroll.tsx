@@ -37,7 +37,7 @@ export const WithSmoothScroll: React.FC<IProps> = ({ children }) => {
                 y: 0,
                 scale: 1,
                 rotate: 0,
-                duration: 1,
+                duration: item.dataset.duration ?? 1,
                 delay: item.dataset.delay ?? `0`,
               }),
           })

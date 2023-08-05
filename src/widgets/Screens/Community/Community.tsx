@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { benefitsData } from '../../../data'
 import { BenefitCard } from '../../../entities/BenefitCard/BenefitCard'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import useSplit from '../../../app/hooks/useSplit'
 
 export const Community = () => {
   const [swiper, setSwiper] = useState<any>()
@@ -12,7 +13,11 @@ export const Community = () => {
       <div className="container">
         <div className="wrapper">
           <h2 className="c-gold-primary reveal">
-            Join <span className="cyndicate-span">Cyndicate</span> community
+            {useSplit('Join')}{' '}
+            <span className="cyndicate-span">
+              {useSplit('Cyndicate', 0.25)}
+            </span>{' '}
+            {useSplit('community', 0.5)}
           </h2>
           <div className="row">
             <p className="reveal">The benefits of our community</p>

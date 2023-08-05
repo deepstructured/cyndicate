@@ -3,6 +3,7 @@ import { Button } from '../../../shared/Button/Button'
 import Header from '../../Header/Header'
 import { socialsData } from '../../../data'
 import { SocialLink } from '../../../shared/SocialLink/SocialLink'
+import useSplit from '../../../app/hooks/useSplit'
 
 export const Hero = () => {
   const [days, setDays] = useState(0)
@@ -28,14 +29,38 @@ export const Hero = () => {
       <section id="hero">
         <div className="container">
           <div className="wrapper">
-            <h1 className="c-gold-primary reveal">
-              The Future of Real Estate
-              <br /> Investment Tokenization
-            </h1>
-            <h3 className="c-gold-secondary reveal">
-              The World's Largest Real Estate Tokenization Investment.
-            </h3>
-            <div className="countdown reveal">
+            {window.innerWidth > 768 ? (
+              <h1 className="c-gold-primary reveal">
+                {useSplit('The Future of Real Estate ')}
+                <br />
+                {useSplit('Investment Tokenization', 0.25)}
+              </h1>
+            ) : (
+              <h1 className="c-gold-primary reveal">
+                {useSplit('The Future of Real ')}
+                <br />
+                {useSplit('Estate Investment ', 0.25)}
+                <br />
+                {useSplit('Tokenization', 0.5)}
+              </h1>
+            )}
+            {window.innerWidth > 768 ? (
+              <h3 className="c-gold-secondary reveal">
+                {useSplit(
+                  'The World`s Largest Real Estate Tokenization Investment.',
+                  0.25
+                )}
+              </h3>
+            ) : (
+              <h3 className="c-gold-secondary reveal">
+                {useSplit('The World`s Largest Real ', 0.25)}
+                <br />
+                {useSplit('Estate Tokenization ', 0.5)}
+                <br />
+                {useSplit('Investment.', 0.75)}
+              </h3>
+            )}
+            <div data-delay="0.5" className="countdown reveal">
               <ul className="date">
                 <li className="date__item">
                   <span>{days}</span>
@@ -60,14 +85,14 @@ export const Hero = () => {
               </div>
             </div>
             <div className="bottom-row">
-              <p data-start="100%" className="reveal">
+              <p data-delay="0.5" data-start="100%" className="reveal">
                 From 2023
               </p>
               <Button>
                 Join The Waitlist
                 <img src="/images/icons/btn-arrow-right.svg" alt="" />
               </Button>
-              <p data-start="100%" className="reveal">
+              <p data-delay="0.5" data-start="100%" className="reveal">
                 Sculpting Wealth, <br />
                 Forging Empires
                 <img src="/images/icons/star.svg" alt="" className="star" />

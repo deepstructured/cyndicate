@@ -9,6 +9,7 @@ interface IProps extends ButtonHTMLAttributes<string> {
 export const Button: FC<IProps> = ({ children, type, handleClick }) => {
   return (
     <button
+      data-delay="0.75"
       data-start="100%"
       onClick={(ev) => {
         handleClick && handleClick()
