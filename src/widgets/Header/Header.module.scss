@@ -8,6 +8,9 @@
 
   z-index: 1;
 
+  background-color: black;
+  mix-blend-mode: plus-lighter;
+
   @media (max-width: $tablet) {
     position: absolute;
   }

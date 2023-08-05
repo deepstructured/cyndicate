@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <nav>
-        <Logo />
+        <Logo animatedLogo={true} />
         <div data-start="100%" className="social-links reveal">
           {socialsData.map((social, idx) => (
             <SocialLink key={idx} icon={social.icon} href={social.href} />
