@@ -3,7 +3,7 @@ import styles from './Logo.module.scss'
 import { FC } from 'react'
 
 interface IProps {
-  animatedLogo: boolean
+  animatedLogo?: boolean
 }
 
 export const Logo: FC<IProps> = ({ animatedLogo }) => {
