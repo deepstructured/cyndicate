@@ -51,7 +51,7 @@ export const Preloader = () => {
               <p>
                 Sculpting Wealth, <br />
                 Forging Empires
-                <img src="/images/icons/star.svg" alt="" />
+                <img className="star" src="/images/icons/star.svg" alt="" />
               </p>
             </div>
           </div>

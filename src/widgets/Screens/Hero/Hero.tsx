@@ -95,7 +95,13 @@ export const Hero = () => {
               <p data-delay="0.5" data-start="100%" className="reveal">
                 Sculpting Wealth, <br />
                 Forging Empires
-                <img src="/images/icons/star.svg" alt="" className="star" />
+                <img
+                  src="/images/icons/star.svg"
+                  alt=""
+                  className="star reveal"
+                  data-delay="1"
+                  data-duration="1.25"
+                />
               </p>
             </div>
             {window.innerWidth <= 768 && (

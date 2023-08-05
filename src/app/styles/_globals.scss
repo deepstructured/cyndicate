@@ -201,6 +201,12 @@ h5 {
         position: absolute;
         top: -100%;
         right: 0;
+
+        display: block;
+
+        opacity: 0;
+        translate: -100% 0;
+        scale: 0.5;
       }
     }
   }
