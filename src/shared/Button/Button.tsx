@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, FC } from 'react'
 import styles from './Button.module.scss'
+import clsx from 'clsx'
 
 interface IProps extends ButtonHTMLAttributes<string> {
   handleClick?: () => void
@@ -8,6 +9,7 @@ interface IProps extends ButtonHTMLAttributes<string> {
 export const Button: FC<IProps> = ({ children, type, handleClick }) => {
   return (
     <button
+      data-start="100%"
       onClick={(ev) => {
         handleClick && handleClick()
 
@@ -15,7 +17,7 @@ export const Button: FC<IProps> = ({ children, type, handleClick }) => {
           ev.preventDefault()
         }
       }}
-      className={styles.button}
+      className={clsx(styles.button, 'reveal')}
     >
       <div className={styles.content}>{children}</div>
       <div className={styles.border}></div>

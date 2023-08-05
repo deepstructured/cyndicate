@@ -1,32 +1,91 @@
+import { useState } from 'react'
 import { benefitsData } from '../../../data'
 import { BenefitCard } from '../../../entities/BenefitCard/BenefitCard'
+import { Swiper as ISwiper } from 'swiper/types'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const Community = () => {
+  const [swiper, setSwiper] = useState<ISwiper>()
+  const [activeSlide, setActiveSlide] = useState<number>(0)
+
   return (
     <section id="community">
       <div className="container">
         <div className="wrapper">
-          <h2 className="c-gold-primary">
+          <h2 className="c-gold-primary reveal">
             Join <span className="cyndicate-span">Cyndicate</span> community
           </h2>
           <div className="row">
-            <p>The benefits of our community</p>
-            <a href="">
-              <p>
-                Updates on <span className="c-token">$cynd</span> Token Launch.
-              </p>
-              <img src="/images/icons/gray-arrow-right.svg" alt="" />
-            </a>
+            <p className="reveal">The benefits of our community</p>
+            {window.innerWidth > 768 && (
+              <a href="">
+                <p className="reveal">
+                  Updates on <span className="c-token">$cynd</span> Token
+                  Launch.
+                </p>
+                <img src="/images/icons/gray-arrow-right.svg" alt="" />
+              </a>
+            )}
           </div>
-          <div className="benefits-community">
-            {benefitsData.map((benefit) => (
-              <BenefitCard
-                title={benefit.title}
-                text={benefit.text}
-                img={benefit.img}
-              />
-            ))}
-          </div>
+
+          {window.innerWidth > 768 ? (
+            <div className="benefits-community">
+              {benefitsData.map((benefit, idx) => (
+                <BenefitCard
+                  key={idx}
+                  idx={idx}
+                  title={benefit.title}
+                  text={benefit.text}
+                  img={benefit.img}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="benefits-community">
+              <Swiper
+                direction="horizontal"
+                slidesPerView={1}
+                spaceBetween={30}
+                className="benefits-swiper"
+                onSlideChange={() =>
+                  swiper && setActiveSlide(swiper.activeIndex)
+                }
+                onSwiper={(swiper) => setSwiper(swiper)}
+              >
+                {benefitsData.map((benefit, idx) => (
+                  <SwiperSlide key={idx}>
+                    <BenefitCard
+                      idx={idx}
+                      title={benefit.title}
+                      text={benefit.text}
+                      img={benefit.img}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          )}
+          {window.innerWidth <= 768 && (
+            <div className="flex items-center justify-between w-100">
+              <a href="">
+                <p className="reveal">
+                  Updates on <span className="c-token">$cynd</span>
+                  <br /> Token Launch.{' '}
+                  <img
+                    style={{ display: 'inline-block' }}
+                    src="/images/icons/gray-arrow-right.svg"
+                    alt=""
+                  />
+                </p>
+              </a>
+              <div className="swiper-pagination">
+                {swiper &&
+                  swiper.slides.map((slide, idx) => (
+                    <div className={idx === activeSlide ? 'active' : ''}></div>
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

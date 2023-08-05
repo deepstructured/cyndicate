@@ -4,6 +4,11 @@ body {
   color: $text;
   background-color: $black;
 
+  @media (max-width: $tablet) {
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+
   &::-webkit-scrollbar {
     appearance: none;
     width: 6px;
@@ -19,6 +24,18 @@ body {
 section {
   min-height: 100vh;
   height: fit-content;
+  position: relative;
+
+  @media (max-width: $tablet) {
+    min-height: unset;
+  }
+}
+
+p {
+  &.reveal {
+    opacity: 0;
+    translate: 0 50%;
+  }
 }
 
 h1,
@@ -30,26 +47,51 @@ h6 {
   line-height: 92.5%;
   font-weight: 400;
   font-family: $atyp;
+
+  &.reveal {
+    opacity: 0;
+    translate: 0 50%;
+  }
 }
 
 h1 {
   font-size: 80px;
+
+  @media (max-width: $tablet) {
+    font-size: 36px;
+  }
 }
 
 h2 {
   font-size: 50px;
+
+  @media (max-width: $tablet) {
+    font-size: 26px;
+  }
 }
 
 h3 {
   font-size: 45px;
+
+  @media (max-width: $tablet) {
+    font-size: 26px;
+  }
 }
 
 h4 {
   font-size: 35px;
+
+  @media (max-width: $tablet) {
+    font-size: 22px;
+  }
 }
 
 h5 {
   font-size: 27px;
+
+  @media (max-width: $tablet) {
+    font-size: 20px;
+  }
 }
 
 .cyndicate-span {
@@ -69,7 +111,11 @@ h5 {
   width: 100%;
   height: 100%;
 
-  padding: 100px;
+  padding: 70px;
+
+  @media (max-width: $tablet) {
+    padding: 50px 16px;
+  }
 }
 
 .c-gold-primary {
@@ -86,8 +132,20 @@ h5 {
   background-size: cover;
   background-repeat: no-repeat;
 
+  h1 {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
   .container {
     padding: 200px 70px 90px;
+
+    @media (max-width: $tablet) {
+      padding: 200px 16px 50px;
+    }
   }
 
   .wrapper {
@@ -109,9 +167,20 @@ h5 {
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: $tablet) {
+      justify-content: center;
+    }
+
     p {
       line-height: 160%;
       position: relative;
+
+      opacity: 0;
+      translate: 0 25%;
+
+      @media (max-width: $tablet) {
+        display: none;
+      }
 
       .star {
         position: absolute;
@@ -128,6 +197,9 @@ h5 {
     gap: 25px;
 
     width: fit-content;
+
+    opacity: 0;
+    translate: 0 25%;
 
     .date {
       display: flex;
@@ -160,11 +232,15 @@ h5 {
 
       border-radius: 80px;
 
+      overflow: hidden;
+
       .thumb {
         width: 70%;
         height: 100%;
 
-        background-color: $gold-thumb;
+        background-image: url('/images/texture.jpg');
+        background-size: cover;
+        background-position: center;
       }
     }
   }
@@ -188,21 +264,133 @@ h5 {
     }
   }
 
+  .swiper-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    > div {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background-color: $text;
+
+      transition: 0.5s ease;
+      transition-property: width, height, background-color;
+
+      &.active {
+        background-color: $gold-span;
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  .benefits-swiper {
+    width: 100%;
+
+    .swiper-wrapper {
+      width: 100%;
+      display: flex;
+    }
+
+    .swiper-slide {
+      min-width: 100%;
+      width: 100%;
+    }
+  }
+
   .wrapper {
     height: 100%;
 
     display: flex;
     flex-direction: column;
     gap: 45px;
+
+    @media (max-width: $tablet) {
+      gap: 25px;
+
+      align-items: center;
+    }
   }
 
   .benefits-community {
     display: flex;
     gap: 15px;
+
+    @media (max-width: $tablet) {
+      gap: 0;
+      overflow: hidden;
+      width: 100%;
+    }
   }
 }
 
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 #waitlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #waitlist-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #waitlist-bg-grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+
+    translate: -50% -50%;
+    scale: 1.5;
+
+    @media (max-width: $tablet) {
+      scale: 1;
+    }
+
+    &.draw {
+      path {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    path {
+      stroke-dasharray: 2500;
+      stroke-dashoffset: 2500;
+
+      transition: 8s ease;
+      transition-property: stroke-dasharray, stroke-dashoffset;
+
+      &:nth-child(n + 8) {
+        translate: 7.5% 0;
+      }
+    }
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -211,21 +399,35 @@ h5 {
 
     padding-bottom: 50px;
   }
+}
 
-  .bottom-row {
+#footer {
+  width: 100%;
+
+  margin-top: 120px;
+
+  .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    width: 100%;
+    @media (max-width: $tablet) {
+      flex-direction: column;
 
-    margin-top: 120px;
+      margin-top: 70px;
+      gap: 60px;
+    }
   }
 }
 
 .social-links {
   display: flex;
   gap: 6px;
+
+  &.reveal {
+    opacity: 0;
+    translate: -25% 0;
+  }
 
   &.gold {
     > a {
@@ -238,4 +440,18 @@ h5 {
       }
     }
   }
+}
+
+// conditions
+
+.hidden {
+  opacity: 0;
+
+  transition: 0.3s ease;
+  transition-property: opacity, scale;
+}
+
+.reveal {
+  transition: 0.3s ease;
+  transition-property: opacity, scale, translate, rotate;
 }

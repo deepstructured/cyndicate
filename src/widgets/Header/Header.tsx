@@ -8,9 +8,9 @@ const Header = () => {
     <header className={styles.header}>
       <nav>
         <Logo />
-        <div className="social-links">
-          {socialsData.map((social) => (
-            <SocialLink icon={social.icon} href={social.href} />
+        <div data-start="100%" className="social-links reveal">
+          {socialsData.map((social, idx) => (
+            <SocialLink key={idx} icon={social.icon} href={social.href} />
           ))}
         </div>
       </nav>

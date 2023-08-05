@@ -6,6 +6,13 @@
 
   flex: 1;
 
+  opacity: 0;
+  translate: 0 25%;
+
+  @media (max-width: $tablet) {
+    border-radius: 45px;
+  }
+
   &:hover {
     .img {
       img {
@@ -30,6 +37,38 @@
 
       cursor: pointer;
 
+      @media (max-width: $tablet) {
+        border-radius: 45px;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+
+        position: absolute;
+
+        top: 40px;
+        left: 40px;
+
+        width: 20px;
+        height: 20px;
+
+        background-image: url('/images/icons/benefit-card-star.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        z-index: 1;
+
+        @media (max-width: $tablet) {
+          width: 16px;
+          height: 16px;
+
+          top: 25px;
+          left: 25px;
+        }
+      }
+
       img {
         position: absolute;
         top: 0;
@@ -52,6 +91,10 @@
 
       p {
         line-height: 108%;
+
+        @media (max-width: $tablet) {
+          font-size: 16px;
+        }
       }
 
       h5 {

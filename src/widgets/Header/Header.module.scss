@@ -8,11 +8,25 @@
 
   z-index: 1;
 
+  @media (max-width: $tablet) {
+    position: absolute;
+  }
+
   nav {
     width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: $tablet) {
+      justify-content: center;
+    }
+
+    div[class*='social-links'] {
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
   }
 }

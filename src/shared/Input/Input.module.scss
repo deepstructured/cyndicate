@@ -11,9 +11,16 @@
 
   font-size: 18px;
 
+  opacity: 0;
+  translate: 0 25%;
+
+  @media (max-width: $tablet) {
+    font-size: 16px;
+  }
+
   &::placeholder {
     font-family: $area;
-    font-size: 18px;
+    font-size: inherit;
     line-height: 10%;
   }
 }
