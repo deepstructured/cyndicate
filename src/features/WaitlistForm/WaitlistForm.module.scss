@@ -22,16 +22,22 @@
     .inputs {
       translate: 0 15%;
       opacity: 0;
+
+      pointer-events: none;
     }
 
     button {
       translate: 0 15% !important;
       opacity: 0 !important;
+
+      pointer-events: none;
     }
 
     h4[class='reveal'] {
       translate: 0 -15% !important;
       opacity: 0 !important;
+
+      pointer-events: none;
     }
 
     .sentContent {
@@ -158,6 +164,16 @@
       > div {
         > a {
           border-color: #fff !important;
+
+          &:hover {
+            border-color: $gold-primary !important;
+
+            svg {
+              path {
+                fill: $gold-primary;
+              }
+            }
+          }
         }
       }
 

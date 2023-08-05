@@ -424,6 +424,26 @@ h5 {
   display: flex;
   gap: 6px;
 
+  svg {
+    path {
+      transition: fill 0.5s ease;
+    }
+  }
+
+  > a {
+    transition: border-color 0.5s ease;
+
+    &:hover {
+      border-color: $gold-primary !important;
+
+      svg {
+        path {
+          fill: $gold-primary;
+        }
+      }
+    }
+  }
+
   &.reveal {
     opacity: 0;
     translate: -25% 0;
@@ -432,6 +452,16 @@ h5 {
   &.gold {
     > a {
       border-color: $gold-primary !important;
+
+      &:hover {
+        border-color: $text !important;
+
+        svg {
+          path {
+            fill: $text;
+          }
+        }
+      }
     }
 
     svg {
