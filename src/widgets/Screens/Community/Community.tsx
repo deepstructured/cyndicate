@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import { benefitsData } from '../../../data'
 import { BenefitCard } from '../../../entities/BenefitCard/BenefitCard'
-import { Swiper as ISwiper } from 'swiper/types'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const Community = () => {
-  const [swiper, setSwiper] = useState<ISwiper>()
+  const [swiper, setSwiper] = useState<any>()
   const [activeSlide, setActiveSlide] = useState<number>(0)
 
   return (
@@ -43,14 +42,11 @@ export const Community = () => {
           ) : (
             <div className="benefits-community">
               <Swiper
-                direction="horizontal"
-                slidesPerView={1}
-                spaceBetween={30}
-                className="benefits-swiper"
                 onSlideChange={() =>
                   swiper && setActiveSlide(swiper.activeIndex)
                 }
                 onSwiper={(swiper) => setSwiper(swiper)}
+                className="benefits-swiper"
               >
                 {benefitsData.map((benefit, idx) => (
                   <SwiperSlide key={idx}>
@@ -80,7 +76,7 @@ export const Community = () => {
               </a>
               <div className="swiper-pagination">
                 {swiper &&
-                  swiper.slides.map((slide, idx) => (
+                  swiper.slides.map((slide: any, idx: number) => (
                     <div className={idx === activeSlide ? 'active' : ''}></div>
                   ))}
               </div>
