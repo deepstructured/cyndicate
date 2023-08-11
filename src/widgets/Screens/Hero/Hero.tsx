@@ -88,10 +88,20 @@ export const Hero = () => {
               <p data-delay="0.5" data-start="100%" className="reveal">
                 From 2023
               </p>
-              <Button>
-                Join $CYND Token Private Sale Waitlist
-                <img src="/images/icons/btn-arrow-right.svg" alt="" />
-              </Button>
+              <div>
+                <Button
+                  handleClick={() => {
+                    window.scrollTo({
+                      top: window.innerHeight,
+                      left: 0,
+                      behavior: 'smooth',
+                    })
+                  }}
+                >
+                  Join $CYND Token Private Sale Waitlist
+                  <img src="/images/icons/btn-arrow-right.svg" alt="" />
+                </Button>
+              </div>
               <p data-delay="0.5" data-start="100%" className="reveal">
                 Advancing Self Evolution, <br />
                 Forging Empires

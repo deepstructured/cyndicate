@@ -186,6 +186,16 @@ h5 {
       justify-content: center;
     }
 
+    > div {
+      &:nth-child(2) {
+        translate: 10% 0;
+
+        @media (max-width: $tablet) {
+          translate: 0;
+        }
+      }
+    }
+
     p {
       line-height: 160%;
       position: relative;

@@ -121,6 +121,10 @@
       position: relative;
       line-height: 160%;
 
+      @media (max-width: $tablet) {
+        text-align: center;
+      }
+
       img {
         position: absolute;
         right: 0;
