@@ -338,9 +338,11 @@ export const WaitlistForm = () => {
               <span className="cyndicate-span c-gold-primary">
                 {useSplit('$CYND')}
               </span>{' '}
-              {useSplit('Token Launch Coming Soon.', 0.25)}
+              {useSplit('Don`t miss $CYND ', 0.25)}
               <br />
-              {useSplit('Join Today For Updates.', 0.75)}
+              {useSplit('Private Sale Updates.', 0.5)}
+              <br />
+              {useSplit('Join Today and Prepare for Launch!', 0.75)}
             </h4>
           ) : (
             <h4 className="reveal">
@@ -380,7 +382,7 @@ export const WaitlistForm = () => {
             }}
             type="submit"
           >
-            Join The Waitlist{' '}
+            Join $CYND Token Private Sale Waitlist{' '}
             <img src="/images/icons/btn-arrow-right.svg" alt="" />
           </Button>
         </div>

@@ -49,7 +49,7 @@ export const Preloader = () => {
             <div className={styles.bottom}>
               <p>From 2023</p>
               <p>
-                Sculpting Wealth, <br />
+                Advancing Self Evolution, <br />
                 Forging Empires
                 <img className="star" src="/images/icons/star.svg" alt="" />
               </p>

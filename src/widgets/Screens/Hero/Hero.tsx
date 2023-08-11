@@ -31,24 +31,24 @@ export const Hero = () => {
           <div className="wrapper">
             {window.innerWidth > 768 ? (
               <h1 className="c-gold-primary reveal">
-                {useSplit('The Future of Real Estate ')}
+                {useSplit('Unleash Your')}
                 <br />
-                {useSplit('Investment Tokenization', 0.25)}
+                {useSplit('True Potential', 0.25)}
               </h1>
             ) : (
               <h1 className="c-gold-primary reveal">
-                {useSplit('The Future of Real ')}
+                {useSplit('Unleash Your')}
                 <br />
-                {useSplit('Estate Investment ', 0.25)}
-                <br />
-                {useSplit('Tokenization', 0.5)}
+                {useSplit('True Potential', 0.25)}
               </h1>
             )}
             {window.innerWidth > 768 ? (
               <h3 className="c-gold-secondary reveal">
+                {useSplit('The World`s #1 Platform ', 0.5)}
+                <br />
                 {useSplit(
-                  'The World`s Largest Real Estate Tokenization Investment.',
-                  0.25
+                  'for Self Evolution and Real Estate Tokenization.',
+                  0.75
                 )}
               </h3>
             ) : (
@@ -60,7 +60,7 @@ export const Hero = () => {
                 {useSplit('Investment.', 0.75)}
               </h3>
             )}
-            <div data-delay="0.5" className="countdown reveal">
+            {/* <div data-delay="0.5" className="countdown reveal">
               <ul className="date">
                 <li className="date__item">
                   <span>{days}</span>
@@ -83,17 +83,17 @@ export const Hero = () => {
                   className="thumb"
                 ></div>
               </div>
-            </div>
+            </div> */}
             <div className="bottom-row">
               <p data-delay="0.5" data-start="100%" className="reveal">
                 From 2023
               </p>
               <Button>
-                Join The Waitlist
+                Join $CYND Token Private Sale Waitlist
                 <img src="/images/icons/btn-arrow-right.svg" alt="" />
               </Button>
               <p data-delay="0.5" data-start="100%" className="reveal">
-                Sculpting Wealth, <br />
+                Advancing Self Evolution, <br />
                 Forging Empires
                 <img
                   src="/images/icons/star.svg"
