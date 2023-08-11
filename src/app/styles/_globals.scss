@@ -440,18 +440,16 @@ h5 {
 #footer {
   width: 100%;
 
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 
-    @media (max-width: $tablet) {
-      flex-direction: column;
+  @media (max-width: $tablet) {
+    flex-direction: column;
 
-      margin-top: 70px;
-      gap: 60px;
-    }
+    margin-top: 70px;
+    gap: 60px;
   }
 }
 

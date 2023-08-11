@@ -11,13 +11,11 @@ export const Waitlist = () => {
         <div className="container">
           <WaitlistForm />
           <footer id="footer">
-            <div className="container">
-              <Logo />
-              <div data-start="100%" className="social-links gold reveal">
-                {socialsData.map((social, idx) => (
-                  <SocialLink key={idx} icon={social.icon} href={social.href} />
-                ))}
-              </div>
+            <Logo />
+            <div data-start="100%" className="social-links gold reveal">
+              {socialsData.map((social, idx) => (
+                <SocialLink key={idx} icon={social.icon} href={social.href} />
+              ))}
             </div>
           </footer>
         </div>
