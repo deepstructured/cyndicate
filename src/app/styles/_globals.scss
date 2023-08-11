@@ -377,9 +377,14 @@ h5 {
 }
 
 #waitlist {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  height: 100vh !important;
 
   #waitlist-wave {
     position: absolute;
@@ -435,12 +440,11 @@ h5 {
 #footer {
   width: 100%;
 
-  margin-top: 120px;
-
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
 
     @media (max-width: $tablet) {
       flex-direction: column;

@@ -16,7 +16,7 @@ export const socialsData = [
         />
       </svg>
     ),
-    href: 'https://instagram.com',
+    href: 'https://www.instagram.com/cyndicate.io/',
   },
   {
     icon: (
@@ -54,7 +54,7 @@ export const socialsData = [
         />
       </svg>
     ),
-    href: 'https://twitch.com',
+    href: 'https://twitter.com/DAOCyndicate',
   },
 ]
 
