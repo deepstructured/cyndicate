@@ -1,0 +1,55 @@
+.hero {
+  background-image: url('/images/Home/Backgrounds/hero.png');
+
+  .galaxy {
+    &Container {
+      @apply w-full h-full;
+    }
+
+    &Link {
+      @apply flex items-center gap-[2.660vw] font-medium absolute;
+      font-family: $area;
+
+      p {
+        @apply text-[#CDCDCD] text-[1.891vw] capitalize;
+
+        &::first-letter {
+          @apply uppercase;
+        }
+      }
+
+      .group {
+        @apply flex items-center gap-[1.064vw];
+      }
+
+      &:nth-child(1) {
+        @apply left-1/2 top-[11.1328125vh] translate-x-[-50%];
+      }
+
+      &:nth-child(2) {
+        @apply left-[11.939vw] top-[27.24609375vh] scale-[0.95];
+      }
+
+      &:nth-child(3) {
+        @apply left-[10.461vw] top-[47.265625vh] scale-[0.8];
+      }
+
+      &:nth-child(4) {
+        @apply left-[18.322vw] top-[75.68359375vh] scale-[0.75];
+      }
+      &:nth-child(5) {
+        @apply right-[18.440vw] top-[72.75390625vh] scale-[0.75];
+      }
+      &:nth-child(6) {
+        @apply right-[11.288vw] top-[48.33984375vh] scale-[0.8];
+      }
+      &:nth-child(7) {
+        @apply right-[16.785vw] top-[27.34375vh] scale-[0.95];
+      }
+    }
+
+    &MiddleLogo {
+      @apply absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-[25vw] h-[11.42578125vh];
+    }
+  }
+}

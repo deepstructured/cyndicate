@@ -1,0 +1,24 @@
+.iconButton {
+  @apply backdrop-blur-[2px] flex items-center justify-center w-[2.600vw] h-[2.600vw] rounded-full relative cursor-pointer;
+
+  background-color: rgba(217, 217, 217, 0.05);
+  border: 0.03vw solid #cdcdcd;
+
+  &.outlined {
+    &::before {
+      content: '';
+      @apply w-[3.546vw] h-[3.546vw] absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] rounded-full;
+
+      border: 0.059vw solid #515151;
+    }
+  }
+
+  &.link {
+    background-color: rgba(68, 68, 68, 0.3);
+    border: 0.059vw solid rgba(212, 164, 85, 0.5);
+  }
+
+  .icon {
+    @apply w-[1.182vw] h-[1.182vw] object-contain object-center;
+  }
+}

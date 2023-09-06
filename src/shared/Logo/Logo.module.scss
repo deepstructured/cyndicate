@@ -1,0 +1,8 @@
+.logo {
+  width: inherit;
+  height: inherit;
+
+  img {
+    @apply w-full h-full object-contain object-center;
+  }
+}

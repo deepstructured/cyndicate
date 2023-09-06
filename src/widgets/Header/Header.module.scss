@@ -1,0 +1,15 @@
+.header {
+  @apply fixed top-0 left-0 right-0 pt-[2.9vh] px-[4.137vw] z-[1];
+
+  .content {
+    @apply w-full flex items-center justify-between relative;
+  }
+
+  .logo {
+    @apply w-[2.128vw] h-[4.6875vh];
+  }
+
+  .socials {
+    @apply flex gap-[0.591vw];
+  }
+}
