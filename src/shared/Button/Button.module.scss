@@ -1,2 +1,33 @@
 .button {
+  @apply relative;
+
+  .content {
+    @apply text-[1.064vw] capitalize flex items-center justify-center;
+    line-height: 135%;
+    font-family: $area;
+  }
+
+  &.first {
+    @apply rounded-[0.591vw];
+    background: rgba(68, 68, 68, 0.2);
+
+    &::before {
+      content: '';
+      @apply w-full h-full block absolute top-0 bottom-0 left-0 right-0;
+      background-image: url('/images/Button/button-first-bg.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .content {
+      @apply py-[0.9765625vh] px-[2.069vw];
+    }
+  }
+
+  &.second {
+    @apply py-[0.9765625vh] px-[1.478vw] rounded-[5.910vw];
+    color: $gray;
+    border: 0.059vw solid $gray;
+  }
 }

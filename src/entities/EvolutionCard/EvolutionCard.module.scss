@@ -1,0 +1,59 @@
+.evolutionCard {
+  @apply h-[47vh] flex-1 relative rounded-[2.364vw] p-[0.05vw];
+
+  background: rgba(212, 164, 85, 0.2);
+
+  @media (min-height: 1000px) {
+    @apply h-[45vh];
+  }
+
+  &Background {
+    @apply absolute left-0 right-0 top-0 bottom-0 w-full h-full rounded-[2.364vw] overflow-hidden;
+
+    img {
+      @apply w-full h-full object-center object-cover;
+    }
+  }
+
+  &.gold {
+    @apply pl-[0.018vw] pr-[0] py-[0];
+    background-size: 100%;
+    background: linear-gradient(
+      207deg,
+      rgba(239, 189, 112, 1) 78%,
+      rgba(239, 189, 112, 0) 100%
+    );
+
+    .content {
+      @apply translate-x-[-0.1%] translate-y-[0.15%];
+    }
+  }
+
+  &Title {
+    @apply text-[1.655vw] opacity-80;
+    color: $gold;
+  }
+
+  &Text {
+    @apply text-[1.064vw] opacity-80;
+    font-family: $area;
+    color: $gray;
+    line-height: 111%;
+  }
+
+  &Icon {
+    @apply w-[12vw] h-[12vw] absolute left-1/2 top-0 translate-x-[-50%] translate-y-[-20%] rotate-[20deg];
+
+    img {
+      @apply w-full h-full object-contain object-center;
+    }
+  }
+  .content {
+    @apply p-[1.418vw] w-full h-full rounded-[2.364vw] relative;
+    background-color: #141414;
+
+    .body {
+      @apply h-full w-full flex flex-col justify-end gap-[1.537vw];
+    }
+  }
+}

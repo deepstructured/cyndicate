@@ -1,13 +1,13 @@
-.evolution {
+.exclusives {
   div[class='container'] {
     @apply flex flex-col justify-between;
   }
 
   &TextBlock {
-    @apply max-w-[35vw] w-full;
+    @apply max-w-[36.643vw] w-full;
   }
 
   &Cards {
-    @apply w-full flex gap-[3.310vw];
+    @apply flex gap-[1.773vw] pb-[9.765625vh];
   }
 }

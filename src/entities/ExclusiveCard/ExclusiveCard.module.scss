@@ -1,0 +1,24 @@
+.exclusiveCard {
+  @apply flex-1 p-[0.05vw] h-[44vh] rounded-[1.182vw];
+
+  transition: flex 0.5s ease;
+
+  background: linear-gradient(
+    227deg,
+    rgba(239, 189, 112, 0.5) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(239, 189, 112, 0.5) 100%
+  );
+
+  &.hovered {
+    @apply flex-[4] delay-[50ms];
+  }
+
+  .content {
+    @apply w-full h-full rounded-[1.182vw] overflow-hidden;
+  }
+
+  &Image {
+    @apply w-full h-full object-cover object-center;
+  }
+}

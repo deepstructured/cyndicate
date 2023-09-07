@@ -1,0 +1,63 @@
+.platform {
+  div[class='container'] {
+    @apply flex items-center;
+  }
+
+  .wrapper {
+    @apply w-full my-auto flex justify-between;
+  }
+
+  &BlockFirst {
+    @apply max-w-[34vw] w-full flex flex-col justify-between;
+
+    .inner {
+      @apply flex flex-col gap-[3vh] items-start;
+
+      > * {
+        @apply ml-[3.546vw];
+      }
+
+      &:first-child {
+        > *:first-child {
+          @apply ml-0;
+        }
+      }
+    }
+  }
+
+  &BlockSecond {
+    @apply max-w-[50.887vw] w-full;
+  }
+
+  &Label {
+    @apply flex items-center gap-[1vw];
+
+    .text {
+      @apply px-[0.887vw] py-[0.78125vh] rounded-[0.887vw] text-[1.064vw];
+
+      background: rgba(68, 68, 68, 0.2);
+      backdrop-filter: blur(2.5px);
+    }
+  }
+
+  &Card {
+    @apply h-full w-[29.551vw] h-[29.551vw] mx-auto translate-x-[15%] rounded-[2.364vw] p-[0.05vw];
+
+    background: linear-gradient(
+      135deg,
+      rgba(239, 189, 112, 0.5) 0%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(239, 189, 112, 0.5) 100%
+    );
+
+    .content {
+      @apply w-full h-full rounded-[2.364vw] flex items-center justify-center;
+
+      background: rgba(11, 11, 11, 0.9);
+
+      .logo {
+        @apply w-[10.106vw] h-[21vh] object-contain object-center;
+      }
+    }
+  }
+}
