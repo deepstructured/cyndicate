@@ -26,11 +26,39 @@
   }
 
   &BlockSecond {
-    @apply max-w-[50.887vw] w-full;
+    @apply max-w-[50.887vw] w-full relative;
+  }
+
+  &Labels {
+    @apply w-full h-full absolute left-0 right-0 bottom-0 top-0 z-[1];
   }
 
   &Label {
-    @apply flex items-center gap-[1vw];
+    @apply flex items-center gap-[1vw] absolute;
+
+    &.reversed {
+      @apply flex-row-reverse;
+    }
+
+    &:nth-child(1) {
+      @apply top-[1vh] left-[4.551vw] max-w-[18.913vw] w-full;
+    }
+
+    &:nth-child(2) {
+      @apply left-0 top-1/2 translate-y-[-50%];
+    }
+
+    &:nth-child(3) {
+      @apply left-[5.910vw] bottom-[5.859375vh] max-w-[18.913vw] w-full;
+    }
+
+    &:nth-child(4) {
+      @apply max-w-[15.130vw] w-full right-0 bottom-0;
+    }
+
+    &:nth-child(5) {
+      @apply top-[7.8125vh] right-0;
+    }
 
     .text {
       @apply px-[0.887vw] py-[0.78125vh] rounded-[0.887vw] text-[1.064vw];
@@ -56,7 +84,7 @@
       background: rgba(11, 11, 11, 0.9);
 
       .logo {
-        @apply w-[10.106vw] h-[21vh] object-contain object-center;
+        @apply w-[10.106vw] h-[21vh];
       }
     }
   }

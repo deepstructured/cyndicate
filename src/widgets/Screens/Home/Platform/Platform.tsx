@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import styles from './Platform.module.scss'
 import { Button } from '../../../../shared/Button/Button'
 import { GoldCircle } from '../../../../shared/GoldCircle/GoldCircle'
+import { Logo } from '../../../../shared/Logo/Logo'
 
 export const Platform = () => {
   return (
@@ -37,19 +38,37 @@ export const Platform = () => {
             </div>
           </div>
           <div className={styles.platformBlockSecond}>
-            <div className={styles.platformLabel}>
-              <p className={styles.text}>
-                A Direct Partnership with CYNDICATE in Real Estate
-              </p>
-              <GoldCircle />
+            <div className={styles.platformLabels}>
+              <div className={styles.platformLabel}>
+                <p className={styles.text}>
+                  A Direct Partnership with CYNDICATE in Real Estate
+                </p>
+                <GoldCircle />
+              </div>
+              <div className={styles.platformLabel}>
+                <p className={styles.text}>Higher Rate of Return</p>
+                <GoldCircle />
+              </div>
+              <div className={styles.platformLabel}>
+                <p className={styles.text}>
+                  Fractional Ownership and Passive Income
+                </p>
+                <GoldCircle />
+              </div>
+              <div className={clsx(styles.platformLabel, styles.reversed)}>
+                <p className={styles.text}>More Efficient and Cost-Effective</p>
+                <GoldCircle />
+              </div>
+              <div className={clsx(styles.platformLabel, styles.reversed)}>
+                <p className={styles.text}>Transparency through blockchain</p>
+                <GoldCircle />
+              </div>
             </div>
             <div className={styles.platformCard}>
               <div className={styles.content}>
-                <img
-                  src="/images/Home/Platform/card-logo.png"
-                  alt=""
-                  className={styles.logo}
-                />
+                <div className={styles.logo}>
+                  <Logo logoType="third" />
+                </div>
               </div>
             </div>
           </div>

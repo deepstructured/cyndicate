@@ -1,0 +1,106 @@
+.tokenomicsChart {
+  @apply absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] w-[35vw] h-fit;
+
+  &Logo {
+    @apply absolute left-[51%] top-[51%] translate-x-[-50%] translate-y-[-50%] w-1/3 h-1/3;
+
+    > div {
+      @apply w-full h-full;
+    }
+  }
+
+  svg {
+    @apply w-full h-auto;
+
+    path {
+      transition: 1s ease;
+      transition-property: translate, scale;
+    }
+  }
+
+  &InfoLabels {
+    @apply absolute left-0 top-0 w-full h-full;
+  }
+
+  &Info {
+    @apply flex flex-col gap-[0.48vh] absolute;
+
+    &:nth-child(1) {
+      @apply right-[23%] top-0 translate-y-[-50%];
+    }
+
+    &:nth-child(2) {
+      @apply right-[10%] top-[6%];
+    }
+
+    &:nth-child(3) {
+      @apply right-[0] translate-x-[105%] top-[23.5%];
+    }
+
+    &:nth-child(4) {
+      @apply right-[0] translate-x-[100%] bottom-[22%];
+    }
+
+    &:nth-child(5) {
+      @apply right-[16%] bottom-[5%];
+    }
+
+    &:nth-child(6) {
+      @apply right-[29%] bottom-[0] translate-y-[50%];
+    }
+
+    &:nth-child(7) {
+      @apply left-[29%] bottom-[2.5%];
+    }
+
+    &:nth-child(8) {
+      @apply left-[0] bottom-[0] translate-y-[50%];
+    }
+
+    &:nth-child(9) {
+      @apply left-[0] bottom-[6%];
+    }
+
+    &:nth-child(10) {
+      @apply left-[0] bottom-[16.5%] translate-x-[-75%];
+    }
+
+    &:nth-child(11) {
+      @apply left-[0] bottom-[26%] translate-x-[-100%];
+    }
+
+    &:nth-child(12) {
+      @apply left-[0] bottom-[36%] translate-x-[-100%];
+    }
+
+    &:nth-child(13) {
+      @apply left-[0] top-[36%] translate-x-[-100%];
+    }
+
+    &:nth-child(14) {
+      @apply left-[0] top-[16.5%] translate-x-[-75%];
+    }
+
+    &:nth-child(15) {
+      @apply left-[2.5%] top-[6%];
+    }
+
+    &:nth-child(16) {
+      @apply left-[40%] top-[-2.5%];
+    }
+
+    > * {
+      line-height: 100%;
+    }
+
+    .percent {
+      @apply text-[1.064vw];
+      font-family: $area;
+    }
+
+    .title {
+      @apply text-[0.946vw] italic;
+      font-weight: 300;
+    }
+  }
+}

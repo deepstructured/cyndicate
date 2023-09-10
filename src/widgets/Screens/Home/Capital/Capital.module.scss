@@ -1,0 +1,13 @@
+.capital {
+  div[class='container'] {
+    @apply flex flex-col justify-between pb-[7.8vh];
+  }
+
+  &TextBlock {
+    @apply max-w-[36.939vw] w-full;
+  }
+
+  &Cards {
+    @apply w-full flex justify-between;
+  }
+}

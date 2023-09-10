@@ -1,0 +1,40 @@
+.tokenCard {
+  @apply relative rounded-[1.773vw] p-[1.7vw] flex flex-col items-center justify-end gap-[1.95vh] max-w-[17.730vw] max-h-[45vh] h-full w-full;
+
+  box-shadow: 0px 29px 50px 0px rgba(212, 164, 85, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(239, 189, 112, 0.75) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(239, 189, 112, 0.75) 100%
+  );
+
+  &::before {
+    content: '';
+
+    @apply absolute left-0 top-0 w-full h-full pointer-events-none z-[0] rounded-full scale-[0.997] rounded-[1.773vw];
+
+    background-image: url('/images/cynd-black-texture.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .icon {
+    @apply absolute left-1/2 translate-x-[-50%] top-0 translate-y-[-50%] w-[9.456vw] h-[9.456vw] object-contain object-center;
+  }
+
+  .title {
+    @apply text-[1.891vw] text-center capitalize z-[1];
+  }
+
+  .list {
+    @apply flex flex-col list-disc z-[1];
+
+    li {
+      @apply text-[1.064vw];
+      font-family: $area;
+      line-height: 155%;
+    }
+  }
+}

@@ -52,3 +52,42 @@ export const exclusivesCardsData = [
   '/images/Home/Exclusives/12.png',
   '/images/Home/Exclusives/13.png',
 ]
+
+export const capitalCards = [
+  {
+    title: 'Transparency Through Blockchain:',
+    text: 'We offer the opportunity to invest in fractional ownership of real estate properties, allowing you to diversify your portfolio and access assets that were once out of reach.',
+    cardBg: '/images/Home/Capital/1.png',
+  },
+  {
+    title: 'Future Opportunities',
+    text: 'We offer the opportunity to invest in fractional ownership of real estate properties, allowing you to diversify your portfolio and access assets that were once out of reach.',
+    cardBg: '/images/Home/Capital/1.png',
+  },
+  {
+    title: 'Invest in Real Assets, Digitally',
+    text: 'We offer the opportunity to invest in fractional ownership of real estate properties, allowing you to diversify your portfolio and access assets that were once out of reach.',
+    cardBg: '/images/Home/Capital/1.png',
+  },
+  {
+    title: 'Community-Centric Approach:',
+    text: 'We offer the opportunity to invest in fractional ownership of real estate properties, allowing you to diversify your portfolio and access assets that were once out of reach.',
+    cardBg: '/images/Home/Capital/1.png',
+  },
+  {
+    title: 'Accessible To All',
+    text: 'We offer the opportunity to invest in fractional ownership of real estate properties, allowing you to diversify your portfolio and access assets that were once out of reach.',
+    cardBg: '/images/Home/Capital/1.png',
+  },
+]
+
+export const tokenCards = [
+  {
+    title: 'Utility Token $CYND',
+    listItems: [
+      'Fuels Ecosytem',
+      'Use tokens to purchase merchandise, training, coaching, events, and subscriptions',
+    ],
+    icon: '/images/Home/Token/1.png',
+  },
+]

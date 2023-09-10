@@ -31,7 +31,7 @@ export const Evolution = () => {
                 </p>
                 <div className="button-group">
                   <Button colorType="second">Online Training</Button>
-                  <Button colorType="second">Online Training</Button>
+                  <Button colorType="second">Coaching Platform</Button>
                 </div>
               </div>
             </div>

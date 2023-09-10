@@ -150,10 +150,14 @@ big {
 }
 
 .section-text-block {
-  @apply w-full flex flex-col gap-[3vh];
+  @apply w-full flex flex-col gap-[1.5vh];
 
   p {
     @apply opacity-90;
+
+    &.text-gold {
+      @apply text-[1.300vw];
+    }
   }
 
   .button-group {
