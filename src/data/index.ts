@@ -1,15 +1,24 @@
-export const navSocials = [
+export const headerLinks = [
   {
-    href: 'https://instagram.com',
-    icon: '/images/icons/instagram.svg',
+    href: '#about',
+    title: 'About',
   },
   {
-    href: 'https://discord.com',
-    icon: '/images/icons/discord.svg',
+    href: '#exclusives',
+    title: 'Exclusives',
   },
   {
-    href: 'https://twitter.com',
-    icon: '/images/icons/twitter.svg',
+    href: '#evolution',
+    title: 'Evolution',
+  },
+  {
+    href: '#token',
+    title: 'Token',
+  },
+  {
+    href: '/join',
+    title: 'Join Us',
+    colorType: 'filled',
   },
 ]
 

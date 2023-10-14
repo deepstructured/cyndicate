@@ -3,7 +3,7 @@ import { FC, useRef } from 'react'
 import styles from './Logo.module.scss'
 
 interface IProps {
-  logoType?: 'first' | 'second' | 'third'
+  logoType?: 'first' | 'second'
 }
 
 export const Logo: FC<IProps> = ({ logoType = 'first' }) => {
@@ -11,9 +11,8 @@ export const Logo: FC<IProps> = ({ logoType = 'first' }) => {
 
   return (
     <div ref={ref} className={styles.logo}>
-      {logoType === 'first' && <img src="/images/logo.svg" alt="" />}
-      {logoType === 'second' && <img src="/images/logo-second.svg" alt="" />}
-      {logoType === 'third' && <img src="/images/logo-texture.svg" alt="" />}
+      {logoType === 'first' && <img src="/images/logo.png" alt="" />}
+      {logoType === 'second' && <img src="/images/logo-2.svg" alt="" />}
     </div>
   )
 }

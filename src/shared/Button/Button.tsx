@@ -1,16 +1,26 @@
 import clsx from 'clsx'
-import React, { FC, ReactNode } from 'react'
 import styles from './Button.module.scss'
+import { ButtonHTMLAttributes, FC } from 'react'
 
-interface IProps {
-  colorType: 'first' | 'second' | 'third'
-  children: ReactNode
+interface IProps extends ButtonHTMLAttributes<string> {
+  colorType?: 'filled' | 'transparent'
+  isLink?: boolean
+  href?: string
 }
 
-export const Button: FC<IProps> = ({ colorType, children }) => {
-  return (
-    <button className={clsx(styles[colorType], styles.button)}>
-      <div className={styles.content}>{children}</div>
+export const Button: FC<IProps> = ({
+  colorType = 'filled',
+  children,
+  isLink = true,
+  href,
+}) => {
+  return isLink ? (
+    <a href={href} className={clsx(styles.button, styles[colorType])}>
+      {children}
+    </a>
+  ) : (
+    <button className={clsx(styles.button, styles[colorType])}>
+      {children}
     </button>
   )
 }

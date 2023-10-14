@@ -1,13 +1,76 @@
 .evolution {
+  @apply h-fit;
+
   div[class='container'] {
-    @apply flex flex-col justify-between;
+    @apply flex flex-col gap-[6.9vh] px-0;
   }
 
-  &TextBlock {
-    @apply max-w-[35vw] w-full;
+  &TopWrapper {
+    @apply w-full flex items-stretch gap-[6.283vw] px-[2.646vw];
+
+    .group {
+      @apply flex flex-col justify-between;
+    }
+  }
+
+  &Title {
+  }
+
+  &Circle {
+    @apply w-[8.267vw] h-[8.267vw] relative ml-auto;
+
+    .logo {
+      @apply w-[2.226vw] h-[2.827vw] object-contain object-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
+    }
+
+    svg {
+      @apply w-full h-full;
+    }
   }
 
   &Cards {
-    @apply w-full flex gap-[3.310vw];
+    @apply w-full h-[61vh] flex;
+
+    border-top: 0.132vw solid $gold-primary;
+  }
+
+  &Card {
+    @apply h-full min-w-[60vw] w-[60vw] px-[2.646vw] py-[2.315vw] flex flex-col gap-[2.976vw] items-start bg-[#181818];
+
+    border: 0.099vw solid #313131;
+
+    &:nth-child(2) {
+      @apply z-[2];
+    }
+
+    &:nth-child(3) {
+      @apply z-[3];
+    }
+
+    &:nth-child(4) {
+      @apply z-[4];
+    }
+
+    &:nth-child(5) {
+      @apply z-[5];
+    }
+
+    &Title {
+      @apply text-[1.587vw];
+      line-height: 130%;
+    }
+
+    &Text {
+      @apply text-[0.926vw];
+      color: #939393;
+      font-weight: 50;
+      line-height: 140%;
+    }
+
+    &Num {
+      @apply text-[1.587vw] mt-auto;
+      color: $gold-primary;
+      line-height: 100%;
+    }
   }
 }

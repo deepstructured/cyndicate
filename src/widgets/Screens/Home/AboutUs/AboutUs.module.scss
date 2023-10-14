@@ -1,0 +1,42 @@
+.aboutUs {
+  @apply h-fit min-h-[0];
+
+  div[class='container'] {
+    @apply flex flex-col gap-[16vh] pb-0;
+  }
+
+  &Wrapper {
+    @apply w-full flex items-start justify-between;
+  }
+
+  &Text {
+    @apply flex flex-col gap-[8vh] max-w-[58.420vw] w-full;
+
+    .text {
+      @apply text-[2.089vw];
+
+      > div {
+        transition: color 0.5s ease !important;
+
+        > div {
+          transition: color 0.5s ease !important;
+        }
+      }
+
+      span {
+        @apply text-[2.089vw];
+        color: $gold-primary !important;
+
+        > div {
+          color: $gold-primary !important;
+
+          > div {
+            color: $gold-primary !important;
+          }
+        }
+      }
+
+      color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}

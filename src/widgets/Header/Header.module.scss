@@ -1,15 +1,11 @@
 .header {
-  @apply fixed top-0 left-0 right-0 pt-[2.9vh] px-[4.137vw] z-[1];
+  @apply fixed top-0 left-0 right-0 py-[1.25vw] p-[2.611vw] z-[1] flex items-center justify-between;
 
-  .content {
-    @apply w-full flex items-center justify-between relative;
+  &Logo {
+    @apply w-[2.337vw] h-[4.8vh] cursor-pointer;
   }
 
-  .logo {
-    @apply w-[2.128vw] h-[4.6875vh];
-  }
-
-  .socials {
-    @apply flex gap-[0.591vw];
+  &Menu {
+    @apply flex gap-[0.522vw] items-center;
   }
 }

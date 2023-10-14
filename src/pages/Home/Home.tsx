@@ -23,24 +23,11 @@ export const Home = () => {
 
   return (
     <HomeContext.Provider value={{}}>
-      <WithFullpage
-        fullpageOptions={{
-          credits: {
-            enabled: false,
-          },
-          scrollingSpeed: 1000,
-          onLeave: (origin, destination, direction, trigger) => {
-            setActiveScreen(destination.index)
-            setDirection(direction)
-          },
-        }}
-      >
-        <>
-          {HomeScreens.map((screen, idx) => (
-            <React.Fragment key={idx}>{screen}</React.Fragment>
-          ))}
-        </>
-      </WithFullpage>
+      <>
+        {HomeScreens.map((screen, idx) => (
+          <React.Fragment key={idx}>{screen}</React.Fragment>
+        ))}
+      </>
     </HomeContext.Provider>
   )
 }

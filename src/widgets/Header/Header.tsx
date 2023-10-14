@@ -4,28 +4,24 @@ import { Logo } from '../../shared/Logo/Logo'
 import styles from './Header.module.scss'
 import { MainContext } from '../../app/providers/MainContext'
 import { useLocation, useNavigate, useNavigation } from 'react-router-dom'
-import { navSocials } from '../../data'
-import { IconButton } from '../../shared/IconButton/IconButton'
+import { headerLinks } from '../../data'
+import { Button } from '../../shared/Button/Button'
 
 const Header = () => {
-  const { activeScreen, pageLoaded, currentPage } = useContext(MainContext)
-
   return (
-    <header className={clsx(styles.header, pageLoaded && `animated`)}>
-      <div className={styles.content}>
-        <div className={styles.logo}>
-          <Logo />
-        </div>
-        <div className={styles.socials}>
-          {navSocials.map((social, idx) => (
-            <IconButton
-              isLink={true}
-              key={idx}
-              href={social.href}
-              icon={social.icon}
-            />
-          ))}
-        </div>
+    <header className={styles.header}>
+      <div className={styles.headerLogo}>
+        <Logo />
+      </div>
+      <div className={styles.headerMenu}>
+        {headerLinks.map((link) => (
+          <Button
+            href={link.href}
+            colorType={link.colorType ? 'filled' : 'transparent'}
+          >
+            {link.title}
+          </Button>
+        ))}
       </div>
     </header>
   )

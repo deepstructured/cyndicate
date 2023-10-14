@@ -1,13 +1,57 @@
 .exclusives {
-  div[class='container'] {
-    @apply flex flex-col justify-between;
+  @apply h-screen;
+
+  &Wrapper {
+    @apply w-full h-full flex flex-col;
   }
 
-  &TextBlock {
-    @apply max-w-[36.643vw] w-full;
+  &Card {
+    @apply p-[0.992vw] relative rounded-[1.587vw] overflow-hidden;
+
+    // width: 20.833vw !important;
+    // min-width: 20.833vw !important;
+    height: 45.6vh !important;
+
+    img {
+      @apply absolute top-0 left-0 w-full h-full object-cover object-center pointer-events-none select-none rounded-[1.587vw] z-[-1];
+    }
+
+    span {
+      @apply py-[1.058vw] pb-[0.85vw] px-[1.587vw] flex items-center justify-center rounded-[3.307vw] w-fit;
+
+      border: 0.059vw solid $milk-white;
+      line-height: 100%;
+      font-feature-settings: 'calt' off, 'liga' off;
+      color: $milk-white;
+    }
   }
 
-  &Cards {
-    @apply flex gap-[1.773vw] pb-[9.765625vh];
+  &Carousel {
+    @apply w-full;
+  }
+
+  &Swiper {
+    width: 100% !important;
+  }
+
+  &InfoPanel {
+    @apply w-full mt-auto gap-[8vh] flex flex-col items-center justify-center;
+
+    &Top {
+      @apply flex items-center gap-[5.985vw];
+
+      .group {
+        @apply flex items-center gap-[10vw];
+      }
+
+      .line {
+        @apply w-[8.929vw];
+      }
+    }
+  }
+
+  &Text {
+    @apply max-w-[22.817vw] w-full opacity-90;
+    color: $grey;
   }
 }

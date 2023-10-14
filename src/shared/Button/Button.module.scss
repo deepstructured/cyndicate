@@ -1,33 +1,18 @@
 .button {
-  @apply relative;
+  @apply relative px-[1.697vw] py-[1.305vw] pb-[1vw] min-w-[8.159vw] w-fit text-[1.044vw] font-medium rounded-[3.264vw] flex items-center justify-center;
 
-  .content {
-    @apply text-[1.064vw] capitalize flex items-center justify-center;
-    line-height: 135%;
-    font-family: $area;
+  border: 0.059vw solid #fafafa;
+  font-weight: 500 !important;
+
+  &.filled {
+    @apply bg-white;
+    color: #181818;
   }
 
-  &.first {
-    @apply rounded-[0.591vw];
-    background: rgba(68, 68, 68, 0.2);
-
-    &::before {
-      content: '';
-      @apply w-full h-full block absolute top-0 bottom-0 left-0 right-0;
-      background-image: url('/images/Button/button-first-bg.png');
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    .content {
-      @apply py-[0.9765625vh] px-[2.069vw];
-    }
+  &.transparent {
+    @apply bg-transparent;
   }
 
-  &.second {
-    @apply py-[0.9765625vh] px-[1.478vw] rounded-[5.910vw];
-    color: $gray;
-    border: 0.059vw solid $gray;
-  }
+  font-feature-settings: 'calt' off, 'liga' off;
+  line-height: 100%;
 }

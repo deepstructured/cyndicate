@@ -1,17 +1,15 @@
-import { Capital } from './Capital/Capital'
+import { AboutUs } from './AboutUs/AboutUs'
 import { Evolution } from './Evolution/Evolution'
 import { Exclusives } from './Exclusives/Exclusives'
 import { Hero } from './Hero/Hero'
-import { Platform } from './Platform/Platform'
+import { OurVision } from './OurVision/OurVision'
 import { Token } from './Token/Token'
-import { Tokenomics } from './Tokenomics/Tokenomics'
 
 export const HomeScreens = [
   <Hero />,
-  <Evolution />,
+  <AboutUs />,
+  <OurVision />,
   <Exclusives />,
-  <Platform />,
-  <Capital />,
+  <Evolution />,
   <Token />,
-  <Tokenomics />,
 ]
