@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import styles from './Evolution.module.scss'
 import { useEffect, useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { evolutionCardsData } from '../../../../data'
 
 export const Evolution = () => {
   const ref = useRef<HTMLDivElement>(null)
@@ -12,49 +13,20 @@ export const Evolution = () => {
   const card5 = useRef<HTMLDivElement>(null)
   const circle = useRef<SVGSVGElement>(null)
 
-  // useLayoutEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     ScrollTrigger.create({
-  //       trigger: '#evolution',
-  //       start: 'top top',
-  //       end: 'bottom bottom-=100%',
-  //       scrub: 1,
-  //       pin: true,
-  //       onUpdate: (self) => {
-  //         gsap.to(circle.current, {
-  //           rotate: 3.6 * self.progress * 100,
-  //         })
-  //       },
-  //       animation: gsap
-  //         .timeline()
-  //         .to(card2.current, {
-  //           xPercent: -75,
-  //           ease: 'ease',
-  //           duration: 10,
-  //         })
-  //         .to(card3.current, {
-  //           xPercent: -150,
-  //           ease: 'ease',
-  //           duration: 10,
-  //         })
-  //         .to(card4.current, {
-  //           xPercent: -225,
-  //           ease: 'ease',
-  //           duration: 10,
-  //         })
-  //         .to(card5.current, {
-  //           xPercent: -300,
-  //           ease: 'ease',
-  //           duration: 10,
-  //         }),
-  //     })
-  //   })
-
-  //   return () => ctx.revert()
-  // }, [])
-
   useEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.set(card3.current, {
+        xPercent: -70,
+      })
+
+      gsap.set(card4.current, {
+        xPercent: -155,
+      })
+
+      gsap.set(card5.current, {
+        xPercent: -240,
+      })
+
       ScrollTrigger.create({
         trigger: '#evolution',
         start: 'top top',
@@ -238,66 +210,46 @@ export const Evolution = () => {
         <div className={styles.evolutionCards}>
           <div ref={card1} className={styles.evolutionCard}>
             <span className={styles.evolutionCardTitle}>
-              Holistic Success Approach
+              {evolutionCardsData[0].title}
             </span>
             <p className={styles.evolutionCardText}>
-              While other brands focus on either health or fitness, CYNDICATE
-              goes beyond and offers a holistic approach to success. Our courses
-              cover a wide spectrum of topics, including personal development,
-              entrepreneurships, financial literacy, health and wellness,
-              leadership, and real estate investing.
+              {evolutionCardsData[0].text}
             </p>
             <span className={styles.evolutionCardNum}>01</span>
           </div>
           <div ref={card2} className={styles.evolutionCard}>
             <span className={styles.evolutionCardTitle}>
-              Holistic Success Approach
+              {evolutionCardsData[1].title}
             </span>
             <p className={styles.evolutionCardText}>
-              While other brands focus on either health or fitness, CYNDICATE
-              goes beyond and offers a holistic approach to success. Our courses
-              cover a wide spectrum of topics, including personal development,
-              entrepreneurships, financial literacy, health and wellness,
-              leadership, and real estate investing.
+              {evolutionCardsData[1].text}
             </p>
             <span className={styles.evolutionCardNum}>02</span>
           </div>
           <div ref={card3} className={styles.evolutionCard}>
             <span className={styles.evolutionCardTitle}>
-              Holistic Success Approach
+              {evolutionCardsData[2].title}
             </span>
             <p className={styles.evolutionCardText}>
-              While other brands focus on either health or fitness, CYNDICATE
-              goes beyond and offers a holistic approach to success. Our courses
-              cover a wide spectrum of topics, including personal development,
-              entrepreneurships, financial literacy, health and wellness,
-              leadership, and real estate investing.
+              {evolutionCardsData[2].text}
             </p>
             <span className={styles.evolutionCardNum}>03</span>
           </div>
           <div ref={card4} className={styles.evolutionCard}>
             <span className={styles.evolutionCardTitle}>
-              Holistic Success Approach
+              {evolutionCardsData[3].title}
             </span>
             <p className={styles.evolutionCardText}>
-              While other brands focus on either health or fitness, CYNDICATE
-              goes beyond and offers a holistic approach to success. Our courses
-              cover a wide spectrum of topics, including personal development,
-              entrepreneurships, financial literacy, health and wellness,
-              leadership, and real estate investing.
+              {evolutionCardsData[3].text}
             </p>
             <span className={styles.evolutionCardNum}>04</span>
           </div>
           <div ref={card5} className={styles.evolutionCard}>
             <span className={styles.evolutionCardTitle}>
-              Holistic Success Approach
+              {evolutionCardsData[4].title}
             </span>
             <p className={styles.evolutionCardText}>
-              While other brands focus on either health or fitness, CYNDICATE
-              goes beyond and offers a holistic approach to success. Our courses
-              cover a wide spectrum of topics, including personal development,
-              entrepreneurships, financial literacy, health and wellness,
-              leadership, and real estate investing.
+              {evolutionCardsData[4].text}
             </p>
             <span className={styles.evolutionCardNum}>05</span>
           </div>

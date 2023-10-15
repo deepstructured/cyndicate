@@ -7,7 +7,11 @@ const Footer = () => {
       <div className={styles.footerWrapper}>
         <div className={styles.footerBlock}>
           <div className="container">
-            <img src="/images/logo-2.svg" alt="" className={styles.footerLogo} />
+            <img
+              src="/images/logo-2.svg"
+              alt=""
+              className={styles.footerLogo}
+            />
           </div>
         </div>
         <div className={styles.footerBlock}>
@@ -36,47 +40,41 @@ const Footer = () => {
                     <a href="">About Us</a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a href="">Exclusives</a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a href="">Evolution</a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
-                  </li>
-                </ul>
-              </div>
-              <div className={styles.footerCol}>
-                <span className={styles.footerColTitle}>About Us</span>
-                <ul className={styles.footerList}>
-                  <li className={styles.footerLink}>
-                    <a href="">About Us</a>
-                  </li>
-                  <li className={styles.footerLink}>
-                    <a href="">About Us</a>
-                  </li>
-                  <li className={styles.footerLink}>
-                    <a href="">About Us</a>
-                  </li>
-                  <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a href="">Token</a>
                   </li>
                 </ul>
               </div>
               <div className={styles.footerCol}>
-                <span className={styles.footerColTitle}>About Us</span>
+                <span className={styles.footerColTitle}>Information</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a href="">Privacy Policy</a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a href="">Help center</a>
+                  </li>
+                </ul>
+              </div>
+              <div className={styles.footerCol}>
+                <span className={styles.footerColTitle}>Follow us</span>
+                <ul className={styles.footerList}>
+                  <li className={styles.footerLink}>
+                    <a href="">Instagram</a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a href="">Discord</a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a href="">Twitter</a>
+                  </li>
+                  <li className={styles.footerLink}>
+                    <a href="">Token</a>
                   </li>
                 </ul>
               </div>

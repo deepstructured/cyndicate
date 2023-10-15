@@ -20,7 +20,7 @@
     @apply flex flex-col gap-[3.6vh];
 
     &Title {
-      @apply text-[1.653vw];
+      @apply text-[1.653vw] capitalize;
       color: #fff;
       line-height: 135%;
     }

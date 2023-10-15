@@ -1,16 +1,40 @@
 import clsx from 'clsx'
 import styles from './Token.module.scss'
 import { Button } from '../../../../shared/Button/Button'
+import gsap from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import { FreeMode } from 'swiper'
+import { useEffect, useState } from 'react'
+import { ISwiper } from '../../../../interfaces/ISwiper'
 
 export const Token = () => {
+  const [swiper, setSwiper] = useState<ISwiper>()
+
+  useEffect(() => {
+    if (swiper) {
+      const ctx = gsap.context(() => {
+        ScrollTrigger.create({
+          trigger: '#token',
+          start: 'top top-=25%',
+          end: 'bottom bottom-=200%',
+          scrub: 1,
+          pin: true,
+          onUpdate: (self) => {
+            swiper?.setProgress(self.progress)
+          },
+        })
+      })
+
+      return () => ctx.revert()
+    }
+  }, [swiper])
+
   return (
-    <section className={clsx('section', styles.token)}>
+    <section id="token" className={clsx('section', styles.token)}>
       <div className="container">
         <div className={styles.tokenTopWrapper}>
           <div className={styles.group}>
@@ -241,6 +265,7 @@ export const Token = () => {
             </div>
           </div>
           <Swiper
+            onSwiper={(swiper) => setSwiper(swiper)}
             slidesPerView={'auto'}
             spaceBetween={20}
             freeMode={true}

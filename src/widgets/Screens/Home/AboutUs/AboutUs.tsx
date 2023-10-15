@@ -3,23 +3,23 @@ import styles from './AboutUs.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import gsap from 'gsap'
-import { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 
 import 'swiper/css'
 
 export const AboutUs = () => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       const split = new SplitText('#about-us-text', {
         type: 'chars',
       })
 
-      const tl = gsap
+      gsap
         .timeline({
           scrollTrigger: {
             trigger: '#about-us-text',
             start: 'top 75%',
-            end: '+=50%',
+            end: '+=60%',
             scrub: 1,
           },
         })

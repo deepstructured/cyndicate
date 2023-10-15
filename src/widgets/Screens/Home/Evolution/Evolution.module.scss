@@ -29,7 +29,7 @@
   }
 
   &Cards {
-    @apply w-full h-[61vh] flex;
+    @apply w-full h-[61vh] flex pt-[0.1vw];
 
     border-top: 0.132vw solid $gold-primary;
     border-bottom: 0.099vw solid #313131;

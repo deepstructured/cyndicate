@@ -24,25 +24,24 @@ export const headerLinks = [
 
 export const evolutionCardsData = [
   {
-    title: 'Lorem Ipsum',
-    text: 'Lorem ipsum dolor sit amet consectetur. Condimentum eu tincidunt massa platea et tempus orci. Sit morbi fermentum.',
-    icon: '/images/Home/Evolution/card1.png',
+    title: 'Holistic Success Approach',
+    text: 'While other brands focus on either health or fitness, CYNDICATE goes beyond and offers a holistic approach to success. Our courses cover a wide spectrum of topics, including personal development, entrepreneurships, financial literacy, health and wellness, leadership, and real estate investing.',
   },
   {
-    title: 'Lorem Ipsum',
-    text: 'Lorem ipsum dolor sit amet consectetur. Condimentum eu tincidunt massa platea et tempus orci. Sit morbi fermentum.',
-    goldStyle: true,
-    icon: '/images/Home/Evolution/card2.png',
+    title: 'Expert Guidance',
+    text: 'Learn from industry experts, thought leaders, and successful individuals who have been where you aspire to go. Our curated faculty of instructors brings real-world experience to your learning journey.',
   },
   {
-    title: 'Lorem Ipsum',
-    text: 'Lorem ipsum dolor sit amet consectetur. Condimentum eu tincidunt massa platea et tempus orci. Sit morbi fermentum.',
-    icon: '/images/Home/Evolution/card3.png',
+    title: 'Community and Support',
+    text: 'Join a vibrant community of like-minded individuals who are on their own journeys to success. Connect, collaborate, and grow together with our supportive network of learners.',
   },
   {
-    title: 'Lorem Ipsum',
-    text: 'Lorem ipsum dolor sit amet consectetur. Condimentum eu tincidunt massa platea et tempus orci. Sit morbi fermentum.',
-    icon: '/images/Home/Evolution/card4.png',
+    title: 'Cutting edge resources',
+    text: 'Stay ahead of the curve with access to the latest tools, strategies, and insights. Our constantly updated content ensures you’re always at the forefront of your field.',
+  },
+  {
+    title: 'Lifetime Learning',
+    text: 'Success is not a one-time achievement; it’s a lifelong pursuit. With CYNDICATE Evolution, you’ll have access to a wealth of resources to support your ongoing growth and evolution.',
   },
 ]
 

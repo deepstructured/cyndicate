@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import styles from './Exclusives.module.scss'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import gsap from 'gsap'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -9,7 +9,7 @@ import { ISwiper } from '../../../../interfaces/ISwiper'
 export const Exclusives = () => {
   const [swiper, setSwiper] = useState<ISwiper>()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.set('.exclusives-word big', {
         xPercent: 50,
