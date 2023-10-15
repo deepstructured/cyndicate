@@ -1,0 +1,89 @@
+.token {
+  @apply h-fit;
+
+  div[class='container'] {
+    @apply flex flex-col gap-[6.3vh] pb-[18.5vh];
+  }
+
+  &TopWrapper {
+    @apply w-full flex items-stretch justify-between;
+
+    .group {
+      @apply flex flex-col justify-between;
+
+      &:first-child {
+        @apply gap-[7.6vh];
+      }
+
+      .row {
+        @apply flex items-center gap-[7.474vw];
+      }
+
+      div[class='quote'] {
+        @apply max-w-[18vw] w-full;
+      }
+    }
+  }
+
+  &Card {
+    @apply h-full rounded-[2.116vw] bg-[#1D1D1D] px-[2.381vw] py-[3.4vh] flex flex-col justify-between;
+
+    min-width: 22.817vw !important;
+    width: 22.817vw !important;
+
+    &Text {
+      @apply text-[0.926vw] opacity-80;
+      color: #a1a1a1;
+      line-height: 150%;
+      font-weight: 50;
+    }
+
+    &Num {
+      @apply text-[0.926vw] mr-[1.984vw] translate-y-[-30%];
+      color: $gold-primary;
+      line-height: 223%;
+      letter-spacing: -0.056vw;
+    }
+
+    &Title {
+      @apply text-[1.852vw];
+      line-height: 118%;
+      letter-spacing: -0.111vw;
+    }
+  }
+
+  &Cards {
+    @apply w-full pt-[6.3vh] gap-[2.976vw] flex items-stretch;
+
+    border-top: 0.132vw solid rgba(255, 255, 255, 0.05);
+
+    &Wrapper {
+      @apply flex h-[52.6vh] translate-x-[2.646vw];
+
+      div[class='swiper-wrapper'] {
+        @apply flex;
+      }
+    }
+
+    &Text {
+      @apply opacity-90 w-full;
+    }
+
+    &Block {
+      @apply flex flex-col justify-between max-w-[16.204vw] w-full;
+    }
+
+    &Logo {
+      @apply w-[8.466vw] h-[11vw];
+
+      svg {
+        @apply w-[105%] h-full;
+      }
+    }
+  }
+
+  &TopText {
+    @apply text-[#A1A1A1] max-w-[26.786vw] opacity-[0.8];
+    line-height: 150%;
+  }
+}

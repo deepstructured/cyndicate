@@ -32,12 +32,16 @@
     @apply w-full h-[61vh] flex;
 
     border-top: 0.132vw solid $gold-primary;
+    border-bottom: 0.099vw solid #313131;
   }
 
   &Card {
-    @apply h-full min-w-[60vw] w-[60vw] px-[2.646vw] py-[2.315vw] flex flex-col gap-[2.976vw] items-start bg-[#181818];
+    @apply h-full min-w-[67vw] w-[67vw] px-[2.646vw] py-[2.315vw] flex flex-col gap-[2.976vw] items-start bg-[#181818];
 
     border: 0.099vw solid #313131;
+
+    border-right: 0;
+    border-bottom: 0;
 
     &:nth-child(2) {
       @apply z-[2];
@@ -61,7 +65,7 @@
     }
 
     &Text {
-      @apply text-[0.926vw];
+      @apply text-[0.926vw] max-w-[19.841vw];
       color: #939393;
       font-weight: 50;
       line-height: 140%;

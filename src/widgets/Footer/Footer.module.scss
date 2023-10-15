@@ -1,3 +1,72 @@
 .footer {
   @apply h-fit;
+
+  &Wrapper {
+    @apply flex items-stretch;
+
+    border-top: 0.059vw solid rgba(255, 255, 255, 0.15);
+  }
+
+  &Explore {
+    @apply flex items-center gap-[1.230vw] text-[2.381vw];
+    color: #fff;
+
+    svg {
+      @apply w-[1.409vw] h-[1.786vw];
+    }
+  }
+
+  &Col {
+    @apply flex flex-col gap-[3.6vh];
+
+    &Title {
+      @apply text-[1.653vw];
+      color: #fff;
+      line-height: 135%;
+    }
+  }
+
+  &Cols {
+    @apply w-full flex items-start justify-between;
+  }
+
+  &List {
+    @apply flex flex-col gap-[1.5vh];
+  }
+
+  &Link {
+    @apply text-[1.323vw] font-normal capitalize;
+    line-height: 135%;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &Logo {
+    @apply w-[20.172vw] h-[2.712vw] object-contain object-center;
+  }
+
+  &Copyright {
+    @apply text-[1.323vw] capitalize;
+    color: #fff;
+    line-height: 135%;
+  }
+
+  &Block {
+    &:first-child {
+      @apply flex-[0.4];
+
+      div[class='container'] {
+        @apply py-[8.5vh] flex flex-col justify-end;
+      }
+    }
+
+    &:last-child {
+      @apply flex-[0.6];
+
+      border-left: 0.059vw solid rgba(255, 255, 255, 0.15);
+
+      div[class='container'] {
+        @apply pt-[5.3] pb-[10.9vh] px-[1.984vw] flex flex-col gap-[9.8vh];
+      }
+    }
+  }
 }

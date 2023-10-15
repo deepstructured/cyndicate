@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import styles from './Evolution.module.scss'
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useLayoutEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 export const Evolution = () => {
@@ -12,12 +12,53 @@ export const Evolution = () => {
   const card5 = useRef<HTMLDivElement>(null)
   const circle = useRef<SVGSVGElement>(null)
 
-  useLayoutEffect(() => {
+  // useLayoutEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     ScrollTrigger.create({
+  //       trigger: '#evolution',
+  //       start: 'top top',
+  //       end: 'bottom bottom-=100%',
+  //       scrub: 1,
+  //       pin: true,
+  //       onUpdate: (self) => {
+  //         gsap.to(circle.current, {
+  //           rotate: 3.6 * self.progress * 100,
+  //         })
+  //       },
+  //       animation: gsap
+  //         .timeline()
+  //         .to(card2.current, {
+  //           xPercent: -75,
+  //           ease: 'ease',
+  //           duration: 10,
+  //         })
+  //         .to(card3.current, {
+  //           xPercent: -150,
+  //           ease: 'ease',
+  //           duration: 10,
+  //         })
+  //         .to(card4.current, {
+  //           xPercent: -225,
+  //           ease: 'ease',
+  //           duration: 10,
+  //         })
+  //         .to(card5.current, {
+  //           xPercent: -300,
+  //           ease: 'ease',
+  //           duration: 10,
+  //         }),
+  //     })
+  //   })
+
+  //   return () => ctx.revert()
+  // }, [])
+
+  useEffect(() => {
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: '#evolution',
         start: 'top top',
-        end: 'bottom bottom-=100%',
+        end: 'bottom bottom-=500%',
         scrub: 1,
         pin: true,
         onUpdate: (self) => {
@@ -28,22 +69,22 @@ export const Evolution = () => {
         animation: gsap
           .timeline()
           .to(card2.current, {
-            xPercent: -75,
+            xPercent: -85,
             ease: 'ease',
             duration: 10,
           })
           .to(card3.current, {
-            xPercent: -150,
+            xPercent: -170,
             ease: 'ease',
             duration: 10,
           })
           .to(card4.current, {
-            xPercent: -225,
+            xPercent: -255,
             ease: 'ease',
             duration: 10,
           })
           .to(card5.current, {
-            xPercent: -300,
+            xPercent: -340,
             ease: 'ease',
             duration: 10,
           }),
