@@ -51,7 +51,7 @@ export const Exclusives = () => {
                 slidesPerView={5}
                 spaceBetween={45}
                 loop={true}
-                className={styles.exclusivesSwiper}
+                className={clsx(styles.exclusivesSwiper, 'drag-swiper')}
               >
                 <SwiperSlide className={styles.exclusivesCard}>
                   <img src="/images/Exclusives/1.png" alt="" />

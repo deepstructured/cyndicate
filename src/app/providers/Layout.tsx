@@ -7,8 +7,7 @@ import { MainContext } from './MainContext'
 import { Menu } from '../../widgets/Menu/Menu'
 import { useLocation } from 'react-router-dom'
 import { WithScrollSmoother } from './WithScrollSmoother'
-
-// MouseFollower.registerGSAP(gsap)
+import { Cursor } from '../../shared/Cursor/Cursor'
 
 interface IProps {
   children: ReactNode
@@ -48,6 +47,7 @@ export const Layout: FC<IProps> = ({ children }) => {
     >
       <Menu />
       <Header />
+      <Cursor />
       <WithScrollSmoother>
         {children}
         <Footer />

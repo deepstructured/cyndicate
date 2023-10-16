@@ -203,7 +203,23 @@ export const Evolution = () => {
           </div>
         </div>
         <div className={styles.evolutionCards}>
-          <div ref={card1} className={styles.evolutionCard}>
+          <div
+            onMouseEnter={() => {
+              if (
+                card2.current &&
+                card3.current &&
+                card4.current &&
+                card5.current
+              ) {
+                card2.current.style.transform = `translate(-25%, 0)`
+                card3.current.style.transform = `translate(-100%, 0)`
+                card4.current.style.transform = `translate(-175%, 0)`
+                card5.current.style.transform = `translate(-250%, 0)`
+              }
+            }}
+            ref={card1}
+            className={styles.evolutionCard}
+          >
             <span className={styles.evolutionCardTitle}>
               {evolutionCardsData[0].title}
             </span>
@@ -214,8 +230,17 @@ export const Evolution = () => {
           </div>
           <div
             onMouseEnter={() => {
-              if (card2.current) {
+              if (
+                card2.current &&
+                card3.current &&
+                card4.current &&
+                card5.current
+              ) {
                 card2.current.style.transform = `translate(-75%)`
+
+                card3.current.style.transform = `translate(-100%, 0)`
+                card4.current.style.transform = `translate(-175%, 0)`
+                card5.current.style.transform = `translate(-250%, 0)`
                 card2.current.dataset.translate = `-75%`
               }
             }}
@@ -232,12 +257,18 @@ export const Evolution = () => {
           </div>
           <div
             onMouseEnter={() => {
-              if (card2.current && card3.current && card4.current) {
+              if (
+                card2.current &&
+                card3.current &&
+                card4.current &&
+                card5.current
+              ) {
                 card2.current.style.transform = `translate(-75%)`
                 card2.current.dataset.translate = `-75%`
 
                 card3.current.style.transform = `translate(-150%)`
-                card3.current.dataset.translate = `-150%`
+                card4.current.style.transform = `translate(-175%, 0)`
+                card5.current.style.transform = `translate(-250%, 0)`
               }
             }}
             ref={card3}
@@ -253,14 +284,16 @@ export const Evolution = () => {
           </div>
           <div
             onMouseEnter={() => {
-              if (card2.current && card3.current && card4.current) {
-                card2.current.style.transform = `translate(-75%)`
-                card2.current.dataset.translate = `-75%`
-                card3.current.style.transform = `translate(-150%)`
-                card3.current.dataset.translate = `-150%`
-
-                card4.current.style.transform = `translate(-225%)`
-                card4.current.dataset.translate = `-225%`
+              if (
+                card2.current &&
+                card3.current &&
+                card4.current &&
+                card5.current
+              ) {
+                card2.current.style.transform = `translate(-75%, 0)`
+                card3.current.style.transform = `translate(-150%, 0)`
+                card4.current.style.transform = `translate(-225%, 0)`
+                card5.current.style.transform = `translate(-250%, 0)`
               }
             }}
             ref={card4}

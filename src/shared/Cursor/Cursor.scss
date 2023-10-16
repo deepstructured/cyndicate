@@ -1,0 +1,40 @@
+.cursor {
+  @apply z-[5] fixed pointer-events-none w-[5.159vw] h-[5.159vw] min-w-[5.159vw] min-h-[5.159vw];
+
+  &.-hidden {
+    .content {
+      @apply opacity-0 scale-[0.5];
+    }
+  }
+
+  &.-drag {
+    .content {
+      @apply opacity-100;
+      scale: 1 !important;
+    }
+  }
+
+  &.-gold-drag {
+    .content {
+      @apply opacity-100;
+      scale: 1 !important;
+
+      background-color: $gold-primary !important;
+    }
+  }
+
+  .content {
+    @apply rounded-full flex items-center w-full h-full justify-center gap-[0.397vw] opacity-0 absolute top-0 left-0 translate-x-[-50%] translate-y-[-50%];
+
+    background-color: $milk-white !important;
+
+    scale: 0.5;
+
+    transition: 0.4s ease !important;
+    transition-property: opacity, transform, scale, background-color !important;
+
+    .drag-label {
+      @apply w-[4.762vw] h-[2vw];
+    }
+  }
+}

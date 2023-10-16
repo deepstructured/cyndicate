@@ -338,7 +338,7 @@ export const Token = () => {
             freeMode={true}
             allowTouchMove={true}
             modules={[FreeMode]}
-            className={styles.tokenCardsWrapper}
+            className={clsx(styles.tokenCardsWrapper, 'gold-drag-swiper')}
           >
             <SwiperSlide
               className={clsx(styles.tokenCard, 'opacity-0 ')}

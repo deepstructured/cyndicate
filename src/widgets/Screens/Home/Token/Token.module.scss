@@ -2,7 +2,7 @@
   @apply h-fit;
 
   div[class='container'] {
-    @apply flex flex-col gap-[6.3vh] pb-[18.5vh];
+    @apply flex flex-col gap-[6.3vh] pb-[18.5vh] px-0;
   }
 
   h2 {
@@ -16,7 +16,7 @@
   }
 
   &TopWrapper {
-    @apply w-full flex items-stretch justify-between;
+    @apply w-full flex items-stretch justify-between px-[2.646vw];
 
     .group {
       @apply flex flex-col justify-between;
@@ -65,7 +65,13 @@
   &Cards {
     @apply w-full pt-[6.3vh] min-h-[52.6vh] gap-[2.976vw] flex items-stretch relative z-[3];
 
-    border-top: 0.132vw solid rgba(255, 255, 255, 0.05);
+    &::before {
+      content: '';
+
+      @apply absolute top-0 left-[2.646vw] right-[2.646vw] h-[0.059vw];
+
+      background-color: rgba(255, 255, 255, 0.05);
+    }
 
     &Wrapper {
       @apply flex h-[52.6vh] z-[3];
@@ -90,14 +96,14 @@
     }
 
     &Block {
-      @apply flex flex-col justify-between max-w-[16.204vw] w-full absolute top-[6.3vh] bottom-0 left-0;
+      @apply flex flex-col justify-between max-w-[16.204vw] w-full absolute top-[6.3vh] bottom-0 left-[2.646vw];
     }
 
     &Logo {
       @apply w-[8.466vw] h-[11vw];
 
       svg {
-        @apply w-[105%] h-full;
+        @apply w-[107%] h-full;
       }
     }
   }

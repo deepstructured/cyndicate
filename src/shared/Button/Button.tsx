@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import styles from './Button.module.scss'
 import { ButtonHTMLAttributes, FC } from 'react'
+import { Magnetic } from '../Magnetic/Magnetic'
 
 interface IProps extends ButtonHTMLAttributes<string> {
   colorType?: 'filled' | 'transparent'
@@ -24,47 +25,51 @@ export const Button: FC<IProps> = ({
   dataDelay = '0',
 }) => {
   return isLink ? (
-    <a
-      data-start={dataStart}
-      data-duration={dataDuration}
-      data-delay={dataDelay}
-      href={href}
-      className={clsx(
-        styles.button,
-        styles[colorType],
-        className && className,
-        animated && 'reveal scale-[0.75] opacity-0'
-      )}
-    >
-      <div
+    <Magnetic>
+      <a
         data-start={dataStart}
         data-duration={dataDuration}
-        data-delay={`${Number(dataDelay) + 0.125}`}
-        className="reveal opacity-0 scale-[0.75]"
+        data-delay={dataDelay}
+        href={href}
+        className={clsx(
+          styles.button,
+          styles[colorType],
+          className && className,
+          animated && 'reveal scale-[0.75] opacity-0'
+        )}
       >
-        {children}
-      </div>
-    </a>
+        <div
+          data-start={dataStart}
+          data-duration={dataDuration}
+          data-delay={`${Number(dataDelay) + 0.125}`}
+          className="reveal opacity-0 scale-[0.75]"
+        >
+          {children}
+        </div>
+      </a>
+    </Magnetic>
   ) : (
-    <button
-      data-start={dataStart}
-      data-duration={dataDuration}
-      data-delay={dataDelay}
-      className={clsx(
-        styles.button,
-        styles[colorType],
-        className && className,
-        animated && 'reveal scale-[0.75] opacity-0'
-      )}
-    >
-      <div
+    <Magnetic>
+      <button
         data-start={dataStart}
         data-duration={dataDuration}
-        data-delay={`${Number(dataDelay) + 0.125}`}
-        className="reveal opacity-0 scale-[0.75]"
+        data-delay={dataDelay}
+        className={clsx(
+          styles.button,
+          styles[colorType],
+          className && className,
+          animated && 'reveal scale-[0.75] opacity-0'
+        )}
       >
-        {children}
-      </div>
-    </button>
+        <div
+          data-start={dataStart}
+          data-duration={dataDuration}
+          data-delay={`${Number(dataDelay) + 0.125}`}
+          className="reveal opacity-0 scale-[0.75]"
+        >
+          {children}
+        </div>
+      </button>
+    </Magnetic>
   )
 }

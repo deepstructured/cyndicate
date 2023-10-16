@@ -80,6 +80,6 @@
   }
 
   &Image {
-    @apply translate-x-[-2.646vw] w-full h-[48vh] object-cover object-center;
+    @apply relative left-[-2.646vw] w-full h-[48vh] object-cover object-center;
   }
 }

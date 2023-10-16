@@ -3,6 +3,7 @@ import styles from './OurVision.module.scss'
 import { Button } from '../../../../shared/Button/Button'
 import { useEffect, useLayoutEffect } from 'react'
 import gsap from 'gsap'
+import { Magnetic } from '../../../../shared/Magnetic/Magnetic'
 
 export const OurVision = () => {
   useEffect(() => {
@@ -123,17 +124,19 @@ export const OurVision = () => {
                     greatness
                   </p>
                 </div>
-                <img
-                  src="/images/OurVision/image.png"
-                  alt=""
-                  data-duration="0.65"
-                  data-start="top top+=100%"
-                  data-delay="0.25"
-                  className={clsx(
-                    styles.ourVisionImage,
-                    'reveal opacity-0 scale-x-[0.8]'
-                  )}
-                />
+                <Magnetic>
+                  <img
+                    src="/images/OurVision/image.png"
+                    alt=""
+                    data-duration="0.65"
+                    data-start="top top+=100%"
+                    data-delay="0.25"
+                    className={clsx(
+                      styles.ourVisionImage,
+                      'reveal opacity-0 scale-x-[0.8]'
+                    )}
+                  />
+                </Magnetic>
               </div>
               <div className={styles.ourVisionBlock}>
                 <div className={styles.ourVisionGroup}>
