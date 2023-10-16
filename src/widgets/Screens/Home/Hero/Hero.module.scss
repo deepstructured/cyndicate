@@ -1,10 +1,14 @@
 .hero {
-  @apply h-screen;
-
-  background-image: url('/images/backgrounds/hero-bg.png');
+  @apply h-screen relative;
 
   div[class='container'] {
     @apply flex flex-col;
+  }
+
+  &Background {
+    @apply absolute top-0 left-0 z-[-1] w-full h-full pointer-events-none select-none bg-no-repeat bg-cover bg-center transition-transform duration-[500ms] scale-[1.25];
+
+    background-image: url('/images/backgrounds/hero-bg.png');
   }
 
   &Wrapper {
@@ -13,6 +17,16 @@
 
   &Block {
     @apply flex flex-col gap-[6.35vh];
+
+    h1 {
+      > div {
+        @apply translate-y-[50%] rotate-[1deg] opacity-0;
+
+        > div {
+          @apply translate-y-[50%] rotate-[1deg] opacity-0;
+        }
+      }
+    }
 
     &:first-child {
       @apply max-w-[40vw] w-full;
@@ -38,15 +52,27 @@
   }
 
   .scrollLabel {
-    @apply flex items-center text-[0.783vw] gap-[1.828vw] uppercase absolute right-0 top-1/2 translate-y-[-50%] rotate-[-90deg];
+    @apply text-[0.783vw] uppercase absolute right-0 top-1/2 translate-y-[-50%] rotate-[-90deg];
 
     line-height: 80%;
 
     color: $light-grey;
+
+    > div {
+      @apply opacity-0 translate-y-[100%] flex items-center gap-[1.828vw];
+    }
   }
 
   .text {
     @apply max-w-[12.7vw] w-full;
     font-weight: 50;
+
+    > div {
+      @apply translate-y-[50%] opacity-0;
+
+      > div {
+        @apply translate-y-[50%] opacity-0;
+      }
+    }
   }
 }

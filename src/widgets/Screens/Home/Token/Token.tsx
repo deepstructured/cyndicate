@@ -15,23 +15,66 @@ export const Token = () => {
   const [swiper, setSwiper] = useState<ISwiper>()
 
   useEffect(() => {
-    if (swiper) {
-      const ctx = gsap.context(() => {
-        ScrollTrigger.create({
-          trigger: '#token',
-          start: 'top top-=25%',
-          end: 'bottom bottom-=200%',
-          scrub: 1,
-          pin: true,
-          onUpdate: (self) => {
-            swiper?.setProgress(self.progress)
-          },
+    const ctx = gsap.context(() => {
+      const h3Split: any = new SplitText(`.${styles.token} h2`, {
+        type: 'words',
+      })
+
+      const textSplit: any = new SplitText(`.${styles.tokenTopText}`, {
+        type: 'words',
+      })
+
+      const text2Split: any = new SplitText(`.${styles.tokenCardsText}`, {
+        type: 'words',
+      })
+
+      h3Split.elements.forEach((element: HTMLDivElement) => {
+        const words = Array.from(
+          element.querySelectorAll<HTMLDivElement>('div')
+        )
+
+        words.map((word, idx) => {
+          const el = word as HTMLDivElement
+
+          el.dataset.delay = `${idx * 0.025}`
+          el.dataset.duration = `0.5`
+          el.classList.add('reveal')
         })
       })
 
-      return () => ctx.revert()
-    }
-  }, [swiper])
+      textSplit.elements.forEach((element: HTMLDivElement) => {
+        const words = Array.from(
+          element.querySelectorAll<HTMLDivElement>('div')
+        )
+
+        words.map((word, idx) => {
+          const el = word as HTMLDivElement
+
+          el.dataset.delay = `${idx * 0.015 + 0.5}`
+          el.dataset.start = `top top+=100%`
+          el.dataset.duration = `0.35`
+          el.classList.add('reveal')
+        })
+      })
+
+      text2Split.elements.forEach((element: HTMLDivElement) => {
+        const words = Array.from(
+          element.querySelectorAll<HTMLDivElement>('div')
+        )
+
+        words.map((word, idx) => {
+          const el = word as HTMLDivElement
+
+          el.dataset.delay = `${idx * 0.0125 + 0.65}`
+          el.dataset.start = `top top+=100%`
+          el.dataset.duration = `0.35`
+          el.classList.add('reveal')
+        })
+      })
+    })
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section id="token" className={clsx('section', styles.token)}>
@@ -39,8 +82,20 @@ export const Token = () => {
         <div className={styles.tokenTopWrapper}>
           <div className={styles.group}>
             <div className="section-span-group">
-              <span className="section-num">005</span>
-              <span className="section-span">token</span>
+              <span
+                data-delay="0"
+                data-duration="0.45"
+                className="reveal opacity-0 translate-y-1/2 section-num"
+              >
+                005
+              </span>
+              <span
+                data-delay="0.25"
+                data-duration="0.45"
+                className="reveal opacity-0 translate-y-1/2 section-span"
+              >
+                token
+              </span>
             </div>
             <h2>
               $CYND Token: <br /> Pioneering the Future <br /> of Self Evolution
@@ -54,12 +109,24 @@ export const Token = () => {
             </p>
             <div className={styles.row}>
               <div className="quote">
-                <span className="quotes text-gold">“</span>
-                <p className="text-gold">
+                <span
+                  data-start="top top+=100%"
+                  data-duration="0.45"
+                  data-delay="0.6"
+                  className="reveal opacity-0 translate-y-1/2 quotes text-gold"
+                >
+                  “
+                </span>
+                <p
+                  data-start="top top+=100%"
+                  data-duration="0.45"
+                  data-delay="0.75"
+                  className="reveal opacity-0 translate-y-1/2 text-gold"
+                >
                   Secure Your Spot on the $CYND Token Waitlist!
                 </p>
               </div>
-              <Button>Join the Future Now</Button>
+              <Button dataDelay={'0.9'}>Join the Future Now</Button>
             </div>
           </div>
         </div>
@@ -269,12 +336,13 @@ export const Token = () => {
             slidesPerView={'auto'}
             spaceBetween={20}
             freeMode={true}
-            pagination={{
-              clickable: true,
-            }}
+            allowTouchMove={true}
             modules={[FreeMode]}
             className={styles.tokenCardsWrapper}
           >
+            <SwiperSlide
+              className={clsx(styles.tokenCard, 'opacity-0 ')}
+            ></SwiperSlide>
             <SwiperSlide className={styles.tokenCard}>
               <span className={styles.tokenCardTitle}>
                 <span className={styles.tokenCardNum}>01</span>

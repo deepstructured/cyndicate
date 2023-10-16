@@ -10,13 +10,23 @@ const Footer = () => {
             <img
               src="/images/logo-2.svg"
               alt=""
-              className={styles.footerLogo}
+              data-duration="0.65"
+              data-start="top top+=100%"
+              className={clsx(
+                styles.footerLogo,
+                'reveal opacity-0 translate-y-1/2'
+              )}
             />
           </div>
         </div>
         <div className={styles.footerBlock}>
           <div className="container">
-            <span className={styles.footerExplore}>
+            <span
+              className={clsx(
+                styles.footerExplore,
+                'reveal opacity-0 translate-y-[100%]'
+              )}
+            >
               Explore
               <svg
                 width="24"
@@ -33,7 +43,15 @@ const Footer = () => {
               </svg>
             </span>
             <div className={styles.footerCols}>
-              <div className={styles.footerCol}>
+              <div
+                data-delay="0.1"
+                data-start="top top+=100%"
+                data-duration="0.5"
+                className={clsx(
+                  styles.footerCol,
+                  'reveal opacity-0 translate-y-[25%]'
+                )}
+              >
                 <span className={styles.footerColTitle}>About Us</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
@@ -50,7 +68,15 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className={styles.footerCol}>
+              <div
+                data-delay="0.25"
+                data-start="top top+=100%"
+                data-duration="0.5"
+                className={clsx(
+                  styles.footerCol,
+                  'reveal opacity-0 translate-y-[25%]'
+                )}
+              >
                 <span className={styles.footerColTitle}>Information</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
@@ -61,7 +87,15 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div className={styles.footerCol}>
+              <div
+                data-delay="0.3"
+                data-start="top top+=100%"
+                data-duration="0.5"
+                className={clsx(
+                  styles.footerCol,
+                  'reveal opacity-0 translate-y-[25%]'
+                )}
+              >
                 <span className={styles.footerColTitle}>Follow us</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
@@ -79,7 +113,15 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <span className={styles.footerCopyright}>
+            <span
+              data-start="top top+=100%"
+              data-delay="0.5"
+              data-duration="0.4"
+              className={clsx(
+                styles.footerCopyright,
+                'reveal opacity-0 translate-y-1/2'
+              )}
+            >
               All rights reserved. Copyright ©2023
             </span>
           </div>

@@ -10,9 +10,7 @@ const App = () => {
         <Route
           key={page.path}
           path={page.path}
-          element={
-            <Layout withPreloader={page.withPreloader}>{page.element}</Layout>
-          }
+          element={<Layout>{page.element}</Layout>}
         ></Route>
       ))}
     </WithRoutes>

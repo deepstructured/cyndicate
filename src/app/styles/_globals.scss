@@ -56,56 +56,6 @@ section {
   }
 }
 
-.ticker {
-  @apply py-[15.6vh] w-full flex flex-col gap-[2.7vh] overflow-hidden;
-
-  &-row {
-    @apply flex items-center gap-[2.910vw] w-full;
-
-    .swiper-wrapper {
-      -webkit-transition-timing-function: linear !important;
-      transition-timing-function: linear !important;
-      position: relative;
-    }
-  }
-
-  &-item {
-    @apply flex gap-[1.455vw] items-start relative;
-    font-feature-settings: 'calt' off, 'liga' off;
-
-    width: fit-content !important;
-
-    &:hover {
-      span {
-        color: $gold-primary;
-
-        &:last-child {
-          border-color: $gold-primary !important;
-        }
-      }
-    }
-
-    span {
-      @apply transition-colors duration-[400ms];
-
-      color: $milk-white;
-
-      &:first-child {
-        @apply text-[5.291vw];
-        line-height: 120%;
-      }
-
-      &:last-child {
-        @apply text-[1.587vw] py-[1.058vw] pb-[0.8vw] px-[1.587vw] rounded-[3.307vw];
-
-        line-height: 100%;
-
-        border: 0.059vw solid $milk-white;
-      }
-    }
-  }
-}
-
 .quote {
   @apply flex items-center gap-[1.632vw];
 }
@@ -158,4 +108,70 @@ section {
   width: 100% !important;
   max-width: 100% !important;
   height: 100% !important;
+}
+
+.ticker {
+  @apply py-[15.6vh] w-full flex flex-col gap-[2.7vh] overflow-hidden;
+
+  &-row {
+    @apply flex items-center gap-[2.910vw] w-full;
+
+    .swiper-wrapper {
+      -webkit-transition-timing-function: linear !important;
+      transition-timing-function: linear !important;
+      position: relative;
+    }
+  }
+
+  &-init {
+    position: relative;
+    width: 100%;
+    display: block;
+
+    > div {
+      overflow: hidden;
+    }
+
+    &__list {
+      @apply flex items-center gap-[2.910vw] w-full relative;
+
+      li {
+        float: left;
+
+        @apply flex gap-[1.455vw] items-start relative;
+        font-feature-settings: 'calt' off, 'liga' off;
+
+        width: fit-content !important;
+
+        &:hover {
+          span {
+            color: $gold-primary;
+
+            &:last-child {
+              border-color: $gold-primary !important;
+            }
+          }
+        }
+
+        span {
+          @apply transition-colors duration-[400ms];
+
+          color: $milk-white;
+
+          &:first-child {
+            @apply text-[5.291vw];
+            line-height: 120%;
+          }
+
+          &:last-child {
+            @apply text-[1.587vw] py-[1.058vw] pb-[0.8vw] px-[1.587vw] rounded-[3.307vw];
+
+            line-height: 100%;
+
+            border: 0.059vw solid $milk-white;
+          }
+        }
+      }
+    }
+  }
 }

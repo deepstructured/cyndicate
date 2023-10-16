@@ -14,6 +14,13 @@
   }
 
   &Title {
+    > div {
+      @apply translate-y-[50%] opacity-0;
+
+      > div {
+        @apply translate-y-[50%] opacity-0;
+      }
+    }
   }
 
   &Circle {
@@ -36,7 +43,7 @@
   }
 
   &Card {
-    @apply h-full min-w-[67vw] w-[67vw] px-[2.646vw] py-[2.315vw] flex flex-col gap-[2.976vw] items-start bg-[#181818];
+    @apply h-full min-w-[50vw] w-[50vw] px-[2.646vw] py-[2.315vw] flex flex-col gap-[2.976vw] items-start bg-[#181818] transition-transform duration-[800ms];
 
     border: 0.099vw solid #313131;
 
@@ -44,19 +51,31 @@
     border-bottom: 0;
 
     &:nth-child(2) {
-      @apply z-[2];
+      @apply z-[2] translate-x-[-25%];
+
+      // &:hover {
+      //   @apply translate-x-[-50%];
+      // }
     }
 
     &:nth-child(3) {
-      @apply z-[3];
+      @apply z-[3] translate-x-[-100%];
+
+      // &:hover {
+      //   @apply translate-x-[-150%];
+      // }
     }
 
     &:nth-child(4) {
-      @apply z-[4];
+      @apply z-[4] translate-x-[-175%];
+
+      // &:hover {
+      //   @apply translate-x-[-225%];
+      // }
     }
 
     &:nth-child(5) {
-      @apply z-[5];
+      @apply z-[5] translate-x-[-250%];
     }
 
     &Title {

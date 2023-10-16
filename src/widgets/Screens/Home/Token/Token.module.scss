@@ -5,6 +5,16 @@
     @apply flex flex-col gap-[6.3vh] pb-[18.5vh];
   }
 
+  h2 {
+    > div {
+      @apply translate-y-[50%] opacity-0;
+
+      > div {
+        @apply translate-y-[50%] opacity-0;
+      }
+    }
+  }
+
   &TopWrapper {
     @apply w-full flex items-stretch justify-between;
 
@@ -53,12 +63,12 @@
   }
 
   &Cards {
-    @apply w-full pt-[6.3vh] gap-[2.976vw] flex items-stretch;
+    @apply w-full pt-[6.3vh] min-h-[52.6vh] gap-[2.976vw] flex items-stretch relative z-[3];
 
     border-top: 0.132vw solid rgba(255, 255, 255, 0.05);
 
     &Wrapper {
-      @apply flex h-[52.6vh] translate-x-[2.646vw];
+      @apply flex h-[52.6vh] z-[3];
 
       div[class='swiper-wrapper'] {
         @apply flex;
@@ -67,10 +77,20 @@
 
     &Text {
       @apply opacity-90 w-full;
+
+      p {
+        > div {
+          @apply translate-y-[50%] opacity-0;
+
+          > div {
+            @apply translate-y-[50%] opacity-0;
+          }
+        }
+      }
     }
 
     &Block {
-      @apply flex flex-col justify-between max-w-[16.204vw] w-full;
+      @apply flex flex-col justify-between max-w-[16.204vw] w-full absolute top-[6.3vh] bottom-0 left-0;
     }
 
     &Logo {
@@ -84,6 +104,15 @@
 
   &TopText {
     @apply text-[#A1A1A1] max-w-[26.786vw] opacity-[0.8];
+
     line-height: 150%;
+
+    > div {
+      @apply translate-y-[50%] opacity-0;
+
+      > div {
+        @apply translate-y-[50%] opacity-0;
+      }
+    }
   }
 }

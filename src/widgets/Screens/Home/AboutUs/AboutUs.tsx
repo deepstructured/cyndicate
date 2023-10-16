@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { useEffect } from 'react'
 
 import 'swiper/css'
+import { Ticker } from '../../../../entities/Ticker/Ticker'
 
 export const AboutUs = () => {
   useEffect(() => {
@@ -42,8 +43,18 @@ export const AboutUs = () => {
         <div className="container">
           <div className={styles.aboutUsWrapper}>
             <div className="section-span-group">
-              <span className="section-num">001</span>
-              <span className="section-span">about us</span>
+              <span
+                data-delay="0"
+                className="reveal opacity-0 translate-y-[50%] section-num"
+              >
+                001
+              </span>
+              <span
+                data-delay="0.25"
+                className="reveal opacity-0 translate-y-[50%] section-span"
+              >
+                about us
+              </span>
             </div>
             <div className={styles.aboutUsText}>
               <p id="about-us-text" className={styles.text}>
@@ -55,8 +66,20 @@ export const AboutUs = () => {
                 fitness, wellness, mindset, and business.
               </p>
               <div className="quote">
-                <span className="quotes text-gold">“</span>
-                <p className="text-gold">
+                <span
+                  data-start="top top+=100%"
+                  data-duration="0.75"
+                  data-delay="0"
+                  className="reveal opacity-0 translate-y-[50%] quotes text-gold"
+                >
+                  “
+                </span>
+                <p
+                  data-start="top top+=100%"
+                  data-duration="0.75"
+                  data-delay="0.3"
+                  className="reveal opacity-0 translate-y-[50%] text-gold"
+                >
                   CYNDICATE: Where Greatness Meets Lifestyle Excellence
                 </p>
               </div>
@@ -64,65 +87,10 @@ export const AboutUs = () => {
           </div>
         </div>
       </section>
+
       <div className="ticker">
-        <Swiper
-          spaceBetween={44}
-          allowTouchMove={false}
-          // autoplay={{
-          //   delay: 0,
-          //   disableOnInteraction: false,
-          // }}
-          // modules={[Autoplay]}
-          // loop={true}
-          // speed={3000}
-          className="ticker-row"
-        >
-          <SwiperSlide className="ticker-item">
-            <span>Revolution</span>
-            <span>01</span>
-          </SwiperSlide>
-          <SwiperSlide className="ticker-item">
-            <span>Exclusives</span>
-            <span>02</span>
-          </SwiperSlide>
-          <SwiperSlide className="ticker-item">
-            <span>Resolution</span>
-            <span>03</span>
-          </SwiperSlide>
-          <SwiperSlide className="ticker-item">
-            <span>Capital</span>
-            <span>04</span>
-          </SwiperSlide>
-        </Swiper>
-        <Swiper
-          spaceBetween={44}
-          allowTouchMove={false}
-          // autoplay={{
-          //   delay: 0,
-          //   disableOnInteraction: false,
-          // }}
-          // modules={[Autoplay]}
-          // loop={true}
-          // speed={3000}
-          className="ticker-row"
-        >
-          <SwiperSlide className="ticker-item">
-            <span>Revolution</span>
-            <span>01</span>
-          </SwiperSlide>
-          <SwiperSlide className="ticker-item">
-            <span>Exclusives</span>
-            <span>02</span>
-          </SwiperSlide>
-          <SwiperSlide className="ticker-item">
-            <span>Resolution</span>
-            <span>03</span>
-          </SwiperSlide>
-          <SwiperSlide className="ticker-item">
-            <span>Capital</span>
-            <span>04</span>
-          </SwiperSlide>
-        </Swiper>
+        <Ticker />
+        <Ticker />
       </div>
     </>
   )

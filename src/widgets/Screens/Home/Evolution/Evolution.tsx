@@ -15,51 +15,34 @@ export const Evolution = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set(card3.current, {
-        xPercent: -70,
+      const h2Split: any = new SplitText(`#evolution h2`, {
+        type: 'words',
       })
 
-      gsap.set(card4.current, {
-        xPercent: -155,
-      })
+      h2Split.elements.forEach((element: HTMLDivElement) => {
+        const words = Array.from(
+          element.querySelectorAll<HTMLDivElement>('div')
+        )
 
-      gsap.set(card5.current, {
-        xPercent: -240,
+        words.map((word, idx) => {
+          const el = word as HTMLDivElement
+
+          el.dataset.delay = `${idx * 0.025 + 0.15}`
+          el.dataset.duration = `0.65`
+          el.classList.add('reveal')
+        })
       })
 
       ScrollTrigger.create({
         trigger: '#evolution',
-        start: 'top top',
-        end: 'bottom bottom-=500%',
+        start: 'top top+=100%',
+        end: 'bottom bottom-=50%',
         scrub: 1,
-        pin: true,
         onUpdate: (self) => {
           gsap.to(circle.current, {
             rotate: 3.6 * self.progress * 100,
           })
         },
-        animation: gsap
-          .timeline()
-          .to(card2.current, {
-            xPercent: -85,
-            ease: 'ease',
-            duration: 10,
-          })
-          .to(card3.current, {
-            xPercent: -170,
-            ease: 'ease',
-            duration: 10,
-          })
-          .to(card4.current, {
-            xPercent: -255,
-            ease: 'ease',
-            duration: 10,
-          })
-          .to(card5.current, {
-            xPercent: -340,
-            ease: 'ease',
-            duration: 10,
-          }),
       })
     })
 
@@ -75,8 +58,20 @@ export const Evolution = () => {
       <div className="container">
         <div className={styles.evolutionTopWrapper}>
           <div className={styles.group}>
-            <span className="section-span">evolution</span>
-            <span className="section-num">004</span>
+            <span
+              data-duration="0.45"
+              data-delay="0"
+              className="reveal opacity-0 translate-x-full section-span"
+            >
+              evolution
+            </span>
+            <span
+              data-duration="0.45"
+              data-delay="0.25"
+              className="reveal opacity-0 translate-x-full section-num"
+            >
+              004
+            </span>
           </div>
           <h2 className={styles.evolutionTitle}>
             Why CYNDICATE <br /> Evolution?
@@ -217,7 +212,16 @@ export const Evolution = () => {
             </p>
             <span className={styles.evolutionCardNum}>01</span>
           </div>
-          <div ref={card2} className={styles.evolutionCard}>
+          <div
+            onMouseEnter={() => {
+              if (card2.current) {
+                card2.current.style.transform = `translate(-75%)`
+                card2.current.dataset.translate = `-75%`
+              }
+            }}
+            ref={card2}
+            className={styles.evolutionCard}
+          >
             <span className={styles.evolutionCardTitle}>
               {evolutionCardsData[1].title}
             </span>
@@ -226,7 +230,19 @@ export const Evolution = () => {
             </p>
             <span className={styles.evolutionCardNum}>02</span>
           </div>
-          <div ref={card3} className={styles.evolutionCard}>
+          <div
+            onMouseEnter={() => {
+              if (card2.current && card3.current && card4.current) {
+                card2.current.style.transform = `translate(-75%)`
+                card2.current.dataset.translate = `-75%`
+
+                card3.current.style.transform = `translate(-150%)`
+                card3.current.dataset.translate = `-150%`
+              }
+            }}
+            ref={card3}
+            className={styles.evolutionCard}
+          >
             <span className={styles.evolutionCardTitle}>
               {evolutionCardsData[2].title}
             </span>
@@ -235,7 +251,21 @@ export const Evolution = () => {
             </p>
             <span className={styles.evolutionCardNum}>03</span>
           </div>
-          <div ref={card4} className={styles.evolutionCard}>
+          <div
+            onMouseEnter={() => {
+              if (card2.current && card3.current && card4.current) {
+                card2.current.style.transform = `translate(-75%)`
+                card2.current.dataset.translate = `-75%`
+                card3.current.style.transform = `translate(-150%)`
+                card3.current.dataset.translate = `-150%`
+
+                card4.current.style.transform = `translate(-225%)`
+                card4.current.dataset.translate = `-225%`
+              }
+            }}
+            ref={card4}
+            className={styles.evolutionCard}
+          >
             <span className={styles.evolutionCardTitle}>
               {evolutionCardsData[3].title}
             </span>
@@ -244,7 +274,28 @@ export const Evolution = () => {
             </p>
             <span className={styles.evolutionCardNum}>04</span>
           </div>
-          <div ref={card5} className={styles.evolutionCard}>
+          <div
+            onMouseEnter={() => {
+              if (
+                card2.current &&
+                card3.current &&
+                card4.current &&
+                card5.current
+              ) {
+                card2.current.style.transform = `translate(-75%)`
+                card2.current.dataset.translate = `-75%`
+                card3.current.style.transform = `translate(-150%)`
+                card3.current.dataset.translate = `-150%`
+                card4.current.style.transform = `translate(-225%)`
+                card4.current.dataset.translate = `-225%`
+
+                card5.current.style.transform = `translate(-300%)`
+                card5.current.dataset.translate = `-300%`
+              }
+            }}
+            ref={card5}
+            className={styles.evolutionCard}
+          >
             <span className={styles.evolutionCardTitle}>
               {evolutionCardsData[4].title}
             </span>
