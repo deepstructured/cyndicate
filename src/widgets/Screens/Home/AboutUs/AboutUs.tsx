@@ -88,9 +88,9 @@ export const AboutUs = () => {
         </div>
       </section>
 
-      <div className="ticker">
+      <div className="ticker-wrapper">
         <Ticker />
-        <Ticker />
+        <Ticker direction={-1} />
       </div>
     </>
   )

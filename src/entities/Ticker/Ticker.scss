@@ -1,0 +1,87 @@
+.ticker-wrapper {
+  @apply flex flex-col py-[15.6vh] gap-[1.587vw] w-full;
+}
+
+.ticker {
+  @apply w-full flex items-center gap-[2.910vw] relative;
+
+  &__list {
+    @apply flex items-center gap-[2.910vw] w-full min-w-full absolute top-0 left-0 right-0 bottom-0 h-full;
+
+    transform: translateX(0);
+
+    animation: carouselAnimationHero 30s infinite linear;
+
+    li {
+      float: left;
+
+      @apply flex gap-[1.455vw] items-start relative;
+      font-feature-settings: 'calt' off, 'liga' off;
+
+      width: fit-content !important;
+
+      > * {
+        @apply pointer-events-none;
+      }
+
+      &.hover {
+        img {
+          animation: imgAppear 1.5s forwards ease;
+        }
+      }
+
+      img {
+        @apply absolute top-1/2 left-1/2 w-[10.714vw] h-[10.714vw] object-cover object-center transition-transform scale-0 rounded-[0.840vw] translate-x-[-50%] translate-y-[-50%];
+
+        // translate: -50% -50% !important;
+
+        &:nth-child(2) {
+          animation-delay: 0.5s;
+        }
+      }
+
+      &:hover {
+        span {
+          color: $gold-primary;
+
+          &:last-child {
+            border-color: $gold-primary !important;
+          }
+        }
+      }
+
+      span {
+        @apply transition-colors duration-[400ms];
+
+        color: $milk-white;
+
+        &:first-child {
+          @apply text-[5.291vw];
+          line-height: 120%;
+        }
+
+        &:nth-child(2) {
+          @apply text-[1.587vw] py-[1.058vw] pb-[0.8vw] px-[1.587vw] rounded-[3.307vw];
+
+          line-height: 100%;
+
+          border: 0.059vw solid $milk-white;
+        }
+      }
+    }
+  }
+}
+
+@keyframes imgAppear {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+}
