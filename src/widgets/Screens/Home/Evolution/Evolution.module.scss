@@ -2,7 +2,7 @@
   @apply h-fit;
 
   div[class='container'] {
-    @apply flex flex-col gap-[6.9vh] px-0;
+    @apply flex flex-col gap-[6.9vh] px-0 pt-[25vh];
   }
 
   &TopWrapper {

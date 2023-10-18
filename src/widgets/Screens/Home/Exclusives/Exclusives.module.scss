@@ -1,15 +1,19 @@
 .exclusives {
-  @apply h-screen;
+  @apply h-screen overflow-hidden;
+
+  div[class='container'] {
+    @apply px-0 pt-[0];
+  }
 
   &Wrapper {
     @apply w-full h-full flex flex-col;
   }
 
   &Card {
-    @apply p-[0.992vw] relative rounded-[1.587vw] overflow-hidden;
+    @apply p-[0.992vw] rounded-[1.587vw] overflow-hidden relative;
 
-    // width: 20.833vw !important;
-    // min-width: 20.833vw !important;
+    width: 20.833vw !important;
+    min-width: 20.833vw !important;
     height: 45.6vh !important;
 
     img {
@@ -27,15 +31,28 @@
   }
 
   &Carousel {
-    @apply w-full;
+    @apply w-full flex-1 relative;
   }
 
   &Swiper {
-    width: 100% !important;
+    @apply w-[175vw] h-[175vw] flex absolute top-1/2 left-1/2 rounded-full;
+
+    // transition: transform 0.1s ease !important;
+
+    translate: -50% -8% !important;
+    transform-origin: center !important;
+
+    .line {
+      @apply h-full w-0 flex flex-col justify-between items-center absolute left-1/2 translate-x-[-50%];
+
+      > div:last-child {
+        @apply rotate-[180deg];
+      }
+    }
   }
 
   &InfoPanel {
-    @apply w-full mt-auto gap-[8vh] flex flex-col items-center justify-center;
+    @apply w-full mt-auto gap-[8vh] flex flex-col items-center justify-center px-[2.646vw];
 
     &Top {
       @apply flex items-center gap-[5.985vw];

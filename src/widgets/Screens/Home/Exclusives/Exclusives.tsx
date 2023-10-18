@@ -1,13 +1,82 @@
 import clsx from 'clsx'
 import styles from './Exclusives.module.scss'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { ISwiper } from '../../../../interfaces/ISwiper'
-
 export const Exclusives = () => {
-  const [swiper, setSwiper] = useState<ISwiper>()
+  const refContainer = useRef<HTMLDivElement>(null)
+
+  const [dragging, setDragging] = useState<boolean>(false)
+  const [angle, setAngle] = useState<number>(0)
+  const [degrees, setDegrees] = useState<number[]>([])
+
+  useEffect(() => console.log(degrees), [degrees])
+  useEffect(() => console.log(angle), [angle])
+
+  function findClosestDegree(targetDegree: number, degreeArray: number[]) {
+    if (refContainer.current) {
+      if (!degreeArray || degreeArray.length === 0) {
+        return null
+      }
+
+      degreeArray.sort((a, b) => a - b)
+
+      let closest = degreeArray[0]
+      let minDifference = Math.abs(targetDegree - closest)
+
+      for (let i = 1; i < degreeArray.length; i++) {
+        const currentDifference = Math.abs(targetDegree - degreeArray[i])
+        if (currentDifference < minDifference) {
+          closest = degreeArray[i]
+          minDifference = currentDifference
+        }
+      }
+
+      return closest
+    }
+  }
+
+  useEffect(() => {
+    if (refContainer.current) {
+      if (angle < 360) {
+        if (angle > 0) {
+          refContainer.current.style.transform = `rotate(${findClosestDegree(
+            angle,
+            degrees
+          )}deg)`
+        }
+
+        if (angle < 0) {
+          refContainer.current.style.transform = `rotate(-${findClosestDegree(
+            angle > 0 ? angle : angle * -1,
+            degrees
+          )}deg)`
+        }
+      }
+
+      if (angle > 360) {
+        const difference = angle - 360
+        const targetAngle = findClosestDegree(difference, degrees)
+
+        if (targetAngle) {
+          refContainer.current.style.transform = `rotate(${
+            360 + targetAngle
+          }deg)`
+        }
+      }
+
+      if (angle < -360) {
+        const difference = angle * -1 - 360
+        const targetAngle = findClosestDegree(difference, degrees)
+
+        if (targetAngle) {
+          refContainer.current.style.transform = `rotate(-${
+            360 + targetAngle
+          }deg)`
+        }
+      }
+    }
+  }, [angle])
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -29,12 +98,116 @@ export const Exclusives = () => {
     return () => ctx.revert()
   }, [])
 
-  const [activeIndex, setActiveIndex] = useState<number>(0)
-  const [centerIndex, setCenterIndex] = useState<number>(2)
-
   useEffect(() => {
-    console.log(activeIndex)
-  }, [activeIndex])
+    const ctx = gsap.context(() => {
+      if (refContainer.current) {
+        const lines = Array.from(
+          refContainer.current.querySelectorAll<HTMLDivElement>(
+            `.${styles.line}`
+          )
+        )
+        const rotation = 360 / lines.length
+
+        lines.forEach((line, idx) => {
+          line.style.rotate = `${idx * rotation}deg`
+          degrees.push(idx * rotation)
+        })
+        ;(function () {
+          var init,
+            rotate: any,
+            start: any,
+            stop: any,
+            active = false,
+            angle = 0,
+            rotation = 0,
+            startAngle = 0,
+            center = {
+              x: 0,
+              y: 0,
+            },
+            R2D = 180 / Math.PI,
+            init: any = function () {
+              if (refContainer.current) {
+                refContainer.current.addEventListener('mousedown', start, false)
+                refContainer.current.addEventListener(
+                  'mousemove',
+                  function (event) {
+                    if (active === true) {
+                      event.preventDefault()
+                      rotate(event)
+                    }
+                  }
+                )
+                refContainer.current.addEventListener(
+                  'mouseup',
+                  function (event) {
+                    event.preventDefault()
+                    stop(event)
+                  }
+                )
+              }
+            }
+
+          start = function (e: any) {
+            if (refContainer.current) {
+              setDragging(true)
+
+              e.preventDefault()
+
+              var bb = refContainer.current.getBoundingClientRect(),
+                t = bb.top,
+                l = bb.left,
+                h = bb.height,
+                w = bb.width,
+                x,
+                y
+              center = {
+                x: l + w / 2,
+                y: t + h / 2,
+              }
+              x = e.clientX - center.x
+              y = e.clientY - center.y
+              startAngle = R2D * Math.atan2(y, x)
+              return (active = true)
+            }
+          }
+
+          rotate = function (e: any) {
+            if (refContainer.current) {
+              e.preventDefault()
+              var x = e.clientX - center.x,
+                y = e.clientY - center.y,
+                d = R2D * Math.atan2(y, x)
+              rotation = d - startAngle
+
+              return (refContainer.current.style.webkitTransform =
+                'rotate(' + (angle + rotation) + 'deg)')
+            }
+          }
+
+          stop = function () {
+            setDragging(false)
+
+            angle += rotation
+            setAngle(angle)
+            if (refContainer.current) {
+              refContainer.current.style.transition = `transform 1s ease`
+            }
+            findClosestDegree(angle, degrees)
+            return (active = false)
+          }
+
+          init()
+        }).call(this)
+      }
+    })
+
+    return () => ctx.revert()
+  }, [])
+
+  // useEffect(() => {
+  //   !dragging && alert('stopped')
+  // }, [dragging])
 
   return (
     <>
@@ -45,55 +218,176 @@ export const Exclusives = () => {
         <div className="container">
           <div className={styles.exclusivesWrapper}>
             <div className={styles.exclusivesCarousel}>
-              <Swiper
-                onSwiper={(swiper) => setSwiper(swiper)}
-                onSlideChange={(swiper) => setActiveIndex(swiper?.realIndex)}
-                slidesPerView={5}
-                spaceBetween={45}
-                loop={true}
+              <div
+                id="rotate"
+                ref={refContainer}
                 className={clsx(styles.exclusivesSwiper, 'drag-swiper')}
               >
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/1.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/2.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/3.png" alt="" />
-                  <span>CENTER</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/4.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/5.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/1.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/2.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/3.png" alt="" />
-                  <span>CENTER</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/4.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-                <SwiperSlide className={styles.exclusivesCard}>
-                  <img src="/images/Exclusives/5.png" alt="" />
-                  <span>Sweatshirt</span>
-                </SwiperSlide>
-              </Swiper>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+                <div className={styles.line}>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                  <div className={styles.exclusivesCard}>
+                    <img src="/images/Exclusives/5.png" alt="" />
+                    <span>Sweatshirt</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={styles.exclusivesInfoPanel}>
               <div className={styles.exclusivesInfoPanelTop}>
