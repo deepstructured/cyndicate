@@ -10,6 +10,7 @@ import { ISwiper } from '../../../../interfaces/ISwiper'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/free-mode'
+import { tokenCards } from '../../../../data'
 
 export const Token = () => {
   const [swiper, setSwiper] = useState<ISwiper>()
@@ -349,84 +350,16 @@ export const Token = () => {
                 className={clsx(styles.tokenCard, 'opacity-0 ')}
               ></SwiperSlide>
             )}
-            <SwiperSlide className={styles.tokenCard}>
-              <span className={styles.tokenCardTitle}>
-                <span className={styles.tokenCardNum}>01</span>
-                Access to Premium Education Content
-              </span>
-              <p className={styles.tokenCardText}>
-                When you hold $CYND tokens, you gain privileged access to
-                premium educational content on our platform. These tokens serve
-                as your key to unlock advanced courses, exclusive webinars, and
-                in-depth resources that cater to your personal and professional
-                development.
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className={styles.tokenCard}>
-              <span className={styles.tokenCardTitle}>
-                <span className={styles.tokenCardNum}>01</span>
-                Access to Premium Education Content
-              </span>
-              <p className={styles.tokenCardText}>
-                When you hold $CYND tokens, you gain privileged access to
-                premium educational content on our platform. These tokens serve
-                as your key to unlock advanced courses, exclusive webinars, and
-                in-depth resources that cater to your personal and professional
-                development.
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className={styles.tokenCard}>
-              <span className={styles.tokenCardTitle}>
-                <span className={styles.tokenCardNum}>01</span>
-                Access to Premium Education Content
-              </span>
-              <p className={styles.tokenCardText}>
-                When you hold $CYND tokens, you gain privileged access to
-                premium educational content on our platform. These tokens serve
-                as your key to unlock advanced courses, exclusive webinars, and
-                in-depth resources that cater to your personal and professional
-                development.
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className={styles.tokenCard}>
-              <span className={styles.tokenCardTitle}>
-                <span className={styles.tokenCardNum}>01</span>
-                Access to Premium Education Content
-              </span>
-              <p className={styles.tokenCardText}>
-                When you hold $CYND tokens, you gain privileged access to
-                premium educational content on our platform. These tokens serve
-                as your key to unlock advanced courses, exclusive webinars, and
-                in-depth resources that cater to your personal and professional
-                development.
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className={styles.tokenCard}>
-              <span className={styles.tokenCardTitle}>
-                <span className={styles.tokenCardNum}>01</span>
-                Access to Premium Education Content
-              </span>
-              <p className={styles.tokenCardText}>
-                When you hold $CYND tokens, you gain privileged access to
-                premium educational content on our platform. These tokens serve
-                as your key to unlock advanced courses, exclusive webinars, and
-                in-depth resources that cater to your personal and professional
-                development.
-              </p>
-            </SwiperSlide>
-            <SwiperSlide className={styles.tokenCard}>
-              <span className={styles.tokenCardTitle}>
-                <span className={styles.tokenCardNum}>01</span>
-                Access to Premium Education Content
-              </span>
-              <p className={styles.tokenCardText}>
-                When you hold $CYND tokens, you gain privileged access to
-                premium educational content on our platform. These tokens serve
-                as your key to unlock advanced courses, exclusive webinars, and
-                in-depth resources that cater to your personal and professional
-                development.
-              </p>
-            </SwiperSlide>
+
+            {tokenCards.map((card, idx) => (
+              <SwiperSlide className={styles.tokenCard}>
+                <span className={styles.tokenCardTitle}>
+                  <span className={styles.tokenCardNum}>0{idx + 1}</span>
+                  {card.title}
+                </span>
+                <p className={styles.tokenCardText}>{card.text}</p>
+              </SwiperSlide>
+            ))}
           </Swiper>
           {window.innerWidth <= 768 && (
             <div className={styles.tokenBullets}>

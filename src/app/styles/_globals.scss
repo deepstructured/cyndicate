@@ -4,10 +4,14 @@ body {
   color: #fafafa;
   font-size: 1.044vw;
   background-color: #181818;
+  overflow-x: hidden !important;
+
+  &.page-loaded {
+    overflow-y: scroll !important;
+  }
 
   @media (max-width: $tablet) {
     font-size: 4.103vw;
-    overflow-x: hidden;
   }
 
   &::-webkit-scrollbar {

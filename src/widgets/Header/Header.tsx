@@ -9,7 +9,7 @@ import { Button } from '../../shared/Button/Button'
 
 const Header = () => {
   return (
-    <header className={styles.header}>
+    <header className={clsx(styles.header, 'reveal')}>
       <div
         data-delay="0.25"
         data-duration="0.75"

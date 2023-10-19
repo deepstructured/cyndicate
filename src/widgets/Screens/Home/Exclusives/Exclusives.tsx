@@ -198,7 +198,7 @@ export const Exclusives = () => {
                 e.preventDefault()
                 var x = e.clientX - center.x,
                   y = e.clientY - center.y,
-                  d = R2D * Math.atan2(y, x)
+                  d = R2D * Math.atan2(y, x * 2)
                 rotation = d - startAngle
 
                 return (refContainer.current.style.webkitTransform =
@@ -211,9 +211,7 @@ export const Exclusives = () => {
 
               angle += rotation
               setAngle(angle)
-              if (refContainer.current) {
-                refContainer.current.style.transition = `transform 1s ease`
-              }
+
               findClosestDegree(angle, degrees)
               return (active = false)
             }
@@ -242,6 +240,18 @@ export const Exclusives = () => {
                   ref={refContainer}
                   className={clsx(styles.exclusivesSwiper, 'drag-swiper')}
                 >
+                  {/* 1 */}
+                  <div className={styles.line}>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/3.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/3.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                  </div>
+                  {/* 2 */}
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/5.png" alt="" />
@@ -252,9 +262,10 @@ export const Exclusives = () => {
                       <span>Sweatshirt</span>
                     </div>
                   </div>
+                  {/* 3 */}
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/2.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
@@ -262,26 +273,74 @@ export const Exclusives = () => {
                       <span>Sweatshirt</span>
                     </div>
                   </div>
+                  {/* 4 */}
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/4.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/4.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>
+                  {/* 5 */}
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/4.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>
+                  {/* 6 */}
+                  <div className={styles.line}>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/3.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/2.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                  </div>
+                  {/* 7 */}
+                  <div className={styles.line}>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/4.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/4.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                  </div>
+                  {/* 8 */}
+
+                  <div className={styles.line}>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/1.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/1.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                  </div>
+                  {/* 9 */}
+                  <div className={styles.line}>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/3.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                    <div className={styles.exclusivesCard}>
+                      <img src="/images/Exclusives/3.png" alt="" />
+                      <span>Sweatshirt</span>
+                    </div>
+                  </div>
+                  {/* 10 */}
 
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
@@ -294,115 +353,64 @@ export const Exclusives = () => {
                     </div>
                   </div>
 
+                  {/* 11 */}
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                  </div>
-
-                  <div className={styles.line}>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                  </div>
-
-                  <div className={styles.line}>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                  </div>
-                  <div className={styles.line}>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                  </div>
-                  <div className={styles.line}>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                  </div>
-                  <div className={styles.line}>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Sweatshirt</span>
-                    </div>
-                    <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                     <div className={styles.exclusivesCard}>
-                      <img src="/images/Exclusives/5.png" alt="" />
+                      <img src="/images/Exclusives/1.png" alt="" />
                       <span>Sweatshirt</span>
                     </div>
                   </div>

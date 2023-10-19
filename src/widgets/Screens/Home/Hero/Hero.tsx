@@ -1,27 +1,37 @@
 import clsx from 'clsx'
 import styles from './Hero.module.scss'
-import { useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { Button } from '../../../../shared/Button/Button'
+import { MainContext } from '../../../../app/providers/MainContext'
 
 export const Hero = () => {
+  const { pageLoaded } = useContext(MainContext)
   const heroBg = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: heroBg.current,
-        start: 'top top+=100%',
-        end: 'bottom bottom',
-        onEnter: () =>
-          gsap.to(heroBg.current, {
-            scale: 1,
-            duration: 0.1,
-            delay: 0,
-            ease: 'ease',
-          }),
-      })
+      if (pageLoaded) {
+        ScrollTrigger.create({
+          trigger: heroBg.current,
+          start: 'top top+=100%',
+          end: 'bottom bottom',
+          onEnter: () =>
+            gsap.to(heroBg.current, {
+              scale: 1,
+              duration: 0.1,
+              delay: 0,
+              ease: 'ease',
+            }),
+        })
+      }
+    })
 
+    return () => ctx.revert()
+  }, [pageLoaded])
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
       const h1Split: any = new SplitText(`.${styles.heroBlock} h1`, {
         type: 'words',
       })

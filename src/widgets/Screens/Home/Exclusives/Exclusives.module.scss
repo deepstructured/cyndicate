@@ -72,7 +72,7 @@
   &Swiper {
     @apply w-[175vw] h-[175vw] flex absolute top-1/2 left-1/2 rounded-full;
 
-    // transition: transform 0.1s ease !important;
+    transition: transform 1s ease !important;
 
     translate: -50% -8% !important;
     transform-origin: center !important;

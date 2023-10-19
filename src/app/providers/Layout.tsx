@@ -8,6 +8,7 @@ import { Menu } from '../../widgets/Menu/Menu'
 import { useLocation } from 'react-router-dom'
 import { WithScrollSmoother } from './WithScrollSmoother'
 import { Cursor } from '../../shared/Cursor/Cursor'
+import { Preloader } from '../../widgets/Preloader/Preloader'
 
 interface IProps {
   children: ReactNode
@@ -15,7 +16,7 @@ interface IProps {
 
 export const Layout: FC<IProps> = ({ children }) => {
   const [currentPage, setCurrentPage] = useState<string>('')
-  const [pageLoaded, setPageLoaded] = useState<boolean>(true)
+  const [pageLoaded, setPageLoaded] = useState<boolean>(false)
   const [activeScreen, setActiveScreen] = useState<number>(0)
   const [direction, setDirection] = useState<string>('')
   const [menuActive, setMenuActive] = useState<boolean>(false)
@@ -47,6 +48,7 @@ export const Layout: FC<IProps> = ({ children }) => {
     >
       <Menu />
       <Header />
+      <Preloader />
       {window.innerWidth > 768 && <Cursor />}
       <WithScrollSmoother>
         {children}
