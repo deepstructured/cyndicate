@@ -19,10 +19,18 @@
     @apply pt-[6.9vh] flex flex-col gap-[14.4vh];
 
     border-top: 0.1vw solid rgba(255, 255, 255, 0.1);
+
+    @media (max-width: $tablet) {
+      @apply flex-col;
+    }
   }
 
   &Content {
     @apply w-full flex items-stretch gap-[6.614vw];
+
+    @media (max-width: $tablet) {
+      @apply flex-col;
+    }
   }
 
   &Group {
@@ -31,6 +39,10 @@
 
   &Block {
     @apply flex flex-col gap-[12.13vh];
+
+    @media (max-width: $tablet) {
+      @apply gap-[14.103vw];
+    }
 
     &:first-child {
       .ourVisionTitle {
@@ -51,6 +63,10 @@
         .ourVisionText {
           @apply max-w-[21.164vw] w-full;
 
+          @media (max-width: $tablet) {
+            @apply max-w-full;
+          }
+
           > div {
             @apply translate-y-[50%] opacity-0;
 
@@ -63,6 +79,10 @@
 
       .row {
         @apply w-full flex items-center justify-between;
+
+        @media (max-width: $tablet) {
+          @apply mt-[19.487vw] flex-col items-center justify-center;
+        }
       }
     }
   }
@@ -71,8 +91,20 @@
     @apply text-[3.638vw] relative;
     line-height: 120%;
 
+    @media (max-width: $tablet) {
+      @apply text-[8.205vw];
+
+      max-width: 100% !important;
+      width: 100% !important;
+      line-height: 125% !important;
+    }
+
     .line {
       @apply w-[11.243vw] h-[4.464vw] absolute top-[-1.67vh] left-[2.646vw];
+
+      @media (max-width: $tablet) {
+        @apply w-[26.154vw] h-[10.513vw];
+      }
 
       stroke-dashoffset: 1000;
       stroke-dasharray: 1000;
@@ -81,5 +113,9 @@
 
   &Image {
     @apply relative left-[-2.646vw] w-full h-[48vh] object-cover object-center;
+
+    @media (max-width: $tablet) {
+      @apply left-0 h-[62.564vw];
+    }
   }
 }

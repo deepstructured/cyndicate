@@ -5,6 +5,11 @@ body {
   font-size: 1.044vw;
   background-color: #181818;
 
+  @media (max-width: $tablet) {
+    font-size: 4.103vw;
+    overflow-x: hidden;
+  }
+
   &::-webkit-scrollbar {
     @apply appearance-none w-[0.529vw];
   }
@@ -15,11 +20,30 @@ body {
   }
 }
 
+#exclusives-cards-swiper {
+  .swiper-slide.swiper-slide-active {
+    @apply translate-x-[35%];
+  }
+
+  .swiper-slide.swiper-slide-next {
+    @apply rotate-[9.5deg] translate-y-[10%] translate-x-[50%];
+  }
+
+  .swiper-slide.swiper-slide-prev {
+    @apply rotate-[-9.5deg] translate-y-[10%] translate-x-[20%];
+  }
+}
+
 h1 {
   font-size: 7.18vw !important;
   line-height: 100% !important;
   font-weight: 500 !important;
   font-feature-settings: 'calt' off, 'liga' off;
+
+  @media (max-width: $tablet) {
+    font-size: 14.103vw !important;
+    line-height: 105% !important;
+  }
 }
 
 h2 {
@@ -27,6 +51,11 @@ h2 {
   line-height: 115% !important;
   font-weight: 500 !important;
   font-feature-settings: 'calt' off, 'liga' off;
+
+  @media (max-width: $tablet) {
+    font-size: 8.205vw !important;
+    line-height: 125% !important;
+  }
 }
 
 big {
@@ -34,13 +63,25 @@ big {
   line-height: 100%;
   color: $milk-white;
   letter-spacing: -0.728vw;
+
+  @media (max-width: $tablet) {
+    @apply text-[15.385vw];
+  }
 }
 
 section {
   @apply h-fit min-h-[100vh] bg-center bg-cover bg-no-repeat relative;
 
+  @media (max-width: $tablet) {
+    @apply overflow-hidden;
+  }
+
   &.exclusives-word {
     @apply flex items-center justify-center;
+
+    @media (max-width: $tablet) {
+      @apply h-[50vh];
+    }
   }
 
   &.animated {
@@ -67,24 +108,41 @@ section {
 
 .quote {
   @apply flex items-center gap-[1.632vw];
+
+  @media (max-width: $tablet) {
+    @apply gap-[6.410vw];
+  }
 }
 
 .quotes {
   @apply font-medium;
   line-height: 0;
   font-size: 3.916vw !important;
+
+  @media (max-width: $tablet) {
+    font-size: 15.385vw !important;
+  }
 }
 
 .text-gold {
   @apply text-[1.190vw];
   color: $gold-primary;
   line-height: 145%;
+
+  @media (max-width: $tablet) {
+    @apply text-[4.103vw];
+  }
 }
 
 .text-white {
   @apply text-[1.190vw];
   color: #fff;
   line-height: 145%;
+
+  @media (max-width: $tablet) {
+    @apply text-[4.615vw];
+    line-height: 140%;
+  }
 }
 
 .text-grey {
@@ -98,11 +156,19 @@ section {
 .section-span {
   @apply text-[0.914vw] uppercase;
 
+  @media (max-width: $tablet) {
+    @apply text-[3.590vw];
+  }
+
   color: $gold-primary;
 }
 
 .section-num {
   @apply text-[0.914vw] uppercase;
+
+  @media (max-width: $tablet) {
+    @apply text-[3.590vw];
+  }
 
   color: $light-grey;
   letter-spacing: 0.64vw;

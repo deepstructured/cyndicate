@@ -61,14 +61,22 @@ export const Evolution = () => {
             <span
               data-duration="0.45"
               data-delay="0"
-              className="reveal opacity-0 translate-x-full section-span"
+              className={
+                window.innerWidth > 768
+                  ? 'reveal opacity-0 translate-x-full section-span'
+                  : 'reveal opacity-0 translate-y-full section-span'
+              }
             >
               evolution
             </span>
             <span
               data-duration="0.45"
               data-delay="0.25"
-              className="reveal opacity-0 translate-x-full section-num"
+              className={
+                window.innerWidth > 768
+                  ? 'reveal opacity-0 translate-x-full section-num'
+                  : 'reveal opacity-0 translate-y-full section-num'
+              }
             >
               004
             </span>
@@ -204,12 +212,22 @@ export const Evolution = () => {
         </div>
         <div className={styles.evolutionCards}>
           <div
+            onClick={(ev) => {
+              if (window.innerWidth <= 768) {
+                const target = ev.target as HTMLDivElement
+
+                !target.classList.contains(`${styles.mobileActive}`)
+                  ? target.classList.add(`${styles.mobileActive}`)
+                  : target.classList.remove(`${styles.mobileActive}`)
+              }
+            }}
             onMouseEnter={() => {
               if (
                 card2.current &&
                 card3.current &&
                 card4.current &&
-                card5.current
+                card5.current &&
+                window.innerWidth > 768
               ) {
                 card2.current.style.transform = `translate(-25%, 0)`
                 card3.current.style.transform = `translate(-100%, 0)`
@@ -229,12 +247,22 @@ export const Evolution = () => {
             <span className={styles.evolutionCardNum}>01</span>
           </div>
           <div
+            onClick={(ev) => {
+              if (window.innerWidth <= 768) {
+                const target = ev.target as HTMLDivElement
+
+                !target.classList.contains(`${styles.mobileActive}`)
+                  ? target.classList.add(`${styles.mobileActive}`)
+                  : target.classList.remove(`${styles.mobileActive}`)
+              }
+            }}
             onMouseEnter={() => {
               if (
                 card2.current &&
                 card3.current &&
                 card4.current &&
-                card5.current
+                card5.current &&
+                window.innerWidth > 768
               ) {
                 card2.current.style.transform = `translate(-75%)`
 
@@ -256,12 +284,22 @@ export const Evolution = () => {
             <span className={styles.evolutionCardNum}>02</span>
           </div>
           <div
+            onClick={(ev) => {
+              if (window.innerWidth <= 768) {
+                const target = ev.target as HTMLDivElement
+
+                !target.classList.contains(`${styles.mobileActive}`)
+                  ? target.classList.add(`${styles.mobileActive}`)
+                  : target.classList.remove(`${styles.mobileActive}`)
+              }
+            }}
             onMouseEnter={() => {
               if (
                 card2.current &&
                 card3.current &&
                 card4.current &&
-                card5.current
+                card5.current &&
+                window.innerWidth > 768
               ) {
                 card2.current.style.transform = `translate(-75%)`
                 card2.current.dataset.translate = `-75%`
@@ -283,12 +321,22 @@ export const Evolution = () => {
             <span className={styles.evolutionCardNum}>03</span>
           </div>
           <div
+            onClick={(ev) => {
+              if (window.innerWidth <= 768) {
+                const target = ev.target as HTMLDivElement
+
+                !target.classList.contains(`${styles.mobileActive}`)
+                  ? target.classList.add(`${styles.mobileActive}`)
+                  : target.classList.remove(`${styles.mobileActive}`)
+              }
+            }}
             onMouseEnter={() => {
               if (
                 card2.current &&
                 card3.current &&
                 card4.current &&
-                card5.current
+                card5.current &&
+                window.innerWidth > 768
               ) {
                 card2.current.style.transform = `translate(-75%, 0)`
                 card3.current.style.transform = `translate(-150%, 0)`
@@ -308,12 +356,22 @@ export const Evolution = () => {
             <span className={styles.evolutionCardNum}>04</span>
           </div>
           <div
+            onClick={(ev) => {
+              if (window.innerWidth <= 768) {
+                const target = ev.target as HTMLDivElement
+
+                !target.classList.contains(`${styles.mobileActive}`)
+                  ? target.classList.add(`${styles.mobileActive}`)
+                  : target.classList.remove(`${styles.mobileActive}`)
+              }
+            }}
             onMouseEnter={() => {
               if (
                 card2.current &&
                 card3.current &&
                 card4.current &&
-                card5.current
+                card5.current &&
+                window.innerWidth > 768
               ) {
                 card2.current.style.transform = `translate(-75%)`
                 card2.current.dataset.translate = `-75%`

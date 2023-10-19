@@ -47,7 +47,7 @@ export const Layout: FC<IProps> = ({ children }) => {
     >
       <Menu />
       <Header />
-      <Cursor />
+      {window.innerWidth > 768 && <Cursor />}
       <WithScrollSmoother>
         {children}
         <Footer />

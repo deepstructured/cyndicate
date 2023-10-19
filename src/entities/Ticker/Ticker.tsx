@@ -62,46 +62,48 @@ export const Ticker: FC<IProps> = ({ direction = 1 }) => {
   }, [translateX])
 
   function mouseMove(ev: React.MouseEvent<HTMLLIElement, MouseEvent>) {
-    const target = ev.target as HTMLLIElement
+    if (window.innerWidth > 768) {
+      const target = ev.target as HTMLLIElement
 
-    target.classList.add('hover')
+      target.classList.add('hover')
 
-    const x = ev.nativeEvent.offsetX
-    const y = ev.nativeEvent.offsetY
+      const x = ev.nativeEvent.offsetX
+      const y = ev.nativeEvent.offsetY
 
-    const images = Array.from(target.querySelectorAll('img'))
+      const images = Array.from(target.querySelectorAll('img'))
 
-    images.forEach((image) => {
-      if (image.dataset.canMove === 'true') {
-        image.style.top = `${y}px`
-        image.style.left = `${x}px`
-      }
-
-      image.addEventListener('animationstart', (ev) => {
-        if (images[1]) {
-          if (images[0] === image) {
-            const target = ev.target as HTMLImageElement
-            target.dataset.canMove = `false`
-          }
-
-          if (images[1] === image) {
-            const target = ev.target as HTMLImageElement
-            setTimeout(() => (target.dataset.canMove = `false`), 200)
-          }
-
-          return
+      images.forEach((image) => {
+        if (image.dataset.canMove === 'true') {
+          image.style.top = `${y}px`
+          image.style.left = `${x}px`
         }
 
-        const target = ev.target as HTMLImageElement
-        target.dataset.canMove = `false`
-      })
+        image.addEventListener('animationstart', (ev) => {
+          if (images[1]) {
+            if (images[0] === image) {
+              const target = ev.target as HTMLImageElement
+              target.dataset.canMove = `false`
+            }
 
-      image.addEventListener('animationend', (ev) => {
-        const target = ev.target as HTMLImageElement
-        target.closest('li')?.classList.remove('hover')
-        target.dataset.canMove = `true`
+            if (images[1] === image) {
+              const target = ev.target as HTMLImageElement
+              setTimeout(() => (target.dataset.canMove = `false`), 200)
+            }
+
+            return
+          }
+
+          const target = ev.target as HTMLImageElement
+          target.dataset.canMove = `false`
+        })
+
+        image.addEventListener('animationend', (ev) => {
+          const target = ev.target as HTMLImageElement
+          target.closest('li')?.classList.remove('hover')
+          target.dataset.canMove = `true`
+        })
       })
-    })
+    }
   }
 
   return (

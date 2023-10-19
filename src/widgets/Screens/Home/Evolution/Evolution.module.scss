@@ -8,8 +8,16 @@
   &TopWrapper {
     @apply w-full flex items-stretch gap-[6.283vw] px-[2.646vw];
 
+    @media (max-width: $tablet) {
+      @apply flex-col;
+    }
+
     .group {
       @apply flex flex-col justify-between;
+
+      @media (max-width: $tablet) {
+        @apply flex-row;
+      }
     }
   }
 
@@ -26,6 +34,10 @@
   &Circle {
     @apply w-[8.267vw] h-[8.267vw] relative ml-auto;
 
+    @media (max-width: $tablet) {
+      @apply hidden;
+    }
+
     .logo {
       @apply w-[2.226vw] h-[2.827vw] object-contain object-center absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
     }
@@ -40,47 +52,68 @@
 
     border-top: 0.132vw solid $gold-primary;
     border-bottom: 0.099vw solid #313131;
+
+    @media (max-width: $tablet) {
+      @apply flex-col h-fit px-[5.128vw];
+
+      border-top: 0;
+      border-bottom: 0;
+    }
   }
 
   &Card {
-    @apply h-full min-w-[50vw] w-[50vw] px-[2.646vw] py-[2.315vw] flex flex-col gap-[2.976vw] items-start bg-[#181818] transition-transform duration-[800ms];
+    @apply h-full min-w-[50vw] w-[50vw] px-[2.646vw] py-[2.315vw] flex flex-col gap-[2.976vw] items-start bg-[#181818] transition-transform duration-[800ms] relative;
 
     border: 0.099vw solid #313131;
 
     border-right: 0;
     border-bottom: 0;
 
-    &:nth-child(2) {
-      @apply z-[2] translate-x-[-25%];
+    &.mobileActive {
+      height: 47.3vh !important;
 
-      // &:hover {
-      //   @apply translate-x-[-50%];
-      // }
+      .evolutionCardText {
+        @apply opacity-100 delay-[250ms];
+        opacity: 1 !important;
+      }
     }
 
-    &:nth-child(3) {
-      @apply z-[3] translate-x-[-100%];
+    @media (max-width: $tablet) {
+      @apply h-[14.8vh] p-[8.205vw] min-w-full w-full gap-[5.2vh];
 
-      // &:hover {
-      //   @apply translate-x-[-150%];
-      // }
+      transition: 0.65s ease !important;
+      transition-property: height, min-height !important;
+
+      border: 0.099vw solid #313131 !important;
+      border-left: 0.513vw solid $gold-primary !important;
     }
 
-    &:nth-child(4) {
-      @apply z-[4] translate-x-[-175%];
+    @media (min-width: 769px) {
+      &:nth-child(2) {
+        @apply z-[2] translate-x-[-25%];
+      }
 
-      // &:hover {
-      //   @apply translate-x-[-225%];
-      // }
-    }
+      &:nth-child(3) {
+        @apply z-[3] translate-x-[-100%];
+      }
 
-    &:nth-child(5) {
-      @apply z-[5] translate-x-[-250%];
+      &:nth-child(4) {
+        @apply z-[4] translate-x-[-175%];
+      }
+
+      &:nth-child(5) {
+        @apply z-[5] translate-x-[-250%];
+      }
     }
 
     &Title {
       @apply text-[1.587vw];
       line-height: 130%;
+
+      @media (max-width: $tablet) {
+        @apply text-[5.128vw] max-w-[65%] w-full;
+        line-height: 156%;
+      }
     }
 
     &Text {
@@ -88,12 +121,20 @@
       color: #939393;
       font-weight: 50;
       line-height: 140%;
+
+      @media (max-width: $tablet) {
+        @apply text-[3.590vw] max-w-full transition-opacity duration-[400ms] opacity-0;
+      }
     }
 
     &Num {
       @apply text-[1.587vw] mt-auto;
       color: $gold-primary;
       line-height: 100%;
+
+      @media (max-width: $tablet) {
+        @apply text-[5.128vw] absolute top-[10vw] right-[8.205vw];
+      }
     }
   }
 }

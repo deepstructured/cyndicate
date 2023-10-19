@@ -17,6 +17,36 @@ const Header = () => {
       >
         <Logo />
       </div>
+      <div className={styles.headerBurger}>
+        <svg
+          width="73"
+          height="2"
+          viewBox="0 0 73 2"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1H72"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <svg
+          width="73"
+          height="2"
+          viewBox="0 0 73 2"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1H72"
+            stroke="white"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
       <div className={styles.headerMenu}>
         {headerLinks.map((link, idx) => (
           <Button

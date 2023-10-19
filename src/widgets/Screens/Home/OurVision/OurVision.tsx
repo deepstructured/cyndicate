@@ -87,38 +87,70 @@ export const OurVision = () => {
               >
                 our vision
               </span>
-              <span
-                data-delay="0.35"
-                data-duration="0.45"
-                className="reveal opacity-0 translate-y-1/2 section-span ml-auto"
-              >
-                cyndicate
-              </span>
+              {window.innerWidth > 768 && (
+                <span
+                  data-delay="0.35"
+                  data-duration="0.45"
+                  className="reveal opacity-0 translate-y-1/2 section-span ml-auto"
+                >
+                  cyndicate
+                </span>
+              )}
             </div>
 
             <div className={styles.ourVisionContent}>
               <div className={styles.ourVisionBlock}>
                 <div className={styles.ourVisionGroup}>
-                  <h3 id="our-vision-title-1" className={styles.ourVisionTitle}>
-                    <svg
-                      className={clsx(styles.line, 'reveal')}
-                      data-duration="4"
-                      data-delay="0.5"
-                      width="173"
-                      height="71"
-                      viewBox="0 0 173 71"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  {window.innerWidth > 768 ? (
+                    <h3
+                      id="our-vision-title-1"
+                      className={styles.ourVisionTitle}
                     >
-                      <path
-                        d="M2.2699 69.4452C2.2699 58.1274 6.99373 49.1554 15.0149 41.0059C39.936 15.6861 73.0527 5.42298 107.706 3.08679C126.47 1.8218 147.184 -0.0962041 164.374 8.98532C170.141 12.0322 174.834 19.5503 168.113 24.311C156.995 32.1868 140.876 35.4707 127.508 36.2133C124.234 36.3952 112.374 37.0979 114.237 30.5781C115.152 27.3742 122.466 24.945 125.138 23.995C131.654 21.6784 139.36 20.5479 146.257 20.2031C152.588 19.8865 158.981 20.1504 165.322 20.1504"
-                        stroke="#DBC99F"
-                        stroke-width="2.79295"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                    To inspire, empower, <br /> and connect individuals
-                  </h3>
+                      <svg
+                        className={clsx(styles.line, 'reveal')}
+                        data-duration="4"
+                        data-delay="0.5"
+                        width="173"
+                        height="71"
+                        viewBox="0 0 173 71"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.2699 69.4452C2.2699 58.1274 6.99373 49.1554 15.0149 41.0059C39.936 15.6861 73.0527 5.42298 107.706 3.08679C126.47 1.8218 147.184 -0.0962041 164.374 8.98532C170.141 12.0322 174.834 19.5503 168.113 24.311C156.995 32.1868 140.876 35.4707 127.508 36.2133C124.234 36.3952 112.374 37.0979 114.237 30.5781C115.152 27.3742 122.466 24.945 125.138 23.995C131.654 21.6784 139.36 20.5479 146.257 20.2031C152.588 19.8865 158.981 20.1504 165.322 20.1504"
+                          stroke="#DBC99F"
+                          stroke-width="2.79295"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      To inspire, empower, <br /> and connect individuals
+                    </h3>
+                  ) : (
+                    <h3
+                      id="our-vision-title-1"
+                      className={styles.ourVisionTitle}
+                    >
+                      <svg
+                        className={clsx(styles.line, 'reveal')}
+                        data-duration="4"
+                        data-delay="0.5"
+                        width="173"
+                        height="71"
+                        viewBox="0 0 173 71"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.2699 69.4452C2.2699 58.1274 6.99373 49.1554 15.0149 41.0059C39.936 15.6861 73.0527 5.42298 107.706 3.08679C126.47 1.8218 147.184 -0.0962041 164.374 8.98532C170.141 12.0322 174.834 19.5503 168.113 24.311C156.995 32.1868 140.876 35.4707 127.508 36.2133C124.234 36.3952 112.374 37.0979 114.237 30.5781C115.152 27.3742 122.466 24.945 125.138 23.995C131.654 21.6784 139.36 20.5479 146.257 20.2031C152.588 19.8865 158.981 20.1504 165.322 20.1504"
+                          stroke="#DBC99F"
+                          stroke-width="2.79295"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      To inspire, empower, <br /> and connect individuals
+                      together to lead lives of greatness
+                    </h3>
+                  )}
                   <p className="reveal opacity-0 translate-y-1/2 text-gold">
                     CYNDICATE is your partner in the pursuit of a life of
                     greatness
@@ -140,13 +172,20 @@ export const OurVision = () => {
               </div>
               <div className={styles.ourVisionBlock}>
                 <div className={styles.ourVisionGroup}>
-                  <p className="text-gold opacity-0 pointer-events-none">
-                    CYNDICATE is your partner in the pursuit of a life of
-                    greatness
-                  </p>
-                  <h3 id="our-vision-title-2" className={styles.ourVisionTitle}>
-                    together to lead lives of greatness
-                  </h3>
+                  {window.innerWidth > 768 && (
+                    <p className="text-gold opacity-0 pointer-events-none">
+                      CYNDICATE is your partner in the pursuit of a life of
+                      greatness
+                    </p>
+                  )}
+                  {window.innerWidth > 768 && (
+                    <h3
+                      id="our-vision-title-2"
+                      className={styles.ourVisionTitle}
+                    >
+                      together to lead lives of greatness
+                    </h3>
+                  )}
                 </div>
                 <div className={styles.block}>
                   <p className={clsx('text-grey', styles.ourVisionText)}>
@@ -155,6 +194,13 @@ export const OurVision = () => {
                     possibility for people to maximize the potential within
                     themselves and within others.
                   </p>
+                  <br />
+                  {window.innerWidth <= 768 && (
+                    <p className={clsx('text-grey', styles.ourVisionText)}>
+                      We want to redefine the very essence of what it means to
+                      excel in every facet of life.
+                    </p>
+                  )}
                   <div className={styles.row}>
                     <div className="quote">
                       <span

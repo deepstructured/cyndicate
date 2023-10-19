@@ -5,11 +5,21 @@
     @apply flex items-stretch;
 
     border-top: 0.059vw solid rgba(255, 255, 255, 0.15);
+
+    @media (max-width: $tablet) {
+      @apply flex flex-col px-[5.128vw];
+
+      border-top: none;
+    }
   }
 
   &Explore {
     @apply flex items-center gap-[1.230vw] text-[2.381vw];
     color: #fff;
+
+    @media (max-width: $tablet) {
+      @apply hidden;
+    }
 
     svg {
       @apply w-[1.409vw] h-[1.786vw];
@@ -23,11 +33,22 @@
       @apply text-[1.653vw] capitalize;
       color: #fff;
       line-height: 135%;
+
+      @media (max-width: $tablet) {
+        @apply text-[6.410vw];
+      }
     }
   }
 
   &Cols {
     @apply w-full flex items-start justify-between;
+
+    @media (max-width: $tablet) {
+      @apply flex-wrap;
+
+      column-gap: 18vw;
+      row-gap: 6.8vh;
+    }
   }
 
   &List {
@@ -38,16 +59,28 @@
     @apply text-[1.323vw] font-normal capitalize;
     line-height: 135%;
     color: rgba(255, 255, 255, 0.4);
+
+    @media (max-width: $tablet) {
+      @apply text-[5.128vw];
+    }
   }
 
   &Logo {
     @apply w-[20.172vw] h-[2.712vw] object-contain object-center;
+
+    @media (max-width: $tablet) {
+      @apply w-[54.359vw] h-[3.3vh];
+    }
   }
 
   &Copyright {
     @apply text-[1.323vw] capitalize;
     color: #fff;
     line-height: 135%;
+
+    @media (max-width: $tablet) {
+      @apply text-[4.5vw];
+    }
   }
 
   &Block {
@@ -56,6 +89,12 @@
 
       div[class='container'] {
         @apply py-[8.5vh] flex flex-col justify-end;
+
+        @media (max-width: $tablet) {
+          @apply pt-0 pb-[2.36vh] px-0;
+
+          border-bottom: 0.059vw solid rgba(255, 255, 255, 0.15);
+        }
       }
     }
 
@@ -66,6 +105,14 @@
 
       div[class='container'] {
         @apply pt-[5.3] pb-[10.9vh] px-[1.984vw] flex flex-col gap-[9.8vh];
+
+        @media (max-width: $tablet) {
+          @apply pt-[7.1vh] pb-[3.8vh];
+        }
+      }
+
+      @media (max-width: $tablet) {
+        border-left: 0;
       }
     }
   }

@@ -1,5 +1,9 @@
 .ticker-wrapper {
   @apply flex flex-col py-[15.6vh] gap-[1.587vw] w-full;
+
+  @media (max-width: $tablet) {
+    @apply overflow-x-hidden;
+  }
 }
 
 .ticker {
@@ -58,12 +62,20 @@
         &:first-child {
           @apply text-[5.291vw];
           line-height: 120%;
+
+          @media (max-width: $tablet) {
+            @apply text-[10.256vw];
+          }
         }
 
         &:nth-child(2) {
           @apply text-[1.587vw] py-[1.058vw] pb-[0.8vw] px-[1.587vw] rounded-[3.307vw];
 
           line-height: 100%;
+
+          @media (max-width: $tablet) {
+            @apply text-[3.077vw] px-[3.077vw] py-[2.103vw];
+          }
 
           border: 0.059vw solid $milk-white;
         }

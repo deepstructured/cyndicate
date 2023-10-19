@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import styles from './Hero.module.scss'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
+import { Button } from '../../../../shared/Button/Button'
 
 export const Hero = () => {
   const heroBg = useRef<HTMLDivElement>(null)
@@ -79,7 +80,11 @@ export const Hero = () => {
             >
               cyndicate
             </span>
-            <h1 className="hero-h1">Become Who You Are Meant</h1>
+            {window.innerWidth > 768 ? (
+              <h1 className="hero-h1">Become Who You Are Meant </h1>
+            ) : (
+              <h1 className="hero-h1">Become Who You Are Meant to be </h1>
+            )}
           </div>
           <div className={styles.heroBlock}>
             <div className={styles.group}>
@@ -116,8 +121,9 @@ export const Hero = () => {
               <p className={styles.text}>
                 You become who you surround yourself with, so choose wisely
               </p>
+              {window.innerWidth <= 768 && <Button>Join us</Button>}
             </div>
-            <h1>To Be</h1>
+            {window.innerWidth > 768 && <h1>To Be</h1>}
           </div>
         </div>
       </div>

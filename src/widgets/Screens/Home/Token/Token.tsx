@@ -3,16 +3,17 @@ import styles from './Token.module.scss'
 import { Button } from '../../../../shared/Button/Button'
 import gsap from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/react'
-
-// Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/free-mode'
 import { FreeMode } from 'swiper'
 import { useEffect, useState } from 'react'
 import { ISwiper } from '../../../../interfaces/ISwiper'
 
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/free-mode'
+
 export const Token = () => {
   const [swiper, setSwiper] = useState<ISwiper>()
+  const [activeSlide, setActiveSlide] = useState<number>(0)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -102,6 +103,7 @@ export const Token = () => {
             </h2>
           </div>
           <div className={styles.group}>
+            {window.innerWidth <= 768 && <div></div>}
             <p className={styles.tokenTopText}>
               CYNDICATE is pioneering the future of personal development and
               blockchain technology by becoming the world’s first all-inclusive
@@ -126,7 +128,9 @@ export const Token = () => {
                   Secure Your Spot on the $CYND Token Waitlist!
                 </p>
               </div>
-              <Button dataDelay={'0.9'}>Join the Future Now</Button>
+              {window.innerWidth > 768 && (
+                <Button dataDelay={'0.9'}>Join the Future Now</Button>
+              )}
             </div>
           </div>
         </div>
@@ -332,17 +336,19 @@ export const Token = () => {
             </div>
           </div>
           <Swiper
+            onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
             onSwiper={(swiper) => setSwiper(swiper)}
             slidesPerView={'auto'}
-            spaceBetween={20}
-            freeMode={true}
-            allowTouchMove={true}
+            spaceBetween={window.innerWidth > 768 ? 20 : 20}
+            freeMode={window.innerWidth > 768 ? true : false}
             modules={[FreeMode]}
             className={clsx(styles.tokenCardsWrapper, 'gold-drag-swiper')}
           >
-            <SwiperSlide
-              className={clsx(styles.tokenCard, 'opacity-0 ')}
-            ></SwiperSlide>
+            {window.innerWidth > 768 && (
+              <SwiperSlide
+                className={clsx(styles.tokenCard, 'opacity-0 ')}
+              ></SwiperSlide>
+            )}
             <SwiperSlide className={styles.tokenCard}>
               <span className={styles.tokenCardTitle}>
                 <span className={styles.tokenCardNum}>01</span>
@@ -422,6 +428,47 @@ export const Token = () => {
               </p>
             </SwiperSlide>
           </Swiper>
+          {window.innerWidth <= 768 && (
+            <div className={styles.tokenBullets}>
+              <div
+                className={clsx(
+                  styles.bullet,
+                  activeSlide === 0 && styles.active
+                )}
+              ></div>
+              <div
+                className={clsx(
+                  styles.bullet,
+                  activeSlide === 1 && styles.active
+                )}
+              ></div>
+              <div
+                className={clsx(
+                  styles.bullet,
+                  activeSlide === 2 && styles.active
+                )}
+              ></div>
+              <div
+                className={clsx(
+                  styles.bullet,
+                  activeSlide === 3 && styles.active
+                )}
+              ></div>
+              <div
+                className={clsx(
+                  styles.bullet,
+                  activeSlide === 4 && styles.active
+                )}
+              ></div>
+              <div
+                className={clsx(
+                  styles.bullet,
+                  activeSlide === 5 && styles.active
+                )}
+              ></div>
+            </div>
+          )}
+          {window.innerWidth <= 768 && <Button>Join the Future Now</Button>}
         </div>
       </div>
     </section>

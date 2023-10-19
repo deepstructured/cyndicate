@@ -13,10 +13,18 @@
 
   &Wrapper {
     @apply w-full h-fit mt-auto flex items-stretch justify-start gap-[11.4vw];
+
+    @media (max-width: $tablet) {
+      @apply flex-col gap-[7.22vh];
+    }
   }
 
   &Block {
     @apply flex flex-col gap-[6.35vh];
+
+    @media (max-width: $tablet) {
+      @apply gap-[9.487vw];
+    }
 
     h1 {
       > div {
@@ -35,16 +43,29 @@
     &:last-child {
       @apply gap-0 justify-between;
     }
+
+    @media (max-width: $tablet) {
+      max-width: 100% !important;
+      width: 100% !important;
+    }
   }
 
   //
 
   .group {
     @apply flex flex-col gap-[6.35vh];
+
+    @media (max-width: $tablet) {
+      @apply max-w-[50%] ml-auto w-full;
+    }
   }
 
   .arrow {
     @apply w-[1.762vw] h-[1.38vh];
+
+    @media (max-width: $tablet) {
+      @apply w-[6.872vw] h-[3.077vw];
+    }
 
     svg {
       @apply w-full h-full;
@@ -61,11 +82,19 @@
     > div {
       @apply opacity-0 translate-y-[100%] flex items-center gap-[1.828vw];
     }
+
+    @media (max-width: $tablet) {
+      @apply hidden;
+    }
   }
 
   .text {
     @apply max-w-[12.7vw] w-full;
     font-weight: 50;
+
+    @media (max-width: $tablet) {
+      @apply max-w-[100%];
+    }
 
     > div {
       @apply translate-y-[50%] opacity-0;

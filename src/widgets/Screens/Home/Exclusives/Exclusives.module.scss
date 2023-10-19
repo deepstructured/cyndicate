@@ -1,12 +1,30 @@
 .exclusives {
   @apply h-screen overflow-hidden;
 
+  @media (max-width: $tablet) {
+    min-height: fit-content !important;
+    height: fit-content !important;
+  }
+
   div[class='container'] {
     @apply px-0 pt-[0];
   }
 
   &Wrapper {
     @apply w-full h-full flex flex-col;
+
+    @media (max-width: $tablet) {
+      @apply gap-[11.84vh];
+    }
+  }
+
+  &MobileSwiper {
+    width: 100% !important;
+    overflow: unset !important;
+
+    div[class='swiper-wrapper'] {
+      @apply flex items-center;
+    }
   }
 
   &Card {
@@ -15,6 +33,17 @@
     width: 20.833vw !important;
     min-width: 20.833vw !important;
     height: 45.6vh !important;
+
+    @media (max-width: $tablet) {
+      @apply rounded-[4.615vw] p-[2.821vw];
+
+      transform-origin: center !important;
+      transition: transform 0.5s ease !important;
+
+      width: 57.949vw !important;
+      min-width: 57.949vw !important;
+      height: 72.308vw !important;
+    }
 
     img {
       @apply absolute top-0 left-0 w-full h-full object-cover object-center pointer-events-none select-none rounded-[1.587vw] z-[-1];
@@ -27,6 +56,12 @@
       line-height: 100%;
       font-feature-settings: 'calt' off, 'liga' off;
       color: $milk-white;
+
+      @media (max-width: $tablet) {
+        @apply px-[4.423vw] py-[2.949vw] rounded-[9.231vw];
+        line-height: 80%;
+        font-size: 2.949vw !important;
+      }
     }
   }
 
@@ -54,15 +89,31 @@
   &InfoPanel {
     @apply w-full mt-auto gap-[8vh] flex flex-col items-center justify-center px-[2.646vw];
 
+    @media (max-width: $tablet) {
+      @apply gap-[17.949vw];
+    }
+
     &Top {
       @apply flex items-center gap-[5.985vw];
 
+      @media (max-width: $tablet) {
+        @apply w-full;
+      }
+
       .group {
         @apply flex items-center gap-[10vw];
+
+        @media (max-width: $tablet) {
+          @apply w-full justify-between;
+        }
       }
 
       .line {
         @apply w-[8.929vw];
+
+        @media (max-width: $tablet) {
+          @apply hidden;
+        }
       }
     }
   }
@@ -70,5 +121,9 @@
   &Text {
     @apply max-w-[22.817vw] w-full opacity-90;
     color: $grey;
+
+    @media (max-width: $tablet) {
+      @apply max-w-full;
+    }
   }
 }

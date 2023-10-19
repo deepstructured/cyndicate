@@ -4,6 +4,10 @@
   border: 0.059vw solid #fafafa;
   font-weight: 600 !important;
 
+  @media (max-width: $tablet) {
+    @apply text-[4.103vw] min-w-[47.436vw] w-fit py-[5.128vw] px-[6.667vw] rounded-[12.821vw];
+  }
+
   &.filled {
     @apply bg-white;
     color: #181818;

@@ -46,19 +46,16 @@ export const evolutionCardsData = [
 ]
 
 export const exclusivesCardsData = [
-  '/images/Home/Exclusives/1.png',
-  '/images/Home/Exclusives/2.png',
-  '/images/Home/Exclusives/3.png',
-  '/images/Home/Exclusives/4.png',
-  '/images/Home/Exclusives/5.png',
-  '/images/Home/Exclusives/6.png',
-  '/images/Home/Exclusives/7.png',
-  '/images/Home/Exclusives/8.png',
-  '/images/Home/Exclusives/9.png',
-  '/images/Home/Exclusives/10.png',
-  '/images/Home/Exclusives/11.png',
-  '/images/Home/Exclusives/12.png',
-  '/images/Home/Exclusives/13.png',
+  '/images/Exclusives/1.png',
+  '/images/Exclusives/2.png',
+  '/images/Exclusives/3.png',
+  '/images/Exclusives/4.png',
+  '/images/Exclusives/5.png',
+  '/images/Exclusives/1.png',
+  '/images/Exclusives/2.png',
+  '/images/Exclusives/3.png',
+  '/images/Exclusives/4.png',
+  '/images/Exclusives/5.png',
 ]
 
 export const capitalCards = [

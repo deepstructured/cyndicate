@@ -1,11 +1,35 @@
 .header {
-  @apply fixed top-0 left-0 right-0 py-[1.25vw] p-[2.611vw] z-[1] flex items-center justify-between;
+  @apply fixed top-0 left-0 right-0 py-[1.25vw] p-[2.611vw] z-[5] flex items-center justify-between;
+
+  @media (max-width: $tablet) {
+    @apply px-[5.128vw] pt-[4vh];
+  }
 
   &Logo {
     @apply w-[2.337vw] h-[4.8vh] cursor-pointer;
+
+    @media (max-width: $tablet) {
+      @apply w-[9.231vw] h-[5.4vh];
+    }
+  }
+
+  &Burger {
+    @apply flex-col gap-[2.308vw] hidden;
+
+    @media (max-width: $tablet) {
+      @apply flex;
+    }
+
+    svg {
+      @apply w-[18.462vw] h-[0.385vw];
+    }
   }
 
   &Menu {
     @apply flex gap-[0.522vw] items-center;
+
+    @media (max-width: $tablet) {
+      @apply hidden;
+    }
   }
 }

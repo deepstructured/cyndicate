@@ -18,11 +18,21 @@
   &TopWrapper {
     @apply w-full flex items-stretch justify-between px-[2.646vw];
 
+    @media (max-width: $tablet) {
+      @apply flex-col;
+    }
+
     .group {
       @apply flex flex-col justify-between;
 
       &:first-child {
         @apply gap-[7.6vh];
+      }
+
+      &:nth-child(2) {
+        @media (max-width: $tablet) {
+          @apply gap-[6vh];
+        }
       }
 
       .row {
@@ -31,6 +41,10 @@
 
       div[class='quote'] {
         @apply max-w-[18vw] w-full;
+
+        @media (max-width: $tablet) {
+          @apply max-w-full;
+        }
       }
     }
   }
@@ -41,11 +55,24 @@
     min-width: 22.817vw !important;
     width: 22.817vw !important;
 
+    @media (max-width: $tablet) {
+      @apply p-[10.256vw] rounded-[8.205vw];
+
+      min-width: 88.462vw !important;
+      width: 88.462vw !important;
+      max-width: 88.462vw !important;
+      height: 53.6vh !important;
+    }
+
     &Text {
       @apply text-[0.926vw] opacity-80;
       color: #a1a1a1;
       line-height: 150%;
       font-weight: 50;
+
+      @media (max-width: $tablet) {
+        @apply text-[3.590vw];
+      }
     }
 
     &Num {
@@ -53,17 +80,46 @@
       color: $gold-primary;
       line-height: 223%;
       letter-spacing: -0.056vw;
+
+      @media (max-width: $tablet) {
+        @apply text-[3.590vw] mr-[10vw];
+      }
     }
 
     &Title {
       @apply text-[1.852vw];
       line-height: 118%;
       letter-spacing: -0.111vw;
+
+      @media (max-width: $tablet) {
+        @apply text-[7.179vw];
+      }
+    }
+  }
+
+  &Bullets {
+    @apply flex items-center justify-center w-full gap-[1.538vw];
+
+    .bullet {
+      @apply w-[3.077vw] h-[0.769vw] rounded-full bg-[#303030];
+
+      transition: 0.5s ease;
+      transition-property: width, background-color;
+
+      &.active {
+        @apply w-[12.051vw];
+
+        background-color: $gold-primary;
+      }
     }
   }
 
   &Cards {
     @apply w-full pt-[6.3vh] min-h-[52.6vh] gap-[2.976vw] flex items-stretch relative z-[3];
+
+    @media (max-width: $tablet) {
+      @apply flex-col px-[5.128vw] items-center gap-[5.5vh];
+    }
 
     &::before {
       content: '';
@@ -97,10 +153,18 @@
 
     &Block {
       @apply flex flex-col justify-between max-w-[16.204vw] w-full absolute top-[6.3vh] bottom-0 left-[2.646vw];
+
+      @media (max-width: $tablet) {
+        @apply relative left-0 top-0 max-w-full;
+      }
     }
 
     &Logo {
       @apply w-[8.466vw] h-[11vw];
+
+      @media (max-width: $tablet) {
+        @apply hidden;
+      }
 
       svg {
         @apply w-[107%] h-full;
@@ -112,6 +176,10 @@
     @apply text-[#A1A1A1] max-w-[26.786vw] opacity-[0.8];
 
     line-height: 150%;
+
+    @media (max-width: $tablet) {
+      @apply max-w-full;
+    }
 
     > div {
       @apply translate-y-[50%] opacity-0;
