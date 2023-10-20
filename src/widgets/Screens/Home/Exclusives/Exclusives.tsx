@@ -467,189 +467,93 @@ export const Exclusives = () => {
               )}
             </div>
             <div className={styles.exclusivesInfoPanel}>
-              {window.innerWidth > 768 ? (
-                <Swiper
-                  id="exclusives-slide-info"
-                  allowTouchMove={false}
-                  onSwiper={(swiper) => setSwiperInfo(swiper)}
-                  effect="fade"
-                  modules={[EffectFade]}
-                  slidesPerView={'auto'}
-                  className={styles.exclusivesSlideInfo}
-                >
-                  {degrees &&
-                    degrees.map((degree) => (
-                      <SwiperSlide className={styles.exclusivesInfoItem}>
-                        <div className={styles.exclusivesInfoPanelTop}>
-                          <svg
-                            className={styles.line}
-                            width="135"
-                            height="2"
-                            viewBox="0 0 135 2"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              opacity="0.2"
-                              d="M134.5 1H0"
-                              stroke="url(#paint0_linear_40_30)"
-                            />
-                            <defs>
-                              <linearGradient
-                                id="paint0_linear_40_30"
-                                x1="134"
-                                y1="1"
-                                x2="2.5"
-                                y2="1"
-                                gradientUnits="userSpaceOnUse"
-                              >
-                                <stop stop-color="#DBC99F" />
-                                <stop
-                                  offset="1"
-                                  stop-color="#DBC99F"
-                                  stop-opacity="0"
-                                />
-                              </linearGradient>
-                            </defs>
-                          </svg>
-                          <div className={styles.group}>
-                            <span className="section-num">002</span>
-                            <span className="section-span">brand clothing</span>
-                          </div>
-                          <svg
-                            className={styles.line}
-                            preserveAspectRatio="none"
-                            width="135"
-                            height="2"
-                            viewBox="0 0 135 2"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              opacity="0.2"
-                              d="M0 1H134.5"
-                              stroke="url(#paint0_linear_40_31)"
-                            />
-                            <defs>
-                              <linearGradient
-                                id="paint0_linear_40_31"
-                                x1="0.500002"
-                                y1="1"
-                                x2="132"
-                                y2="1"
-                                gradientUnits="userSpaceOnUse"
-                              >
-                                <stop stop-color="#DBC99F" />
-                                <stop
-                                  offset="1"
-                                  stop-color="#DBC99F"
-                                  stop-opacity="0"
-                                />
-                              </linearGradient>
-                            </defs>
-                          </svg>
-                        </div>
-                        <p className={styles.exclusivesText}>
-                          Lorem ipsum dolor sit amet consectetur. Condimentum eu
-                          tincidunt massa platea et tempus orci. Sit morbi
-                          fermentum vitae sit sed et. Mi id libero quis integer
-                          convallis. Lectus vitae libero diam porttitor amet.
-                        </p>
-                      </SwiperSlide>
-                    ))}
-                </Swiper>
-              ) : (
-                <Swiper
-                  id="exclusives-slide-info"
-                  allowTouchMove={false}
-                  onSwiper={(swiper) => setSwiperInfo(swiper)}
-                  effect="fade"
-                  modules={[EffectFade]}
-                  slidesPerView={'auto'}
-                  className={styles.exclusivesSlideInfo}
-                >
-                  {exclusivesCardsData &&
-                    exclusivesCardsData.map((card) => (
-                      <SwiperSlide className={styles.exclusivesInfoItem}>
-                        <div className={styles.exclusivesInfoPanelTop}>
-                          <svg
-                            className={styles.line}
-                            width="135"
-                            height="2"
-                            viewBox="0 0 135 2"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              opacity="0.2"
-                              d="M134.5 1H0"
-                              stroke="url(#paint0_linear_40_30)"
-                            />
-                            <defs>
-                              <linearGradient
-                                id="paint0_linear_40_30"
-                                x1="134"
-                                y1="1"
-                                x2="2.5"
-                                y2="1"
-                                gradientUnits="userSpaceOnUse"
-                              >
-                                <stop stop-color="#DBC99F" />
-                                <stop
-                                  offset="1"
-                                  stop-color="#DBC99F"
-                                  stop-opacity="0"
-                                />
-                              </linearGradient>
-                            </defs>
-                          </svg>
-                          <div className={styles.group}>
-                            <span className="section-num">002</span>
-                            <span className="section-span">brand clothing</span>
-                          </div>
-                          <svg
-                            className={styles.line}
-                            preserveAspectRatio="none"
-                            width="135"
-                            height="2"
-                            viewBox="0 0 135 2"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              opacity="0.2"
-                              d="M0 1H134.5"
-                              stroke="url(#paint0_linear_40_31)"
-                            />
-                            <defs>
-                              <linearGradient
-                                id="paint0_linear_40_31"
-                                x1="0.500002"
-                                y1="1"
-                                x2="132"
-                                y2="1"
-                                gradientUnits="userSpaceOnUse"
-                              >
-                                <stop stop-color="#DBC99F" />
-                                <stop
-                                  offset="1"
-                                  stop-color="#DBC99F"
-                                  stop-opacity="0"
-                                />
-                              </linearGradient>
-                            </defs>
-                          </svg>
-                        </div>
-                        <p className={styles.exclusivesText}>
-                          Lorem ipsum dolor sit amet consectetur. Condimentum eu
-                          tincidunt massa platea et tempus orci. Sit morbi
-                          fermentum vitae sit sed et. Mi id libero quis integer
-                          convallis. Lectus vitae libero diam porttitor amet.
-                        </p>
-                      </SwiperSlide>
-                    ))}
-                </Swiper>
-              )}
+              <Swiper
+                id="exclusives-slide-info"
+                allowTouchMove={false}
+                onSwiper={(swiper) => setSwiperInfo(swiper)}
+                effect="fade"
+                modules={[EffectFade]}
+                slidesPerView={'auto'}
+                className={styles.exclusivesSlideInfo}
+              >
+                <SwiperSlide className={styles.exclusivesInfoItem}>
+                  <div className={styles.exclusivesInfoPanelTop}>
+                    <svg
+                      className={styles.line}
+                      width="135"
+                      height="2"
+                      viewBox="0 0 135 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        opacity="0.2"
+                        d="M134.5 1H0"
+                        stroke="url(#paint0_linear_40_30)"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear_40_30"
+                          x1="134"
+                          y1="1"
+                          x2="2.5"
+                          y2="1"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#DBC99F" />
+                          <stop
+                            offset="1"
+                            stop-color="#DBC99F"
+                            stop-opacity="0"
+                          />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div className={styles.group}>
+                      <span className="section-num">003</span>
+                      <span className="section-span">brand clothing</span>
+                    </div>
+                    <svg
+                      className={styles.line}
+                      preserveAspectRatio="none"
+                      width="135"
+                      height="2"
+                      viewBox="0 0 135 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        opacity="0.2"
+                        d="M0 1H134.5"
+                        stroke="url(#paint0_linear_40_31)"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear_40_31"
+                          x1="0.500002"
+                          y1="1"
+                          x2="132"
+                          y2="1"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#DBC99F" />
+                          <stop
+                            offset="1"
+                            stop-color="#DBC99F"
+                            stop-opacity="0"
+                          />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                  <p className={styles.exclusivesText}>
+                    $CYND token holders will unlock premium apparel not
+                    available to the general public. Showcase your increased
+                    commitment to your success and unlock VIP apparel from our
+                    store.
+                  </p>
+                </SwiperSlide>
+              </Swiper>
             </div>
           </div>
         </div>
