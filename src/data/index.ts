@@ -124,3 +124,22 @@ export const tokenCards = [
     text: '$CYND token holders will be reward with tokens by referring or sharing content from the platform.',
   },
 ]
+
+export const navLinks = [
+  {
+    title: 'About',
+    href: '#about',
+  },
+  {
+    title: 'Exclusives',
+    href: '#exclusives',
+  },
+  {
+    title: 'Evolution',
+    href: '#evolution',
+  },
+  {
+    title: 'Token',
+    href: '#token',
+  },
+]

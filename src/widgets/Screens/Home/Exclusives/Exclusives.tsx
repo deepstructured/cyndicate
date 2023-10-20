@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { exclusivesCardsData } from '../../../../data'
 import { SwiperSlide, Swiper } from 'swiper/react'
-import { EffectCoverflow } from 'swiper'
+import { EffectCoverflow, EffectFade } from 'swiper'
 
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
@@ -15,9 +15,11 @@ export const Exclusives = () => {
 
   const [dragging, setDragging] = useState<boolean>(false)
   const [angle, setAngle] = useState<number>(0)
+  const [slideAngle, setSlideAngle] = useState<number | undefined | null>(0)
   const [degrees, setDegrees] = useState<number[]>([])
 
   const [swiper, setSwiper] = useState<ISwiper>()
+  const [swiperInfo, setSwiperInfo] = useState<ISwiper>()
 
   useEffect(() => {
     if (!swiper?.destroyed) {
@@ -59,6 +61,8 @@ export const Exclusives = () => {
               angle,
               degrees
             )}deg)`
+
+            setSlideAngle(findClosestDegree(angle, degrees))
           }
 
           if (angle < 0) {
@@ -66,12 +70,18 @@ export const Exclusives = () => {
               angle > 0 ? angle : angle * -1,
               degrees
             )}deg)`
+
+            setSlideAngle(
+              findClosestDegree(angle > 0 ? angle : angle * -1, degrees)
+            )
           }
         }
 
         if (angle > 360) {
           const difference = angle - 360
           const targetAngle = findClosestDegree(difference, degrees)
+
+          setSlideAngle(targetAngle)
 
           if (targetAngle) {
             refContainer.current.style.transform = `rotate(${
@@ -84,6 +94,8 @@ export const Exclusives = () => {
           const difference = angle * -1 - 360
           const targetAngle = findClosestDegree(difference, degrees)
 
+          setSlideAngle(targetAngle)
+
           if (targetAngle) {
             refContainer.current.style.transform = `rotate(-${
               360 + targetAngle
@@ -93,6 +105,16 @@ export const Exclusives = () => {
       }
     }
   }, [angle])
+
+  useEffect(() => {
+    if (degrees && swiperInfo) {
+      if (slideAngle) {
+        if (degrees.find((item) => item === slideAngle)) {
+          swiperInfo.slideTo(degrees.indexOf(slideAngle))
+        }
+      }
+    }
+  }, [slideAngle, swiperInfo, degrees])
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -430,6 +452,9 @@ export const Exclusives = () => {
                   modules={[EffectCoverflow]}
                   className={styles.exclusivesMobileSwiper}
                   loop={true}
+                  onSlideChange={(swiper) => {
+                    swiperInfo?.slideTo(swiper.activeIndex)
+                  }}
                   slidesPerView={'auto'}
                 >
                   {exclusivesCardsData.map((card) => (
@@ -442,73 +467,189 @@ export const Exclusives = () => {
               )}
             </div>
             <div className={styles.exclusivesInfoPanel}>
-              <div className={styles.exclusivesInfoPanelTop}>
-                <svg
-                  className={styles.line}
-                  width="135"
-                  height="2"
-                  viewBox="0 0 135 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              {window.innerWidth > 768 ? (
+                <Swiper
+                  id="exclusives-slide-info"
+                  allowTouchMove={false}
+                  onSwiper={(swiper) => setSwiperInfo(swiper)}
+                  effect="fade"
+                  modules={[EffectFade]}
+                  slidesPerView={'auto'}
+                  className={styles.exclusivesSlideInfo}
                 >
-                  <path
-                    opacity="0.2"
-                    d="M134.5 1H0"
-                    stroke="url(#paint0_linear_40_30)"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="paint0_linear_40_30"
-                      x1="134"
-                      y1="1"
-                      x2="2.5"
-                      y2="1"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#DBC99F" />
-                      <stop offset="1" stop-color="#DBC99F" stop-opacity="0" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <div className={styles.group}>
-                  <span className="section-num">002</span>
-                  <span className="section-span">brand clothing</span>
-                </div>
-                <svg
-                  className={styles.line}
-                  preserveAspectRatio="none"
-                  width="135"
-                  height="2"
-                  viewBox="0 0 135 2"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  {degrees &&
+                    degrees.map((degree) => (
+                      <SwiperSlide className={styles.exclusivesInfoItem}>
+                        <div className={styles.exclusivesInfoPanelTop}>
+                          <svg
+                            className={styles.line}
+                            width="135"
+                            height="2"
+                            viewBox="0 0 135 2"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              opacity="0.2"
+                              d="M134.5 1H0"
+                              stroke="url(#paint0_linear_40_30)"
+                            />
+                            <defs>
+                              <linearGradient
+                                id="paint0_linear_40_30"
+                                x1="134"
+                                y1="1"
+                                x2="2.5"
+                                y2="1"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stop-color="#DBC99F" />
+                                <stop
+                                  offset="1"
+                                  stop-color="#DBC99F"
+                                  stop-opacity="0"
+                                />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <div className={styles.group}>
+                            <span className="section-num">002</span>
+                            <span className="section-span">brand clothing</span>
+                          </div>
+                          <svg
+                            className={styles.line}
+                            preserveAspectRatio="none"
+                            width="135"
+                            height="2"
+                            viewBox="0 0 135 2"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              opacity="0.2"
+                              d="M0 1H134.5"
+                              stroke="url(#paint0_linear_40_31)"
+                            />
+                            <defs>
+                              <linearGradient
+                                id="paint0_linear_40_31"
+                                x1="0.500002"
+                                y1="1"
+                                x2="132"
+                                y2="1"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stop-color="#DBC99F" />
+                                <stop
+                                  offset="1"
+                                  stop-color="#DBC99F"
+                                  stop-opacity="0"
+                                />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                        <p className={styles.exclusivesText}>
+                          Lorem ipsum dolor sit amet consectetur. Condimentum eu
+                          tincidunt massa platea et tempus orci. Sit morbi
+                          fermentum vitae sit sed et. Mi id libero quis integer
+                          convallis. Lectus vitae libero diam porttitor amet.
+                        </p>
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+              ) : (
+                <Swiper
+                  id="exclusives-slide-info"
+                  allowTouchMove={false}
+                  onSwiper={(swiper) => setSwiperInfo(swiper)}
+                  effect="fade"
+                  modules={[EffectFade]}
+                  slidesPerView={'auto'}
+                  className={styles.exclusivesSlideInfo}
                 >
-                  <path
-                    opacity="0.2"
-                    d="M0 1H134.5"
-                    stroke="url(#paint0_linear_40_31)"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="paint0_linear_40_31"
-                      x1="0.500002"
-                      y1="1"
-                      x2="132"
-                      y2="1"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#DBC99F" />
-                      <stop offset="1" stop-color="#DBC99F" stop-opacity="0" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
-              <p className={styles.exclusivesText}>
-                Lorem ipsum dolor sit amet consectetur. Condimentum eu tincidunt
-                massa platea et tempus orci. Sit morbi fermentum vitae sit sed
-                et. Mi id libero quis integer convallis. Lectus vitae libero
-                diam porttitor amet.
-              </p>
+                  {exclusivesCardsData &&
+                    exclusivesCardsData.map((card) => (
+                      <SwiperSlide className={styles.exclusivesInfoItem}>
+                        <div className={styles.exclusivesInfoPanelTop}>
+                          <svg
+                            className={styles.line}
+                            width="135"
+                            height="2"
+                            viewBox="0 0 135 2"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              opacity="0.2"
+                              d="M134.5 1H0"
+                              stroke="url(#paint0_linear_40_30)"
+                            />
+                            <defs>
+                              <linearGradient
+                                id="paint0_linear_40_30"
+                                x1="134"
+                                y1="1"
+                                x2="2.5"
+                                y2="1"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stop-color="#DBC99F" />
+                                <stop
+                                  offset="1"
+                                  stop-color="#DBC99F"
+                                  stop-opacity="0"
+                                />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                          <div className={styles.group}>
+                            <span className="section-num">002</span>
+                            <span className="section-span">brand clothing</span>
+                          </div>
+                          <svg
+                            className={styles.line}
+                            preserveAspectRatio="none"
+                            width="135"
+                            height="2"
+                            viewBox="0 0 135 2"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              opacity="0.2"
+                              d="M0 1H134.5"
+                              stroke="url(#paint0_linear_40_31)"
+                            />
+                            <defs>
+                              <linearGradient
+                                id="paint0_linear_40_31"
+                                x1="0.500002"
+                                y1="1"
+                                x2="132"
+                                y2="1"
+                                gradientUnits="userSpaceOnUse"
+                              >
+                                <stop stop-color="#DBC99F" />
+                                <stop
+                                  offset="1"
+                                  stop-color="#DBC99F"
+                                  stop-opacity="0"
+                                />
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                        <p className={styles.exclusivesText}>
+                          Lorem ipsum dolor sit amet consectetur. Condimentum eu
+                          tincidunt massa platea et tempus orci. Sit morbi
+                          fermentum vitae sit sed et. Mi id libero quis integer
+                          convallis. Lectus vitae libero diam porttitor amet.
+                        </p>
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
+              )}
             </div>
           </div>
         </div>

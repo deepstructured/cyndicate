@@ -24,6 +24,41 @@ body {
   }
 }
 
+#exclusives-slide-info {
+  .swiper-slide {
+    transition: opacity 0.5s ease !important;
+    opacity: 0 !important;
+
+    div {
+      transition: 0.4s ease;
+      opacity: 0;
+      translate: 0 25%;
+    }
+
+    p {
+      transition: 0.4s ease;
+      opacity: 0;
+      translate: 0 25%;
+    }
+  }
+
+  .swiper-slide.swiper-slide-active {
+    opacity: 1 !important;
+
+    div {
+      opacity: 1 !important;
+      translate: 0 !important;
+      transition-delay: 0.25s !important;
+    }
+
+    p {
+      opacity: 1 !important;
+      translate: 0 !important;
+      transition-delay: 0.35s !important;
+    }
+  }
+}
+
 #exclusives-cards-swiper {
   .swiper-slide.swiper-slide-active {
     @apply translate-x-[35%];

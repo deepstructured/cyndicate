@@ -13,7 +13,7 @@ export const Cursor = () => {
       const cursor = new MouseFollower({
         el: cursorRef.current,
         container: document.body,
-        speed: 1,
+        speed: 0.5,
         stateDetection: {
           '-drag': '.drag-swiper',
           '-gold-drag': '.gold-drag-swiper',

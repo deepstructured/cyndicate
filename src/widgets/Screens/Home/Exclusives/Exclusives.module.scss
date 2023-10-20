@@ -69,6 +69,10 @@
     @apply w-full flex-1 relative;
   }
 
+  &SlideInfo {
+    @apply w-full;
+  }
+
   &Swiper {
     @apply w-[175vw] h-[175vw] flex absolute top-1/2 left-1/2 rounded-full;
 
@@ -86,8 +90,12 @@
     }
   }
 
+  &InfoItem {
+    @apply gap-[8vh] flex flex-col items-center justify-center;
+  }
+
   &InfoPanel {
-    @apply w-full mt-auto gap-[8vh] flex flex-col items-center justify-center px-[2.646vw];
+    @apply w-full mt-auto px-[2.646vw];
 
     @media (max-width: $tablet) {
       @apply gap-[17.949vw];

@@ -35,7 +35,7 @@ export const Preloader = () => {
               <span className="cyndicate-span">CYNDICATE</span>
             </div>
             <div className={styles.video}>
-              <h1>{loading <= 100 ? loading.toFixed(0) : `100`}%</h1>
+              <h1>{loading < 100 ? loading.toFixed(0) : `100`}%</h1>
               <video
                 playsInline={true}
                 autoPlay={true}

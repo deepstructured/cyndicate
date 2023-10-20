@@ -1,7 +1,93 @@
 .menu {
-  &.loaded {
+  @apply z-[4] fixed top-0 left-0 w-full h-full bg-no-repeat bg-cover bg-center px-[5.128vw] py-[6.154vw] flex-col justify-end gap-[10.6vh] hidden transition-opacity opacity-0 pointer-events-none duration-[400ms] delay-[500ms];
+
+  background-image: url('/images/backgrounds/hero-bg.png');
+
+  @media (max-width: $tablet) {
+    @apply flex;
   }
 
-  .content {
+  &.active {
+    @apply delay-0 opacity-100;
+
+    .menuLink {
+      @apply opacity-100 translate-x-0;
+    }
+
+    .menuListWrapper {
+      > * {
+        @apply opacity-100 translate-x-0;
+
+        &:nth-child(3) {
+          @apply delay-[500ms];
+
+          opacity: 1 !important;
+          transform: translate(0) !important;
+        }
+      }
+    }
+
+    .menuSocials {
+      @apply opacity-100 translate-y-0 delay-[650ms];
+    }
+  }
+
+  &ListWrapper {
+    @apply flex flex-col gap-[7.35vh];
+
+    > * {
+      @apply opacity-0 translate-x-[-15%];
+
+      transition: 0.4s ease;
+      transition-property: opacity, transform;
+
+      &:nth-child(3) {
+        opacity: 0 !important;
+        transform: translate(-15%, 0) !important;
+      }
+    }
+  }
+
+  &Socials {
+    @apply w-full pt-[5.897vw] flex items-center justify-between opacity-0 translate-y-[25%];
+    border-top: 0.9vw solid rgba(255, 255, 255, 0.2);
+
+    transition: 0.4s ease;
+    transition-property: opacity, transform;
+
+    .social {
+      @apply text-[5.128vw] font-normal;
+      line-height: 135%;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &List {
+    @apply flex flex-col gap-[3.8vh];
+    transition-duration: 0.2s !important;
+  }
+
+  &Link {
+    @apply text-[10.256vw] opacity-0 translate-x-[-15%];
+
+    transition: 0.4s ease;
+    transition-property: opacity, transform;
+
+    &:active {
+      svg {
+        @apply w-[6.872vw] mr-[4.141vw];
+      }
+    }
+
+    a {
+      @apply flex items-center;
+    }
+
+    line-height: 131%;
+
+    svg {
+      @apply w-[0] h-[3.077vw] duration-[400ms] mr-0;
+      transition-property: width;
+    }
   }
 }

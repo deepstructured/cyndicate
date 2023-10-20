@@ -60,7 +60,6 @@
 
       min-width: 88.462vw !important;
       width: 88.462vw !important;
-      max-width: 88.462vw !important;
       height: 53.6vh !important;
     }
 
@@ -130,10 +129,10 @@
     }
 
     &Wrapper {
-      @apply flex h-[52.6vh] z-[3];
+      @apply w-full flex h-[52.6vh] z-[3];
 
       div[class='swiper-wrapper'] {
-        @apply flex;
+        @apply flex w-full;
       }
     }
 

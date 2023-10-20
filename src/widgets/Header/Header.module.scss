@@ -16,14 +16,40 @@
   }
 
   &Burger {
-    @apply flex-col gap-[2.308vw] hidden;
+    @apply hidden relative mr-[5.128vw];
+
+    &.opened {
+      .close {
+        @apply opacity-100;
+      }
+
+      .open {
+        @apply opacity-0;
+      }
+    }
+
+    > div {
+      @apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] transition-opacity duration-[400ms];
+    }
+
+    .open {
+      @apply flex flex-col gap-[2.308vw];
+
+      svg {
+        @apply w-[18.462vw] h-[0.385vw] pointer-events-none;
+      }
+    }
+
+    .close {
+      @apply w-[5.128vw] h-[5.128vw] opacity-0;
+
+      svg {
+        @apply w-full h-full;
+      }
+    }
 
     @media (max-width: $tablet) {
       @apply flex;
-    }
-
-    svg {
-      @apply w-[18.462vw] h-[0.385vw];
     }
   }
 

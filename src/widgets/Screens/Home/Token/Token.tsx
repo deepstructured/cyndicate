@@ -336,69 +336,61 @@ export const Token = () => {
               </svg>
             </div>
           </div>
-          <Swiper
-            onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
-            onSwiper={(swiper) => setSwiper(swiper)}
-            slidesPerView={'auto'}
-            spaceBetween={window.innerWidth > 768 ? 20 : 20}
-            freeMode={window.innerWidth > 768 ? true : false}
-            modules={[FreeMode]}
-            className={clsx(styles.tokenCardsWrapper, 'gold-drag-swiper')}
-          >
-            {window.innerWidth > 768 && (
+          {window.innerWidth > 768 ? (
+            <Swiper
+              onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
+              onSwiper={(swiper) => setSwiper(swiper)}
+              slidesPerView={'auto'}
+              spaceBetween={20}
+              freeMode={true}
+              direction="horizontal"
+              modules={[FreeMode]}
+              className={clsx(styles.tokenCardsWrapper, 'gold-drag-swiper')}
+            >
               <SwiperSlide
                 className={clsx(styles.tokenCard, 'opacity-0 ')}
               ></SwiperSlide>
-            )}
 
-            {tokenCards.map((card, idx) => (
-              <SwiperSlide className={styles.tokenCard}>
-                <span className={styles.tokenCardTitle}>
-                  <span className={styles.tokenCardNum}>0{idx + 1}</span>
-                  {card.title}
-                </span>
-                <p className={styles.tokenCardText}>{card.text}</p>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              {tokenCards.map((card, idx) => (
+                <SwiperSlide className={styles.tokenCard}>
+                  <span className={styles.tokenCardTitle}>
+                    <span className={styles.tokenCardNum}>0{idx + 1}</span>
+                    {card.title}
+                  </span>
+                  <p className={styles.tokenCardText}>{card.text}</p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          ) : (
+            <Swiper
+              onSlideChange={(swiper) => setActiveSlide(swiper.activeIndex)}
+              onSwiper={(swiper) => setSwiper(swiper)}
+              spaceBetween={20}
+              slidesPerView={'auto'}
+              direction="horizontal"
+              className={clsx(styles.tokenCardsWrapper, 'gold-drag-swiper')}
+            >
+              {tokenCards.map((card, idx) => (
+                <SwiperSlide className={styles.tokenCard}>
+                  <span className={styles.tokenCardTitle}>
+                    <span className={styles.tokenCardNum}>0{idx + 1}</span>
+                    {card.title}
+                  </span>
+                  <p className={styles.tokenCardText}>{card.text}</p>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
           {window.innerWidth <= 768 && (
             <div className={styles.tokenBullets}>
-              <div
-                className={clsx(
-                  styles.bullet,
-                  activeSlide === 0 && styles.active
-                )}
-              ></div>
-              <div
-                className={clsx(
-                  styles.bullet,
-                  activeSlide === 1 && styles.active
-                )}
-              ></div>
-              <div
-                className={clsx(
-                  styles.bullet,
-                  activeSlide === 2 && styles.active
-                )}
-              ></div>
-              <div
-                className={clsx(
-                  styles.bullet,
-                  activeSlide === 3 && styles.active
-                )}
-              ></div>
-              <div
-                className={clsx(
-                  styles.bullet,
-                  activeSlide === 4 && styles.active
-                )}
-              ></div>
-              <div
-                className={clsx(
-                  styles.bullet,
-                  activeSlide === 5 && styles.active
-                )}
-              ></div>
+              {tokenCards.map((token, idx) => (
+                <div
+                  className={clsx(
+                    styles.bullet,
+                    activeSlide === idx && styles.active
+                  )}
+                ></div>
+              ))}
             </div>
           )}
           {window.innerWidth <= 768 && <Button>Join the Future Now</Button>}
