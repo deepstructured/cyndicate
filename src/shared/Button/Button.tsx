@@ -11,6 +11,7 @@ interface IProps extends ButtonHTMLAttributes<string> {
   dataStart?: string
   dataDuration?: string
   dataDelay?: string
+  handleClick?: () => void
 }
 
 export const Button: FC<IProps> = ({
@@ -23,10 +24,15 @@ export const Button: FC<IProps> = ({
   dataStart = 'top top+=100%',
   dataDuration = '0.65',
   dataDelay = '0',
+  handleClick,
 }) => {
   return isLink ? (
     <Magnetic>
       <a
+        onClick={(ev) => {
+          ev.preventDefault()
+          handleClick && handleClick()
+        }}
         data-start={dataStart}
         data-duration={dataDuration}
         data-delay={dataDelay}
@@ -51,6 +57,7 @@ export const Button: FC<IProps> = ({
   ) : (
     <Magnetic>
       <button
+        onClick={() => handleClick && handleClick()}
         data-start={dataStart}
         data-duration={dataDuration}
         data-delay={dataDelay}

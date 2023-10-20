@@ -55,16 +55,75 @@ const Footer = () => {
                 <span className={styles.footerColTitle}>About Us</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
-                    <a href="">About Us</a>
+                    <a
+                      onClick={(ev) => {
+                        ev.preventDefault()
+
+                        window.scrollTo({
+                          left: 0,
+                          top: document.querySelector<HTMLDivElement>(
+                            '#about-us'
+                          )?.offsetTop,
+                          behavior: 'smooth',
+                        })
+                      }}
+                      href="#about-us"
+                    >
+                      About Us
+                    </a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">Exclusives</a>
+                    <a
+                      onClick={(ev) => {
+                        ev.preventDefault()
+
+                        window.scrollTo({
+                          left: 0,
+                          top: document.querySelector<HTMLDivElement>(
+                            '#exclusives'
+                          )?.offsetTop,
+                          behavior: 'smooth',
+                        })
+                      }}
+                      href="#exclusives"
+                    >
+                      Exclusives
+                    </a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">Evolution</a>
+                    <a
+                      onClick={(ev) => {
+                        ev.preventDefault()
+
+                        window.scrollTo({
+                          left: 0,
+                          top: document.querySelector<HTMLDivElement>(
+                            '#evolution'
+                          )?.offsetTop,
+                          behavior: 'smooth',
+                        })
+                      }}
+                      href="#evolution"
+                    >
+                      Evolution
+                    </a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">Token</a>
+                    <a
+                      onClick={(ev) => {
+                        ev.preventDefault()
+
+                        window.scrollTo({
+                          left: 0,
+                          top: document.querySelector<HTMLDivElement>('#token')
+                            ?.offsetTop,
+                          behavior: 'smooth',
+                        })
+                      }}
+                      href="#token"
+                    >
+                      Token
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -99,16 +158,15 @@ const Footer = () => {
                 <span className={styles.footerColTitle}>Follow us</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
-                    <a href="">Instagram</a>
+                    <a href="https://www.instagram.com/cyndicate.io/">
+                      Instagram
+                    </a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">Discord</a>
+                    <a href="Cyndicate.io">Discord</a>
                   </li>
                   <li className={styles.footerLink}>
-                    <a href="">Twitter</a>
-                  </li>
-                  <li className={styles.footerLink}>
-                    <a href="">Token</a>
+                    <a href="https://twitter.com/DAOCyndicate">Twitter</a>
                   </li>
                 </ul>
               </div>

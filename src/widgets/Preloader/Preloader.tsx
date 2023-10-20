@@ -20,7 +20,7 @@ export const Preloader = () => {
   }, [])
 
   useEffect(() => {
-    if (loading >= 95 && !pageLoaded) {
+    if (loading >= 100 && !pageLoaded) {
       setTimeout(() => setClosing(true), 1000)
       setTimeout(() => setPageLoaded(true), 1500)
     }
@@ -35,7 +35,7 @@ export const Preloader = () => {
               <span className="cyndicate-span">CYNDICATE</span>
             </div>
             <div className={styles.video}>
-              <h1>{loading < 95 ? loading.toFixed(0) : `100`}%</h1>
+              <h1>{loading < 100 ? loading.toFixed(0) : `100`}%</h1>
               <video
                 playsInline={true}
                 autoPlay={true}
@@ -50,7 +50,6 @@ export const Preloader = () => {
               <p>
                 Advancing Self Evolution, <br />
                 Forging Empires
-                <img className="star" src="/images/icons/star.svg" alt="" />
               </p>
             </div>
           </div>

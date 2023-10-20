@@ -8,7 +8,7 @@
   }
 
   &.active {
-    @apply delay-0 opacity-100;
+    @apply delay-0 opacity-100 pointer-events-auto;
 
     .menuLink {
       @apply opacity-100 translate-x-0;

@@ -81,6 +81,16 @@ const Header = () => {
       <div className={styles.headerMenu}>
         {headerLinks.map((link, idx) => (
           <Button
+            handleClick={() => {
+              if (link.href[0] === '#') {
+                window.scrollTo({
+                  left: 0,
+                  top: document.querySelector<HTMLDivElement>(link.href)
+                    ?.offsetTop,
+                  behavior: 'smooth',
+                })
+              }
+            }}
             data-duration="0.85"
             dataDelay={`${0.02 * idx + 0.5}`}
             href={link.href}

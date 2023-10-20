@@ -10,6 +10,10 @@ body {
     overflow-y: scroll !important;
   }
 
+  &.freezed {
+    overflow-y: hidden !important;
+  }
+
   @media (max-width: $tablet) {
     font-size: 4.103vw;
   }

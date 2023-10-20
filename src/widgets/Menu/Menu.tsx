@@ -2,11 +2,19 @@ import clsx from 'clsx'
 import { navLinks } from '../../data'
 import { Button } from '../../shared/Button/Button'
 import styles from './Menu.module.scss'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { MainContext } from '../../app/providers/MainContext'
 
 export const Menu = () => {
-  const { menuActive } = useContext(MainContext)
+  const { menuActive, setMenuActive } = useContext(MainContext)
+
+  useEffect(() => {
+    if (menuActive) {
+      document.body.classList.add('freezed')
+    } else {
+      document.body.classList.remove('freezed')
+    }
+  }, [menuActive])
 
   return (
     <menu className={clsx(styles.menu, menuActive && styles.active)}>
@@ -20,7 +28,23 @@ export const Menu = () => {
               }}
               className={styles.menuLink}
             >
-              <a href={link.href}>
+              <a
+                onClick={(ev) => {
+                  ev.preventDefault()
+
+                  setMenuActive(false)
+
+                  if (link.href[0] === '#') {
+                    window.scrollTo({
+                      left: 0,
+                      top: document.querySelector<HTMLDivElement>(link.href)
+                        ?.offsetTop,
+                      behavior: 'smooth',
+                    })
+                  }
+                }}
+                href={link.href}
+              >
                 <svg
                   width="29"
                   height="14"
@@ -51,13 +75,16 @@ export const Menu = () => {
         <Button animated={false}>Join Us</Button>
       </div>
       <div className={styles.menuSocials}>
-        <a href="" className={styles.social}>
+        <a
+          href="https://www.instagram.com/cyndicate.io/"
+          className={styles.social}
+        >
           Instagram
         </a>
-        <a href="" className={styles.social}>
+        <a href="Cyndicate.io" className={styles.social}>
           Discord
         </a>
-        <a href="" className={styles.social}>
+        <a href="https://twitter.com/DAOCyndicate" className={styles.social}>
           Twitter
         </a>
       </div>
