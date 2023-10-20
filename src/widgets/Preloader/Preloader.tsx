@@ -20,7 +20,7 @@ export const Preloader = () => {
   }, [])
 
   useEffect(() => {
-    if (loading >= 100 && !pageLoaded) {
+    if (loading >= 95 && !pageLoaded) {
       setTimeout(() => setClosing(true), 0)
       setTimeout(() => setPageLoaded(true), 500)
     }
@@ -35,14 +35,13 @@ export const Preloader = () => {
               <span className="cyndicate-span">CYNDICATE</span>
             </div>
             <div className={styles.video}>
-              <h1>{loading < 100 ? loading.toFixed(0) : `100`}%</h1>
+              <h1>{loading < 95 ? loading.toFixed(0) : `100`}%</h1>
               <video
                 playsInline={true}
                 autoPlay={true}
                 loop={true}
                 muted={true}
               >
-                <source type="video/webm" src="/videos/logo.webm" />
                 <source type="video/mp4" src="/videos/logo.mp4" />
               </video>
             </div>
