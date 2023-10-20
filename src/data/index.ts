@@ -128,7 +128,7 @@ export const tokenCards = [
 export const navLinks = [
   {
     title: 'About',
-    href: '#about',
+    href: '#about-us',
   },
   {
     title: 'Exclusives',

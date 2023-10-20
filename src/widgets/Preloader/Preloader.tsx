@@ -41,6 +41,7 @@ export const Preloader = () => {
                 autoPlay={true}
                 loop={true}
                 muted={true}
+                controls={false}
               >
                 <source type="video/mp4" src="/videos/logo.mp4" />
               </video>
