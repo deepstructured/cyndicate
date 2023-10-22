@@ -19,7 +19,7 @@
     li {
       float: left;
 
-      @apply flex gap-[1.455vw] items-start relative;
+      @apply flex gap-[1.455vw] items-start relative whitespace-nowrap;
       font-feature-settings: 'calt' off, 'liga' off;
 
       width: fit-content !important;

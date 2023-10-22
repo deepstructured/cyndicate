@@ -158,13 +158,9 @@ section {
 }
 
 .quotes {
-  @apply font-medium;
-  line-height: 0;
-  font-size: 3.916vw !important;
+  @apply font-medium w-[1.455vw] h-[3.108vw] min-w-[1.455vw] min-h-[3.108vw];
 
-  @media (max-width: $tablet) {
-    font-size: 15.385vw !important;
-  }
+  translate: 0 -25% !important;
 }
 
 .text-gold {

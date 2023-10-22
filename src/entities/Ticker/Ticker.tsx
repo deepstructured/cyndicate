@@ -126,12 +126,12 @@ export const Ticker: FC<IProps> = ({ direction = 1 }) => {
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Resolution</span>
+          <span>$CYND TOKEN</span>
           <span>03</span>
           <img data-can-move="true" src="/images/Exclusives/1.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Capital</span>
+          <span>Evolution</span>
           <span>04</span>
           <img data-can-move="true" src="/images/Exclusives/2.png" alt="" />
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
@@ -148,12 +148,12 @@ export const Ticker: FC<IProps> = ({ direction = 1 }) => {
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Resolution</span>
+          <span>$CYND TOKEN</span>
           <span>03</span>
           <img data-can-move="true" src="/images/Exclusives/1.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Capital</span>
+          <span>Evolution</span>
           <span>04</span>
           <img data-can-move="true" src="/images/Exclusives/2.png" alt="" />
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
@@ -178,12 +178,12 @@ export const Ticker: FC<IProps> = ({ direction = 1 }) => {
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Resolution</span>
+          <span>$CYND TOKEN</span>
           <span>03</span>
           <img data-can-move="true" src="/images/Exclusives/1.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Capital</span>
+          <span>Evolution</span>
           <span>04</span>
           <img data-can-move="true" src="/images/Exclusives/2.png" alt="" />
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
@@ -200,12 +200,12 @@ export const Ticker: FC<IProps> = ({ direction = 1 }) => {
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Resolution</span>
+          <span>$CYND TOKEN</span>
           <span>03</span>
           <img data-can-move="true" src="/images/Exclusives/1.png" alt="" />
         </li>
         <li onMouseMove={(ev) => mouseMove(ev)}>
-          <span>Capital</span>
+          <span>Evolution</span>
           <span>04</span>
           <img data-can-move="true" src="/images/Exclusives/2.png" alt="" />
           <img data-can-move="true" src="/images/Exclusives/3.png" alt="" />
