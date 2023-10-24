@@ -206,7 +206,7 @@ export const OurVision = () => {
                       <svg
                         data-start="top top+=100%"
                         data-duration="0.75"
-                        data-delay="0"
+                        data-delay="0.5"
                         className="reveal opacity-0 translate-y-[50%] quotes text-gold"
                         width="21"
                         height="15"
@@ -231,7 +231,7 @@ export const OurVision = () => {
                       <svg
                         data-start="top top+=100%"
                         data-duration="0.75"
-                        data-delay="0"
+                        data-delay="0.75"
                         className="reveal opacity-0 translate-y-[50%] quotes end text-gold"
                         width="21"
                         height="15"

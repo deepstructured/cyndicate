@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { Logo } from '../../shared/Logo/Logo'
 import styles from './Header.module.scss'
 import { MainContext } from '../../app/providers/MainContext'
-import { useLocation, useNavigate, useNavigation } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom'
 import { headerLinks } from '../../data'
 import { Button } from '../../shared/Button/Button'
 
@@ -12,13 +12,14 @@ const Header = () => {
 
   return (
     <header className={clsx(styles.header, 'reveal')}>
-      <div
+      <Link
+        to="/"
         data-delay="0.25"
         data-duration="0.75"
         className={clsx(styles.headerLogo, 'reveal opacity-0 translate-x-full')}
       >
         <Logo />
-      </div>
+      </Link>
       <div
         onClick={() => {
           !menuActive ? setMenuActive(true) : setMenuActive(false)

@@ -1,5 +1,3 @@
-import { gsap } from 'gsap'
-// import MouseFollower from 'mouse-follower'
 import { FC, ReactNode, useEffect, useState } from 'react'
 import Header from '../../widgets/Header/Header'
 import Footer from '../../widgets/Footer/Footer'
@@ -12,11 +10,14 @@ import { Preloader } from '../../widgets/Preloader/Preloader'
 
 interface IProps {
   children: ReactNode
+  withPreloader: boolean
 }
 
-export const Layout: FC<IProps> = ({ children }) => {
+export const Layout: FC<IProps> = ({ children, withPreloader }) => {
   const [currentPage, setCurrentPage] = useState<string>('')
-  const [pageLoaded, setPageLoaded] = useState<boolean>(false)
+  const [pageLoaded, setPageLoaded] = useState<boolean>(
+    withPreloader ? false : true
+  )
   const [activeScreen, setActiveScreen] = useState<number>(0)
   const [direction, setDirection] = useState<string>('')
   const [menuActive, setMenuActive] = useState<boolean>(false)
@@ -48,7 +49,7 @@ export const Layout: FC<IProps> = ({ children }) => {
     >
       <Menu />
       <Header />
-      <Preloader />
+      {withPreloader && <Preloader />}
       {window.innerWidth > 768 && <Cursor />}
       <WithScrollSmoother>
         {children}

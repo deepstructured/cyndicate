@@ -250,7 +250,12 @@ export const Exclusives = () => {
   return (
     <>
       <section id="exclusives" className="section exclusives-word">
-        <big>Exclusives</big>
+        <big className="relative">
+          Exclusives
+          <span className="section-span absolute translate-x-1/2 top-0 right-0">
+            coming soon
+          </span>
+        </big>
       </section>
       <section className={clsx('section', styles.exclusives)}>
         <div className="container">
@@ -277,11 +282,11 @@ export const Exclusives = () => {
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Hoodie</span>
+                      <span>Shopper</span>
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Hoodie</span>
+                      <span>Shopper</span>
                     </div>
                   </div>
                   {/* 3 */}
@@ -292,7 +297,7 @@ export const Exclusives = () => {
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Hoodie</span>
+                      <span>Shopper</span>
                     </div>
                   </div>
                   {/* 4 */}
@@ -310,7 +315,7 @@ export const Exclusives = () => {
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/1.png" alt="" />
-                      <span>T-shirt</span>
+                      <span>Hoodie</span>
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/4.png" alt="" />
@@ -344,7 +349,7 @@ export const Exclusives = () => {
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/1.png" alt="" />
-                      <span>T-shirt</span>
+                      <span>Hoodie</span>
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/2.png" alt="" />
@@ -355,7 +360,7 @@ export const Exclusives = () => {
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/1.png" alt="" />
-                      <span>T-shirt</span>
+                      <span>Hoodie</span>
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/3.png" alt="" />
@@ -383,7 +388,7 @@ export const Exclusives = () => {
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Hoodie</span>
+                      <span>Shopper</span>
                     </div>
                   </div>
                   <div className={styles.line}>
@@ -393,13 +398,13 @@ export const Exclusives = () => {
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/1.png" alt="" />
-                      <span>T-shirt</span>
+                      <span>Hoodie</span>
                     </div>
                   </div>
                   <div className={styles.line}>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/1.png" alt="" />
-                      <span>T-shirt</span>
+                      <span>Hoodie</span>
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/2.png" alt="" />
@@ -433,7 +438,7 @@ export const Exclusives = () => {
                     </div>
                     <div className={styles.exclusivesCard}>
                       <img src="/images/Exclusives/5.png" alt="" />
-                      <span>Hoodie</span>
+                      <span>Shopper</span>
                     </div>
                   </div>
                 </div>

@@ -66,6 +66,8 @@
       left: 50%;
       translate: -50% -50%;
 
+      font-family: $atyp !important;
+
       transform-origin: center;
       line-height: 120% !important;
 
@@ -75,7 +77,7 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
 
-      scale: 0.5;
+      scale: 0.45;
     }
 
     video {
@@ -92,11 +94,9 @@
     transition-property: opacity, translate;
 
     span {
-      background-image: url('/images/texture.jpg');
-      -webkit-background-clip: text;
-      -moz-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-family: $atyp !important;
+      font-weight: 400 !important;
+      color: $gold-primary;
     }
 
     @media (max-width: $tablet) {
@@ -120,9 +120,23 @@
       gap: 5vh;
     }
 
+    svg {
+      @apply w-[1.323vw] h-[1.323vw] absolute right-0 bottom-[10vh];
+
+      @media (max-width: $tablet) {
+        @apply bottom-[17.5vh] left-1/2 translate-x-[-50%] w-[7.5vw] h-[7.5vw];
+        right: unset;
+      }
+    }
+
     p {
       position: relative;
       line-height: 160%;
+      opacity: 0.3;
+
+      &:first-child {
+        color: rgba(255, 255, 255, 0.6);
+      }
 
       @media (max-width: $tablet) {
         text-align: center;

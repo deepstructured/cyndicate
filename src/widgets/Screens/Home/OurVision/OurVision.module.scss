@@ -81,22 +81,18 @@
         @apply w-full flex items-center justify-between;
 
         @media (max-width: $tablet) {
-          @apply mt-[19.487vw] flex-col items-center justify-center;
+          @apply mt-[19.487vw] flex-col items-center justify-center gap-[7vh];
         }
       }
     }
   }
 
   &Title {
-    @apply text-[3.638vw] relative;
-    line-height: 120%;
+    @apply relative;
 
     @media (max-width: $tablet) {
-      @apply text-[8.205vw];
-
       max-width: 100% !important;
       width: 100% !important;
-      line-height: 125% !important;
     }
 
     .line {

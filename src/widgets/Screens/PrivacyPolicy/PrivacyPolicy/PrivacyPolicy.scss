@@ -1,0 +1,17 @@
+.privacy-policy {
+  .container {
+    @apply pt-[16vh] pb-[18.5vh];
+  }
+
+  &__top-wrapper {
+    @apply w-full flex flex-col gap-[3vh];
+  }
+
+  &__text-content {
+    @apply w-full pt-[11.5vh];
+  }
+
+  p {
+    line-height: 170% !important;
+  }
+}

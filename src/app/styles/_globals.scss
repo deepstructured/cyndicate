@@ -101,6 +101,25 @@ h2 {
   }
 }
 
+h3 {
+  font-size: 3.638vw !important;
+  line-height: 120% !important;
+
+  @media (max-width: $tablet) {
+    font-size: 8.205vw !important;
+    line-height: 125% !important;
+  }
+}
+
+h6 {
+  font-size: 1.19vw !important;
+  line-height: 136% !important;
+
+  @media (max-width: $tablet) {
+    font-size: 4.615vw !important;
+  }
+}
+
 big {
   @apply text-[14.550vw];
   line-height: 100%;
@@ -121,6 +140,17 @@ section {
 
   &.exclusives-word {
     @apply flex items-center justify-center;
+
+    big {
+      span {
+        letter-spacing: 0.1vw;
+        line-height: 100%;
+
+        @media (max-width: $tablet) {
+          @apply translate-y-[-50%];
+        }
+      }
+    }
 
     @media (max-width: $tablet) {
       @apply h-[50vh];
@@ -153,7 +183,7 @@ section {
   @apply flex items-center gap-[1.632vw];
 
   @media (max-width: $tablet) {
-    @apply gap-[6.410vw];
+    @apply gap-[4vw] text-center;
   }
 }
 
@@ -161,6 +191,10 @@ section {
   @apply font-medium w-[1.455vw] h-[3.108vw] min-w-[1.455vw] min-h-[3.108vw];
 
   translate: 0 -25% !important;
+
+  @media (max-width: $tablet) {
+    @apply w-[4vw] h-[6vw] min-w-[4vw] min-h-[6vw];
+  }
 }
 
 .text-gold {

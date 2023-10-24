@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import styles from './Footer.module.scss'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -139,7 +140,7 @@ const Footer = () => {
                 <span className={styles.footerColTitle}>Information</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
-                    <a href="">Privacy Policy</a>
+                    <Link to="/privacy-policy">Privacy Policy</Link>
                   </li>
                   <li className={styles.footerLink}>
                     <a href="">Help center</a>

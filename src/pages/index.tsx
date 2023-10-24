@@ -1,3 +1,4 @@
+import { PrivacyPolicy } from '../widgets/Screens/PrivacyPolicy/PrivacyPolicy/PrivacyPolicy'
 import { Home } from './Home/Home'
 
 export const pages = [
@@ -6,5 +7,11 @@ export const pages = [
     path: '/',
     element: <Home />,
     withPreloader: true,
+  },
+  {
+    title: 'Privacy Policy',
+    path: '/privacy-policy',
+    element: <PrivacyPolicy />,
+    withPreloader: false,
   },
 ]
