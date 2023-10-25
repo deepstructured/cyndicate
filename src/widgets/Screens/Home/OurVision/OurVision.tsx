@@ -160,9 +160,7 @@ export const OurVision = () => {
                   </p>
                 </div>
                 <Magnetic>
-                  <img
-                    src="/images/OurVision/image.png"
-                    alt=""
+                  <div
                     data-duration="0.65"
                     data-start="top top+=100%"
                     data-delay="0.25"
@@ -170,7 +168,15 @@ export const OurVision = () => {
                       styles.ourVisionImage,
                       'reveal opacity-0 scale-x-[0.8]'
                     )}
-                  />
+                  >
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      src="/videos/logo.mp4"
+                    />
+                  </div>
                 </Magnetic>
               </div>
               <div className={styles.ourVisionBlock}>

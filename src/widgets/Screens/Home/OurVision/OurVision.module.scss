@@ -108,7 +108,11 @@
   }
 
   &Image {
-    @apply relative left-[-2.646vw] w-full h-[48vh] object-cover object-center;
+    @apply relative left-[-2.646vw] w-full h-[48vh] bg-[#181818];
+
+    video {
+      @apply w-full h-full object-contain object-center mix-blend-lighten;
+    }
 
     @media (max-width: $tablet) {
       @apply left-0 h-[62.564vw];

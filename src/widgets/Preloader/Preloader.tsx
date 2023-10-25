@@ -4,6 +4,7 @@ import { preloader } from './function'
 import styles from './Preloader.module.scss'
 import { MainContext } from '../../app/providers/MainContext'
 import clsx from 'clsx'
+import gsap from 'gsap'
 
 export const Preloader = () => {
   const { pageLoaded, setPageLoaded } = useContext(MainContext)
@@ -13,20 +14,38 @@ export const Preloader = () => {
   const [preloaderKilled, setPreloaderKilled] = useState<boolean>(false)
 
   useEffect(() => {
-    preloader({
-      onChange(percentage: number, complete: number) {
-        setLoading(percentage)
-      },
-    })
-  }, [])
-
-  useEffect(() => {
     if (loading >= 100 && !pageLoaded) {
-      setTimeout(() => setClosing(true), 1000)
-      setTimeout(() => setPageLoaded(true), 1500)
-      setTimeout(() => setPreloaderKilled(true), 1800)
+      setTimeout(() => setClosing(true), 500)
+      setTimeout(() => setPageLoaded(true), 750)
+      setTimeout(() => setPreloaderKilled(true), 1400)
     }
   }, [loading])
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl1 = gsap.fromTo(
+        '.preloader-counter',
+        {
+          textContent: 0,
+        },
+        {
+          textContent: 100,
+          duration: 2.5,
+          ease: 'none',
+          snap: { textContent: 1 },
+          stagger: 1,
+        }
+      )
+
+      tl1.eventCallback('onUpdate', () => {
+        const percent = Number(tl1.progress().toFixed(2))
+        const num = Number(Number(percent * 100).toFixed(2))
+        setLoading(num)
+      })
+    })
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <>
@@ -39,8 +58,10 @@ export const Preloader = () => {
                   <span className="cyndicate-span">CYNDICATE</span>
                 </div>
                 <div className={styles.video}>
-                  <h1>{loading < 100 ? loading.toFixed(0) : `100`}%</h1>
-                  <video
+                  <h1>
+                    <span className="preloader-counter">0</span>%
+                  </h1>
+                  {/* <video
                     playsInline={true}
                     autoPlay={true}
                     loop={true}
@@ -48,7 +69,7 @@ export const Preloader = () => {
                     controls={false}
                   >
                     <source type="video/mp4" src="/videos/logo.mp4" />
-                  </video>
+                  </video> */}
                 </div>
                 <div className={styles.bottom}>
                   <p>From 2023</p>

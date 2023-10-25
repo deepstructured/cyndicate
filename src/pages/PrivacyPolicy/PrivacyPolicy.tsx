@@ -6,7 +6,7 @@ import { WithFullpage } from '../../app/providers/WithFullpage'
 import { MainContext } from '../../app/providers/MainContext'
 import { PrivacyPolicyScreens } from '../../widgets/Screens/PrivacyPolicy'
 
-export const Home = () => {
+export const PrivacyPolicy = () => {
   const { setCurrentPage } = useContext(MainContext)
 
   useEffect(() => {

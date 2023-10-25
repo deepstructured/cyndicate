@@ -91,9 +91,14 @@ export const Hero = () => {
               cyndicate
             </span>
             {window.innerWidth > 768 ? (
-              <h1 className="hero-h1">Become Who You Are Meant </h1>
+              <h1 className="hero-h1">
+                <span className="underlined">Become</span> Who You Are Meant{' '}
+              </h1>
             ) : (
-              <h1 className="hero-h1">Become Who You Are Meant to be </h1>
+              <h1 className="hero-h1">
+                <span className="underlined">Become</span> Who You Are Meant to
+                be{' '}
+              </h1>
             )}
           </div>
           <div className={styles.heroBlock}>

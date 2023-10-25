@@ -26,39 +26,13 @@
       @apply gap-[9.487vw];
     }
 
-    h1[class='hero-h1'] {
-      > div {
-        &:first-child {
-          &::before {
-            content: '';
-
-            @apply absolute w-full h-[0.3vh] bottom-[2vh] left-0 right-0;
-            background-color: $gold-primary;
-
-            @media (max-width: $tablet) {
-              @apply bottom-[0.5vh];
-            }
-          }
-        }
-
+    h1 {
+      span {
         > div {
-          &:first-child {
-            &::before {
-              content: '';
-
-              @apply absolute w-full h-[0.3vh] bottom-[2vh] left-0 right-0;
-              background-color: $gold-primary;
-
-              @media (max-width: $tablet) {
-                @apply bottom-[0.5vh];
-              }
-            }
-          }
+          @apply translate-y-[50%] rotate-[1deg] opacity-0;
         }
       }
-    }
 
-    h1 {
       > div {
         @apply translate-y-[50%] rotate-[1deg] opacity-0;
 

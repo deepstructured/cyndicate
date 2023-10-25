@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Logo } from '../../shared/Logo/Logo'
 import styles from './Header.module.scss'
@@ -8,19 +8,33 @@ import { headerLinks } from '../../data'
 import { Button } from '../../shared/Button/Button'
 
 const Header = () => {
-  const { menuActive, setMenuActive, setModalActive, modalActive } =
-    useContext(MainContext)
+  const {
+    menuActive,
+    setMenuActive,
+    setModalActive,
+    modalActive,
+    currentPage,
+    setHeaderLoaded,
+  } = useContext(MainContext)
+
+  useEffect(() => setHeaderLoaded(true))
 
   return (
     <header className={clsx(styles.header, 'reveal')}>
-      <Link
-        to="/"
+      <div
         data-delay="0.25"
         data-duration="0.75"
         className={clsx(styles.headerLogo, 'reveal opacity-0 translate-x-full')}
+        onClick={() =>
+          window.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: 'smooth',
+          })
+        }
       >
         <Logo />
-      </Link>
+      </div>
       <div
         onClick={() => {
           !menuActive ? setMenuActive(true) : setMenuActive(false)
@@ -81,41 +95,60 @@ const Header = () => {
         </div>
       </div>
       <div className={styles.headerMenu}>
-        {headerLinks.map((link, idx) =>
-          link.href ? (
-            <Button
-              handleClick={() => {
-                if (link.href[0] === '#') {
-                  window.scrollTo({
-                    left: 0,
-                    top: document.querySelector<HTMLDivElement>(link.href)
-                      ?.offsetTop,
-                    behavior: 'smooth',
-                  })
+        {headerLinks
+          .find((link) => link.page === currentPage)
+          ?.links.map((link, idx) =>
+            link.href ? (
+              <Button
+                handleClick={() => {
+                  if (link.href[0] === '#') {
+                    window.scrollTo({
+                      left: 0,
+                      top: document.querySelector<HTMLDivElement>(link.href)
+                        ?.offsetTop,
+                      behavior: 'smooth',
+                    })
+                  }
+                }}
+                isLink={link.href[0] === '/'}
+                dataStart="top top+=200%"
+                dataDuration="0.85"
+                dataDelay={`${0.02 * idx + 0.5}`}
+                href={link.href}
+                colorType={link.colorType ? 'filled' : 'transparent'}
+              >
+                {link.title}
+              </Button>
+            ) : (
+              <Button
+                handleClick={() =>
+                  !modalActive ? setModalActive(true) : setModalActive(false)
                 }
-              }}
-              data-duration="0.85"
-              dataDelay={`${0.02 * idx + 0.5}`}
-              href={link.href}
-              colorType={link.colorType ? 'filled' : 'transparent'}
-            >
-              {link.title}
-            </Button>
-          ) : (
+                isLink={false}
+                dataDuration="0.85"
+                dataDelay={`${0.02 * idx + 0.5}`}
+                href={link.href}
+                colorType={link.colorType ? 'filled' : 'transparent'}
+              >
+                {link.title}
+              </Button>
+            )
+          )}
+        {/* {currentPage === 'privacy-policy' && (
+          <>
             <Button
+              animated={false}
               handleClick={() =>
                 !modalActive ? setModalActive(true) : setModalActive(false)
               }
-              isLink={false}
-              data-duration="0.85"
-              dataDelay={`${0.02 * idx + 0.5}`}
-              href={link.href}
-              colorType={link.colorType ? 'filled' : 'transparent'}
+              dataDuration="0.85"
+              dataDelay={`${0.02 * 1 + 0.5}`}
+              href={'/'}
             >
-              {link.title}
+              Home
             </Button>
-          )
-        )}
+          </>
+        )} */}
       </div>
     </header>
   )

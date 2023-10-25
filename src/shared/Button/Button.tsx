@@ -29,10 +29,10 @@ export const Button: FC<IProps> = ({
   return isLink ? (
     <Magnetic>
       <a
-        onClick={(ev) => {
-          ev.preventDefault()
-          handleClick && handleClick()
-        }}
+        // onClick={(ev) => {
+        //   ev.preventDefault()
+        //   handleClick && handleClick()
+        // }}
         data-start={dataStart}
         data-duration={dataDuration}
         data-delay={dataDelay}

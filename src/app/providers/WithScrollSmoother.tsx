@@ -1,6 +1,7 @@
 import { FC, ReactNode, useContext, useEffect, useLayoutEffect } from 'react'
 import gsap from 'gsap'
 import { MainContext } from './MainContext'
+import Header from '../../widgets/Header/Header'
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText)
 
@@ -9,7 +10,7 @@ interface IProps {
 }
 
 export const WithScrollSmoother: FC<IProps> = ({ children }) => {
-  const { setActiveScreen, pageLoaded, hash } = useContext(MainContext)
+  const { pageLoaded, hash, headerLoaded } = useContext(MainContext)
 
   useEffect(() => {
     if (hash !== '' && pageLoaded) {
@@ -51,7 +52,7 @@ export const WithScrollSmoother: FC<IProps> = ({ children }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (pageLoaded) {
+      if (pageLoaded && headerLoaded) {
         const revealElements = Array.from(
           document.querySelectorAll<HTMLDataElement>('.reveal')
         )
@@ -79,15 +80,29 @@ export const WithScrollSmoother: FC<IProps> = ({ children }) => {
               }),
           })
         })
+
+        const underlinedLines = Array.from(
+          document.querySelectorAll('.underlined')
+        )
+
+        underlinedLines.map((line) => {
+          ScrollTrigger.create({
+            trigger: line,
+            start: `top top+=75%`,
+            onEnter: () => line.classList.add('animated'),
+          })
+        })
       }
     })
 
     return () => ctx.revert()
-  }, [pageLoaded])
+  }, [pageLoaded, headerLoaded])
 
   return (
-    <div id="smooth-wrapper">
-      <div id="smooth-content">{children}</div>
-    </div>
+    <>
+      <div id="smooth-wrapper">
+        <div id="smooth-content">{children}</div>
+      </div>
+    </>
   )
 }

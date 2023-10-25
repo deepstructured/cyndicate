@@ -1,5 +1,5 @@
-import { PrivacyPolicy } from '../widgets/Screens/PrivacyPolicy/PrivacyPolicy/PrivacyPolicy'
 import { Home } from './Home/Home'
+import { PrivacyPolicy } from './PrivacyPolicy/PrivacyPolicy'
 
 export const pages = [
   {

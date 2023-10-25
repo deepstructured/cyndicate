@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState } from 'react'
+import { FC, ReactNode, useEffect, useLayoutEffect, useState } from 'react'
 import Header from '../../widgets/Header/Header'
 import Footer from '../../widgets/Footer/Footer'
 import { MainContext } from './MainContext'
@@ -19,6 +19,7 @@ export const Layout: FC<IProps> = ({ children, withPreloader }) => {
   const [pageLoaded, setPageLoaded] = useState<boolean>(
     withPreloader ? false : true
   )
+  const [headerLoaded, setHeaderLoaded] = useState<boolean>(false)
   const [activeScreen, setActiveScreen] = useState<number>(0)
   const [direction, setDirection] = useState<string>('')
   const [menuActive, setMenuActive] = useState<boolean>(false)
@@ -50,33 +51,35 @@ export const Layout: FC<IProps> = ({ children, withPreloader }) => {
         setHash,
         modalActive,
         setModalActive,
+        headerLoaded,
+        setHeaderLoaded,
       }}
     >
       <Menu />
-      <Header />
       <Modal
-        title="Explore our socials"
-        text="Lorem ipsum dolor sit amet"
+        title="Join Our Community"
+        text="Join the future now!"
         links={[
           {
             title: 'instagram',
-            link: '#',
+            link: 'https://www.instagram.com/cyndicate.io/',
             icon: '/images/Socials/1.svg',
           },
           {
             title: 'Discord',
-            link: '#',
+            link: 'Cyndicate.io',
             icon: '/images/Socials/2.svg',
           },
           {
             title: 'Twitter',
-            link: '#',
+            link: 'https://twitter.com/DAOCyndicate',
             icon: '/images/Socials/3.svg',
           },
         ]}
       />
       {withPreloader && <Preloader />}
       {window.innerWidth > 768 && <Cursor />}
+      <Header />
       <WithScrollSmoother>
         {children}
         <Footer />

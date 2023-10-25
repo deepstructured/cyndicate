@@ -1,23 +1,41 @@
 export const headerLinks = [
   {
-    href: '#about-us',
-    title: 'About',
+    page: 'home',
+    links: [
+      {
+        href: '#about-us',
+        title: 'About',
+      },
+      {
+        href: '#exclusives',
+        title: 'Exclusives',
+      },
+      {
+        href: '#evolution',
+        title: 'Evolution',
+      },
+      {
+        href: '#token',
+        title: 'Token',
+      },
+      {
+        title: 'Join Us',
+        colorType: 'filled',
+      },
+    ],
   },
   {
-    href: '#exclusives',
-    title: 'Exclusives',
-  },
-  {
-    href: '#evolution',
-    title: 'Evolution',
-  },
-  {
-    href: '#token',
-    title: 'Token',
-  },
-  {
-    title: 'Join Us',
-    colorType: 'filled',
+    page: 'privacy-policy',
+    links: [
+      {
+        href: '/',
+        title: 'Home',
+      },
+      {
+        title: 'Join Us',
+        colorType: 'filled',
+      },
+    ],
   },
 ]
 
@@ -45,16 +63,46 @@ export const evolutionCardsData = [
 ]
 
 export const exclusivesCardsData = [
-  '/images/Exclusives/1.png',
-  '/images/Exclusives/2.png',
-  '/images/Exclusives/3.png',
-  '/images/Exclusives/4.png',
-  '/images/Exclusives/5.png',
-  '/images/Exclusives/1.png',
-  '/images/Exclusives/2.png',
-  '/images/Exclusives/3.png',
-  '/images/Exclusives/4.png',
-  '/images/Exclusives/5.png',
+  {
+    image: '/images/Exclusives/1.png',
+    tag: 'Hoodie',
+  },
+  {
+    image: '/images/Exclusives/2.png',
+    tag: 'T-shirt',
+  },
+  {
+    image: '/images/Exclusives/3.png',
+    tag: 'T-shirt',
+  },
+  {
+    image: '/images/Exclusives/4.png',
+    tag: 'Cap',
+  },
+  {
+    image: '/images/Exclusives/5.png',
+    tag: 'Shopper',
+  },
+  {
+    image: '/images/Exclusives/1.png',
+    tag: 'Hoodie',
+  },
+  {
+    image: '/images/Exclusives/2.png',
+    tag: 'T-shirt',
+  },
+  {
+    image: '/images/Exclusives/3.png',
+    tag: 'T-shirt',
+  },
+  {
+    image: '/images/Exclusives/4.png',
+    tag: 'Cap',
+  },
+  {
+    image: '/images/Exclusives/5.png',
+    tag: 'Shopper',
+  },
 ]
 
 export const capitalCards = [

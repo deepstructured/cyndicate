@@ -140,10 +140,7 @@ const Footer = () => {
                 <span className={styles.footerColTitle}>Information</span>
                 <ul className={styles.footerList}>
                   <li className={styles.footerLink}>
-                    <Link to="/privacy-policy">Privacy Policy</Link>
-                  </li>
-                  <li className={styles.footerLink}>
-                    <a href="">Help center</a>
+                    <a href="/privacy-policy">Privacy Policy</a>
                   </li>
                 </ul>
               </div>

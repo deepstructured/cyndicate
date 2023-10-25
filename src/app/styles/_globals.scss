@@ -179,6 +179,29 @@ section {
   }
 }
 
+.underlined {
+  @apply relative;
+
+  &.animated {
+    &::before {
+      @apply w-full;
+    }
+  }
+
+  &::before {
+    content: '';
+
+    @apply absolute w-0 h-[0.3vh] bottom-[2vh] left-0 right-0;
+    background-color: $gold-primary;
+
+    transition: width 1.25s ease 0.5s;
+
+    @media (max-width: $tablet) {
+      @apply bottom-[0.5vh];
+    }
+  }
+}
+
 .quote {
   @apply flex items-center gap-[1.632vw];
 

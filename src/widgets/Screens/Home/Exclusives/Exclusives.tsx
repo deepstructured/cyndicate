@@ -464,8 +464,8 @@ export const Exclusives = () => {
                 >
                   {exclusivesCardsData.map((card) => (
                     <SwiperSlide className={styles.exclusivesCard}>
-                      <img src={card} alt="" />
-                      <span>Sweatshirt</span>
+                      <img src={card.image} alt="" />
+                      <span>{card.tag}</span>
                     </SwiperSlide>
                   ))}
                 </Swiper>
