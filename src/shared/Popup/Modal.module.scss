@@ -94,7 +94,11 @@
 }
 
 .modalWrapper {
-  @apply fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[6] w-fit h-fit;
+  @apply fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[6] w-fit h-fit pointer-events-none;
+
+  &.active {
+    @apply pointer-events-auto;
+  }
 }
 
 .modalDraw {

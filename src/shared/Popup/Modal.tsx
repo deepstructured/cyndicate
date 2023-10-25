@@ -15,7 +15,7 @@ export const Modal: FC<IProps> = ({ title, text, links }) => {
 
   return (
     <>
-      <div className={styles.modalWrapper}>
+      <div className={clsx(styles.modalWrapper, modalActive && styles.active)}>
         {window.innerWidth <= 768 && (
           <svg
             className={clsx(styles.modalDraw, modalActive && styles.active)}
