@@ -1,11 +1,14 @@
 import clsx from 'clsx'
 import styles from './OurVision.module.scss'
 import { Button } from '../../../../shared/Button/Button'
-import { useEffect, useLayoutEffect } from 'react'
+import { useContext, useEffect, useLayoutEffect } from 'react'
 import gsap from 'gsap'
 import { Magnetic } from '../../../../shared/Magnetic/Magnetic'
+import { MainContext } from '../../../../app/providers/MainContext'
 
 export const OurVision = () => {
+  const { modalActive, setModalActive } = useContext(MainContext)
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const h3Split: any = new SplitText(`#our-vision-title-1`, {
@@ -246,7 +249,17 @@ export const OurVision = () => {
                       </svg>
                     </div>
 
-                    <Button dataDelay="0.5">Join the Future Now</Button>
+                    <Button
+                      onClick={() =>
+                        modalActive
+                          ? setModalActive(false)
+                          : setModalActive(true)
+                      }
+                      isLink={false}
+                      dataDelay="0.5"
+                    >
+                      Join the Future Now
+                    </Button>
                   </div>
                 </div>
               </div>

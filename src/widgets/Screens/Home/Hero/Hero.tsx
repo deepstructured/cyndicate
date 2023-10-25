@@ -6,7 +6,7 @@ import { Button } from '../../../../shared/Button/Button'
 import { MainContext } from '../../../../app/providers/MainContext'
 
 export const Hero = () => {
-  const { pageLoaded } = useContext(MainContext)
+  const { pageLoaded, modalActive, setModalActive } = useContext(MainContext)
   const heroBg = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -131,7 +131,16 @@ export const Hero = () => {
               <p className={styles.text}>
                 You become who you surround yourself with, so choose wisely
               </p>
-              {window.innerWidth <= 768 && <Button>Join us</Button>}
+              {window.innerWidth <= 768 && (
+                <Button
+                  isLink={false}
+                  handleClick={() =>
+                    modalActive ? setModalActive(false) : setModalActive(true)
+                  }
+                >
+                  Join us
+                </Button>
+              )}
             </div>
             {window.innerWidth > 768 && <h1>To Be</h1>}
           </div>

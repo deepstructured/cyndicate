@@ -6,7 +6,7 @@ import { useContext, useEffect } from 'react'
 import { MainContext } from '../../app/providers/MainContext'
 
 export const Menu = () => {
-  const { menuActive, setMenuActive } = useContext(MainContext)
+  const { menuActive, setMenuActive, setModalActive } = useContext(MainContext)
 
   useEffect(() => {
     if (menuActive) {
@@ -72,7 +72,13 @@ export const Menu = () => {
             </li>
           ))}
         </ul>
-        <Button animated={false}>Join Us</Button>
+        <Button
+          isLink={false}
+          handleClick={() => setModalActive(true)}
+          animated={false}
+        >
+          Join Us
+        </Button>
       </div>
       <div className={styles.menuSocials}>
         <a

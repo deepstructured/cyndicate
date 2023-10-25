@@ -4,17 +4,20 @@ import { Button } from '../../../../shared/Button/Button'
 import gsap from 'gsap'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode } from 'swiper'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { ISwiper } from '../../../../interfaces/ISwiper'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import { tokenCards } from '../../../../data'
+import { MainContext } from '../../../../app/providers/MainContext'
 
 export const Token = () => {
   const [swiper, setSwiper] = useState<ISwiper>()
   const [activeSlide, setActiveSlide] = useState<number>(0)
+
+  const { modalActive, setModalActive } = useContext(MainContext)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -122,7 +125,15 @@ export const Token = () => {
                 </p>
               </div>
               {window.innerWidth > 768 && (
-                <Button dataDelay={'0.9'}>Join the Future Now</Button>
+                <Button
+                  onClick={() =>
+                    modalActive ? setModalActive(false) : setModalActive(true)
+                  }
+                  isLink={false}
+                  dataDelay={'0.9'}
+                >
+                  Join the Future Now
+                </Button>
               )}
             </div>
           </div>
@@ -385,7 +396,16 @@ export const Token = () => {
               ))}
             </div>
           )}
-          {window.innerWidth <= 768 && <Button>Join the Future Now</Button>}
+          {window.innerWidth <= 768 && (
+            <Button
+              onClick={() =>
+                modalActive ? setModalActive(false) : setModalActive(true)
+              }
+              isLink={false}
+            >
+              Join the Future Now
+            </Button>
+          )}
         </div>
       </div>
     </section>

@@ -1,0 +1,129 @@
+.modal {
+  @apply w-fit rounded-[2.646vw] backdrop-blur-[3.307vw] p-[1.984vw] flex flex-col gap-[3.46vh] opacity-0 scale-[0.8] pointer-events-none;
+
+  transition: 0.45s ease;
+  transition-property: opacity, transform;
+
+  background: linear-gradient(
+    133deg,
+    rgba(255, 255, 255, 0.05) 4.65%,
+    rgba(255, 255, 255, 0.04) 82.36%
+  );
+
+  @media (max-width: $tablet) {
+    @apply p-[6.610vw] backdrop-blur-[8.426vw] rounded-[6.667vw] delay-[250ms];
+  }
+
+  &.active {
+    @apply opacity-100 scale-100 pointer-events-auto;
+
+    @media (max-width: $tablet) {
+      @apply delay-0;
+    }
+  }
+
+  &Title {
+    @apply text-[1.587vw];
+    line-height: 100%;
+
+    @media (max-width: $tablet) {
+      @apply text-[4.615vw];
+    }
+  }
+
+  &Close {
+    @apply w-[2.910vw] h-[2.910vw] absolute top-[1.058vw] right-[1.058vw] cursor-pointer;
+
+    @media (max-width: $tablet) {
+      @apply w-[9.231vw] h-[9.231vw] top-[2.564vw] right-[2.564vw];
+    }
+  }
+
+  &TextContent {
+    @apply w-full flex flex-col gap-[2.35vh];
+
+    @media (max-width: $tablet) {
+      @apply gap-[2vh];
+    }
+
+    > * {
+      @apply first-letter:uppercase;
+    }
+  }
+
+  &Link {
+    @apply flex items-center gap-[0.926vw] p-[1.323vw] rounded-[1.323vw] backdrop-blur-[1.825vw] text-[1.190vw] text-white cursor-pointer;
+
+    line-height: 150%;
+    background: linear-gradient(
+      133deg,
+      rgba(255, 255, 255, 0.05) 4.65%,
+      rgba(255, 255, 255, 0.04) 82.36%
+    );
+
+    @media (max-width: $tablet) {
+      @apply w-[21.026vw] h-[21.026vw] justify-center p-[0] rounded-[5.897vw] backdrop-blur-[8.426vw];
+    }
+
+    &Icon {
+      @apply w-[1.720vw] h-[1.720vw] object-contain object-center;
+
+      @media (max-width: $tablet) {
+        @apply w-[7.692vw] h-[7.692vw];
+      }
+    }
+  }
+
+  &Links {
+    @apply w-full flex items-center gap-[0.397vw];
+
+    @media (max-width: $tablet) {
+      @apply gap-[1.974vw];
+    }
+  }
+
+  &Text {
+    @apply text-[1.058vw];
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 50;
+
+    @media (max-width: $tablet) {
+      @apply text-[3.949vw];
+    }
+  }
+}
+
+.modalWrapper {
+  @apply fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] z-[6] w-fit h-fit;
+}
+
+.modalDraw {
+  @apply w-[52.821vw] h-[28.205vw] absolute top-0 left-0 translate-x-[-12%] translate-y-[-25%] z-[-5] pointer-events-none;
+
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+
+  transition: stroke-dashoffset 0.5s ease;
+
+  &.active {
+    stroke-dashoffset: 0 !important;
+    transition-duration: 2s !important;
+  }
+}
+
+.overlay {
+  @apply z-[5] fixed top-0 left-0 w-full h-full transition-opacity duration-[450ms] opacity-0 pointer-events-none;
+  background: rgba(14, 14, 14, 0.77);
+
+  @media (max-width: $tablet) {
+    @apply delay-[250ms];
+  }
+
+  &.active {
+    @apply opacity-100 pointer-events-auto;
+
+    @media (max-width: $tablet) {
+      @apply delay-0;
+    }
+  }
+}

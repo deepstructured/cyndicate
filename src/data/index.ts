@@ -16,7 +16,6 @@ export const headerLinks = [
     title: 'Token',
   },
   {
-    href: '/join',
     title: 'Join Us',
     colorType: 'filled',
   },
