@@ -159,14 +159,18 @@
     }
 
     &Logo {
-      @apply w-[8.466vw] h-[11vw];
+      @apply w-[12.566vw] h-[12.566vw] relative;
 
       @media (max-width: $tablet) {
         @apply hidden;
       }
 
+      .logo {
+        @apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] w-[3.439vw] h-[4.233vw];
+      }
+
       svg {
-        @apply w-[107%] h-full;
+        @apply w-full h-full;
       }
     }
   }

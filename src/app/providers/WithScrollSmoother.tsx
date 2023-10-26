@@ -89,7 +89,12 @@ export const WithScrollSmoother: FC<IProps> = ({ children }) => {
           ScrollTrigger.create({
             trigger: line,
             start: `top top+=75%`,
-            onEnter: () => line.classList.add('animated'),
+            onEnter: () =>
+              gsap.to(line, {
+                color: '#dbc99f',
+                duration: 1.25,
+                delay: 0.5,
+              }),
           })
         })
       }

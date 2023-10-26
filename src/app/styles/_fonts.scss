@@ -18,7 +18,7 @@
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@include fontCreate($neon, 700, '/fonts/Neon');
 
 @include fontCreate($area, 400, '/fonts/AreaInktrapTrial-Regular', false);
 @include fontCreate($area, 50, '/fonts/AreaInktrapTrial-Hairline', false);
