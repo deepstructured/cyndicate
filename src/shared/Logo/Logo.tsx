@@ -11,7 +11,7 @@ export const Logo: FC<IProps> = ({ logoType = 'first' }) => {
 
   return (
     <div ref={ref} className={styles.logo}>
-      {logoType === 'first' && <img src="/images/logo.svg" alt="" />}
+      {logoType === 'first' && <img src="/images/logo.png" alt="" />}
       {logoType === 'second' && <img src="/images/logo-2.svg" alt="" />}
     </div>
   )
