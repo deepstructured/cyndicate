@@ -117,6 +117,7 @@ const Header = () => {
           ?.links.map((link, idx) =>
             link.href ? (
               <Button
+                key={idx}
                 handleClick={() => {
                   if (link.href[0] === '#') {
                     window.scrollTo({
@@ -138,6 +139,7 @@ const Header = () => {
               </Button>
             ) : (
               <Button
+                key={idx}
                 handleClick={() =>
                   !modalActive ? setModalActive(true) : setModalActive(false)
                 }

@@ -326,7 +326,7 @@ export const Token = () => {
               ></SwiperSlide>
 
               {tokenCards.map((card, idx) => (
-                <SwiperSlide className={styles.tokenCard}>
+                <SwiperSlide key={idx} className={styles.tokenCard}>
                   <span className={styles.tokenCardTitle}>
                     <span className={styles.tokenCardNum}>0{idx + 1}</span>
                     {card.title}
@@ -345,7 +345,7 @@ export const Token = () => {
               className={clsx(styles.tokenCardsWrapper, 'gold-drag-swiper')}
             >
               {tokenCards.map((card, idx) => (
-                <SwiperSlide className={styles.tokenCard}>
+                <SwiperSlide key={idx} className={styles.tokenCard}>
                   <span className={styles.tokenCardTitle}>
                     <span className={styles.tokenCardNum}>0{idx + 1}</span>
                     {card.title}
@@ -359,6 +359,7 @@ export const Token = () => {
             <div className={styles.tokenBullets}>
               {tokenCards.map((token, idx) => (
                 <div
+                  key={idx}
                   className={clsx(
                     styles.bullet,
                     activeSlide === idx && styles.active

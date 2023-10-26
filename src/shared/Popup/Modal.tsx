@@ -111,8 +111,8 @@ export const Modal: FC<IProps> = ({ title, text, links }) => {
           </div>
           {links && (
             <div className={styles.modalLinks}>
-              {links.map((link) => (
-                <Magnetic>
+              {links.map((link, idx) => (
+                <Magnetic key={idx}>
                   <a
                     target="_blank"
                     className={styles.modalLink}

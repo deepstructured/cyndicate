@@ -27,6 +27,7 @@ export const Menu = () => {
             ?.links.map((link, idx) =>
               link.href ? (
                 <li
+                  key={idx}
                   style={{
                     transitionDelay: `${0.125 * idx}s`,
                   }}
@@ -76,6 +77,7 @@ export const Menu = () => {
                 </li>
               ) : (
                 <Button
+                  key={idx}
                   isLink={false}
                   handleClick={() => setModalActive(true)}
                   animated={false}
