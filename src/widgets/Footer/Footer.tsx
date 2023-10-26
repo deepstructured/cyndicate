@@ -1,8 +1,12 @@
 import clsx from 'clsx'
 import styles from './Footer.module.scss'
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { MainContext } from '../../app/providers/MainContext'
 
 const Footer = () => {
+  const { currentPage } = useContext(MainContext)
+
   return (
     <footer className={clsx(styles.footer, 'section')}>
       <div className={styles.footerWrapper}>
@@ -60,13 +64,17 @@ const Footer = () => {
                       onClick={(ev) => {
                         ev.preventDefault()
 
-                        window.scrollTo({
-                          left: 0,
-                          top: document.querySelector<HTMLDivElement>(
-                            '#about-us'
-                          )?.offsetTop,
-                          behavior: 'smooth',
-                        })
+                        if (currentPage === 'home') {
+                          window.scrollTo({
+                            left: 0,
+                            top: document.querySelector<HTMLDivElement>(
+                              '#about-us'
+                            )?.offsetTop,
+                            behavior: 'smooth',
+                          })
+                        } else {
+                          location.href = `/#about-us`
+                        }
                       }}
                       href="#about-us"
                     >
@@ -78,13 +86,17 @@ const Footer = () => {
                       onClick={(ev) => {
                         ev.preventDefault()
 
-                        window.scrollTo({
-                          left: 0,
-                          top: document.querySelector<HTMLDivElement>(
-                            '#exclusives'
-                          )?.offsetTop,
-                          behavior: 'smooth',
-                        })
+                        if (currentPage === 'home') {
+                          window.scrollTo({
+                            left: 0,
+                            top: document.querySelector<HTMLDivElement>(
+                              '#exclusives'
+                            )?.offsetTop,
+                            behavior: 'smooth',
+                          })
+                        } else {
+                          location.href = `/#exclusives`
+                        }
                       }}
                       href="#exclusives"
                     >
@@ -96,13 +108,17 @@ const Footer = () => {
                       onClick={(ev) => {
                         ev.preventDefault()
 
-                        window.scrollTo({
-                          left: 0,
-                          top: document.querySelector<HTMLDivElement>(
-                            '#evolution'
-                          )?.offsetTop,
-                          behavior: 'smooth',
-                        })
+                        if (currentPage === 'home') {
+                          window.scrollTo({
+                            left: 0,
+                            top: document.querySelector<HTMLDivElement>(
+                              '#evolution'
+                            )?.offsetTop,
+                            behavior: 'smooth',
+                          })
+                        } else {
+                          location.href = `/#evolution`
+                        }
                       }}
                       href="#evolution"
                     >
@@ -114,12 +130,17 @@ const Footer = () => {
                       onClick={(ev) => {
                         ev.preventDefault()
 
-                        window.scrollTo({
-                          left: 0,
-                          top: document.querySelector<HTMLDivElement>('#token')
-                            ?.offsetTop,
-                          behavior: 'smooth',
-                        })
+                        if (currentPage === 'home') {
+                          window.scrollTo({
+                            left: 0,
+                            top: document.querySelector<HTMLDivElement>(
+                              '#token'
+                            )?.offsetTop,
+                            behavior: 'smooth',
+                          })
+                        } else {
+                          location.href = `/#token`
+                        }
                       }}
                       href="#token"
                     >

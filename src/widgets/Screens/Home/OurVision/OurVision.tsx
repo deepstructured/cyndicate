@@ -256,7 +256,7 @@ export const OurVision = () => {
                     </div>
 
                     <Button
-                      onClick={() =>
+                      handleClick={() =>
                         modalActive
                           ? setModalActive(false)
                           : setModalActive(true)

@@ -21,20 +21,37 @@ const Header = () => {
 
   return (
     <header className={clsx(styles.header, 'reveal')}>
-      <div
-        data-delay="0.25"
-        data-duration="0.75"
-        className={clsx(styles.headerLogo, 'reveal opacity-0 translate-x-full')}
-        onClick={() =>
-          window.scrollTo({
-            left: 0,
-            top: 0,
-            behavior: 'smooth',
-          })
-        }
-      >
-        <Logo />
-      </div>
+      {currentPage === 'home' ? (
+        <div
+          data-delay="0.25"
+          data-duration="0.75"
+          className={clsx(
+            styles.headerLogo,
+            'reveal opacity-0 translate-x-full'
+          )}
+          onClick={() =>
+            window.scrollTo({
+              left: 0,
+              top: 0,
+              behavior: 'smooth',
+            })
+          }
+        >
+          <Logo />
+        </div>
+      ) : (
+        <a
+          data-delay="0.25"
+          data-duration="0.75"
+          className={clsx(
+            styles.headerLogo,
+            'reveal opacity-0 translate-x-full'
+          )}
+          href="/"
+        >
+          <Logo />
+        </a>
+      )}
       <div
         onClick={() => {
           !menuActive ? setMenuActive(true) : setMenuActive(false)

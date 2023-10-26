@@ -2,6 +2,10 @@
   .container {
     @apply pt-[16vh] px-0 mx-auto pb-[18.5vh];
     max-width: 50% !important;
+
+    @media (max-width: $tablet) {
+      max-width: 95% !important;
+    }
   }
 
   &__top-wrapper {

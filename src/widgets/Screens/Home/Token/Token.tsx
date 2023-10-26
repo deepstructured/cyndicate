@@ -126,7 +126,7 @@ export const Token = () => {
               </div>
               {window.innerWidth > 768 && (
                 <Button
-                  onClick={() =>
+                  handleClick={() =>
                     modalActive ? setModalActive(false) : setModalActive(true)
                   }
                   isLink={false}
@@ -398,7 +398,7 @@ export const Token = () => {
           )}
           {window.innerWidth <= 768 && (
             <Button
-              onClick={() =>
+              handleClick={() =>
                 modalActive ? setModalActive(false) : setModalActive(true)
               }
               isLink={false}
