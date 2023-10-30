@@ -1,14 +1,28 @@
 .hero {
-  @apply h-screen relative;
+  @apply h-screen relative overflow-hidden;
 
   div[class='container'] {
     @apply flex flex-col;
   }
 
   &Background {
-    @apply absolute top-0 left-0 z-[-1] w-full h-full pointer-events-none select-none bg-no-repeat bg-cover bg-center transition-transform duration-[500ms] scale-[1.25];
+    @apply absolute top-0 left-0 z-[-1] w-full h-full pointer-events-none select-none;
 
-    background-image: url('/images/backgrounds/hero-bg.png');
+    div {
+      @apply w-full h-full bg-no-repeat bg-cover bg-center scale-[1.5];
+
+      background-image: url('/images/backgrounds/hero-bg.png');
+
+      transition-property: transform;
+      transform-origin: center;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 1s;
+      transition-delay: 0.15s;
+
+      &.loaded {
+        @apply scale-100;
+      }
+    }
   }
 
   &Wrapper {
@@ -28,6 +42,8 @@
 
     h1 {
       span {
+        display: inline-block !important;
+
         > div {
           @apply translate-y-[50%] rotate-[1deg] opacity-0;
         }
@@ -95,7 +111,9 @@
     color: $light-grey;
 
     > div {
-      @apply opacity-0 translate-y-[100%] flex items-center gap-[1.828vw];
+      > div {
+        @apply opacity-0 translate-y-[100%] flex items-center gap-[1.828vw];
+      }
     }
 
     @media (max-width: $tablet) {

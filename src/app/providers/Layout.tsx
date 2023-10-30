@@ -58,7 +58,7 @@ export const Layout: FC<IProps> = ({ children, withPreloader }) => {
       <Menu />
       <Modal
         title="Join Our Community"
-        text="Join the future now!"
+        text="Receive Token & Product Launch Updates & News!"
         links={[
           {
             title: 'instagram',

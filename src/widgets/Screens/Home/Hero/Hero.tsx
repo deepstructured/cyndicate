@@ -8,21 +8,70 @@ import { MainContext } from '../../../../app/providers/MainContext'
 export const Hero = () => {
   const { pageLoaded, modalActive, setModalActive } = useContext(MainContext)
   const heroBg = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
+
+  const wordOne = useRef<HTMLDivElement>(null)
+  const wordTwo = useRef<HTMLDivElement>(null)
+  const wordThree = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       if (pageLoaded) {
         ScrollTrigger.create({
+          trigger: ref.current,
+          start: `top top`,
+          end: `bottom bottom-=150%`,
+          pin: true,
+          scrub: 1,
+          animation: gsap
+            .timeline()
+            .to(`.${styles.hero} .word-1`, {
+              scale: 10,
+              opacity: 0,
+              xPercent: 100,
+              yPercent: -100,
+            })
+            .to(
+              `.${styles.hero} .word-2`,
+              {
+                scale: 10,
+                opacity: 0,
+                xPercent: 125,
+                yPercent: -100,
+              },
+              0
+            )
+            .to(
+              `.${styles.hero} .word-3`,
+              {
+                scale: 10,
+                opacity: 0,
+                xPercent: -50,
+                yPercent: -100,
+              },
+              0
+            ),
+          // .to(
+          //   `.hero-hide`,
+          //   {
+          //     opacity: 0,
+          //   },
+          //   0
+          // )
+          // .to(
+          //   `.${styles.heroBackground}`,
+          //   {
+          //     scale: 1.5,
+          //   },
+          //   0
+          // ),
+        })
+
+        ScrollTrigger.create({
           trigger: heroBg.current,
           start: 'top top+=100%',
           end: 'bottom bottom',
-          onEnter: () =>
-            gsap.to(heroBg.current, {
-              scale: 1,
-              duration: 0.1,
-              delay: 0,
-              ease: 'ease',
-            }),
+          onEnter: () => heroBg.current?.classList.add(`${styles.loaded}`),
         })
       }
     })
@@ -73,12 +122,16 @@ export const Hero = () => {
   }, [])
 
   return (
-    <section className={clsx('section', styles.hero)}>
-      <div ref={heroBg} className={styles.heroBackground}></div>
+    <section ref={ref} className={clsx('section', styles.hero)}>
+      <div className={styles.heroBackground}>
+        <div ref={heroBg}></div>
+      </div>
       <div className="container">
-        <div className={styles.scrollLabel}>
-          <div data-duration="1.5" className="reveal" data-ease="bounce.out">
-            scroll <div className="white-square"></div>
+        <div className={clsx(styles.scrollLabel)}>
+          <div className="hero-hide">
+            <div data-duration="1.5" className="reveal" data-ease="bounce.out">
+              scroll <div className="white-square"></div>
+            </div>
           </div>
         </div>
         <div className={styles.heroWrapper}>
@@ -88,22 +141,28 @@ export const Hero = () => {
               data-duration="1"
               className="section-span reveal opacity-0 rotate-[1deg] translate-y-[50%]"
             >
-              cyndicate
+              <span className="hero-hide">cyndicate</span>
             </span>
             {window.innerWidth > 768 ? (
               <h1 className="hero-h1">
-                <span className="underlined">Become</span> Who You Are Meant{' '}
+                <span ref={wordOne} className="underlined word-1">
+                  Become
+                </span>{' '}
+                <span className="word-2" ref={wordTwo}>
+                  Who You
+                </span>{' '}
+                <span className="hero-hide">Are Meant</span>{' '}
               </h1>
             ) : (
               <h1 className="hero-h1">
                 <span className="underlined">Become</span> Who You Are Meant to
-                be{' '}
+                become{' '}
               </h1>
             )}
           </div>
           <div className={styles.heroBlock}>
             <div className={styles.group}>
-              <div className={styles.arrow}>
+              <div className={clsx(styles.arrow, 'hero-hide')}>
                 <svg
                   width="29"
                   height="14"
@@ -133,7 +192,7 @@ export const Hero = () => {
                   />
                 </svg>
               </div>
-              <p className={styles.text}>
+              <p className={clsx(styles.text, 'hero-hide')}>
                 You become who you surround yourself with, so choose wisely
               </p>
               {window.innerWidth <= 768 && (
@@ -147,7 +206,13 @@ export const Hero = () => {
                 </Button>
               )}
             </div>
-            {window.innerWidth > 768 && <h1>To Be</h1>}
+            {window.innerWidth > 768 && (
+              <h1>
+                <span className="word-3" ref={wordThree}>
+                  To Become
+                </span>
+              </h1>
+            )}
           </div>
         </div>
       </div>
