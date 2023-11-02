@@ -5,6 +5,18 @@
     @apply flex flex-col;
   }
 
+  *[class*='word-1'] {
+    @apply scale-[10] opacity-0 translate-x-[100%] translate-y-[-100%];
+  }
+
+  *[class*='word-2'] {
+    @apply scale-[10] opacity-0 translate-x-[125%] translate-y-[-100%];
+  }
+
+  *[class*='word-3'] {
+    @apply scale-[10] opacity-0 translate-x-[-50%] translate-y-[-100%];
+  }
+
   &Background {
     @apply absolute top-0 left-0 z-[-1] w-full h-full pointer-events-none select-none;
 

@@ -19,38 +19,45 @@ export const Hero = () => {
       if (pageLoaded) {
         ScrollTrigger.create({
           trigger: ref.current,
-          start: `top top`,
-          end: `bottom bottom-=150%`,
-          pin: true,
-          scrub: 1,
-          animation: gsap
-            .timeline()
-            .to(`.${styles.hero} .word-1`, {
-              scale: 10,
-              opacity: 0,
-              xPercent: 100,
-              yPercent: -100,
-            })
-            .to(
-              `.${styles.hero} .word-2`,
-              {
-                scale: 10,
-                opacity: 0,
-                xPercent: 125,
-                yPercent: -100,
-              },
-              0
-            )
-            .to(
-              `.${styles.hero} .word-3`,
-              {
-                scale: 10,
-                opacity: 0,
-                xPercent: -50,
-                yPercent: -100,
-              },
-              0
-            ),
+          start: `top top+=100%`,
+          end: `bottom bottom`,
+
+          onEnter: () =>
+            gsap
+              .timeline({
+                defaults: {
+                  duration: 2,
+                  ease: 'ease',
+                },
+              })
+              .to(`.${styles.hero} .word-1`, {
+                scale: 1,
+                opacity: 1,
+                x: 0,
+                y: 0,
+                delay: 0.25,
+              })
+              .to(
+                `.${styles.hero} .word-2`,
+                {
+                  scale: 1,
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                },
+                0
+              )
+              .to(
+                `.${styles.hero} .word-3`,
+                {
+                  scale: 1,
+                  opacity: 1,
+                  xPercent: 0,
+                  y: 0,
+                  delay: 0.375,
+                },
+                0
+              ),
           // .to(
           //   `.hero-hide`,
           //   {
@@ -145,13 +152,13 @@ export const Hero = () => {
             </span>
             {window.innerWidth > 768 ? (
               <h1 className="hero-h1">
-                <span ref={wordOne} className="underlined word-1">
+                <span ref={wordOne} className="underlined ">
                   Become
                 </span>{' '}
                 <span className="word-2" ref={wordTwo}>
                   Who You
                 </span>{' '}
-                <span className="hero-hide">Are Meant</span>{' '}
+                <span className="word-1">Are Meant</span>{' '}
               </h1>
             ) : (
               <h1 className="hero-h1">
