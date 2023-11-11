@@ -123,7 +123,7 @@ export const Modal: FC<IProps> = ({ title, text, links }) => {
                       className={styles.modalLinkIcon}
                       alt=""
                     />
-                    {window.innerWidth > 768 && link.title}
+                    {window.innerWidth > 768 && <span>{link.title}</span>}
                   </a>
                 </Magnetic>
               ))}

@@ -61,7 +61,7 @@ export const Layout: FC<IProps> = ({ children, withPreloader }) => {
         text="Receive Token & Product Launch Updates & News!"
         links={[
           {
-            title: 'instagram',
+            title: 'Instagram',
             link: 'https://www.instagram.com/cyndicate.io/',
             icon: '/images/Socials/1.svg',
           },

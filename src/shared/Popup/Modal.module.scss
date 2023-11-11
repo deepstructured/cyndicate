@@ -61,6 +61,10 @@
       rgba(255, 255, 255, 0.04) 82.36%
     );
 
+    span {
+      @apply translate-y-[5%];
+    }
+
     @media (max-width: $tablet) {
       @apply w-[21.026vw] h-[21.026vw] justify-center p-[0] rounded-[5.897vw] backdrop-blur-[8.426vw];
     }
